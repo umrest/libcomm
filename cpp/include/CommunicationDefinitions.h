@@ -2,7 +2,8 @@
 
 #include <map>
 
-namespace comm{
+namespace comm
+{
 
 class CommunicationDefinitions
 {
