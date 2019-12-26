@@ -1,9 +1,13 @@
+<data>
+<types>
+  <type name="Joystick" id="1"></type>
+  <type name="Vision" id="2"></type>
+
+</types>
+
 <messages>
-  <message>
-    <name>Joystick</name>
-    <field>
-      <name>buttons_1</name>
-      <type>BitArray8</type>
+  <message name="Joystick">
+    <field name="buttons_1" type="BitArray8">
       <bits>
         <bit>button_A</bit>
         <bit>button_B</bit>
@@ -15,57 +19,70 @@
         <bit>button_Start</bit>
       </bits>
     </field>
-    <field>
-     <name>buttons_2</name>
-      <type>BitArray8</type>
+    <field name="buttons_2" type="BitArray8">
       <bits>
         <bit>button_LJ</bit>
         <bit>button_RJ</bit>
       </bits>
     </field>
-    <field>
-      <name>lj_x</name>
-      <type>byte</name>
-      <scaling>
-        <divide>127</divide>
-      </scaling>
+
+    <field name="lj_x" type="byte"></field>   
+  </message>
+
+  <message name="Vision">
+    <field name='tag0' type='TagPosition'></field>
+    <field name='tag1' type='TagPosition'></field>
+  </message>
+
+  <message name="VisionCommand">
+    <field name='command' type='byte'></field>
+  </message>
+
+  <message name="Realsense">
+    <field name='obstacle_1' type='Obstacle'></field>
+    <field name='obstacle_2' type='Obstacle'></field>
+    <field name='obstacle_3' type='Obstacle'></field>
+    <field name='obstacle_4' type='Obstacle'></field>
+  </message>
+
+  <message name="Identifier">
+    <field name='identifier' type='byte'></field>
+  </message>
+
+  <message name="RobotState">
+    <field name='motor_info_1' type='MotorInfo'></field>
+    <field name='motor_info_2' type='MotorInfo'></field>
+    <field name='motor_info_3' type='MotorInfo'></field>
+    <field name='motor_info_4' type='MotorInfo'></field>
+    <field name='motor_info_5' type='MotorInfo'></field>
+    <field name='motor_info_6' type='MotorInfo'></field>
+    <field name='motor_info_7' type='MotorInfo'></field>
+    <field name='motor_info_8' type='MotorInfo'></field>
+  </message>
+
+  <message name="DataServer">
+    <field name='connected_status' type='BitArray8'>
+      <bits>
+        <bit name="vision_connected"></bit>
+        <bit name="tcpserial_connected"></bit>
+        <bit name="hero_connected"></bit>
+        <bit name="dashboard_connected"></bit>
+      </bits>
     </field>
-    <field>
-      <name>lj_y</name>
-      <type>byte</name>
-      <scaling>
-        <divide>127</divide>
-      </scaling>
-    </field>
-    <field>
-      <name>rj_x</name>
-      <type>byte</name>
-      <scaling>
-        <divide>127</divide>
-      </scaling>
-    </field>
-    <field>
-      <name>rj_y</name>
-      <type>byte</name>
-      <scaling>
-        <divide>127</divide>
-      </scaling>
-    </field>
-    <field>
-      <name>lt</name>
-      <type>byte</name>
-      <scaling>
-        <divide>127</divide>
-      </scaling>
-    </field>
-    <field>
-      <name>rt</name>
-      <type>byte</name>
-      <scaling>
-        <divide>127</divide>
-      </scaling>
-    </field>
-    
-    
-  </type>
+  </message>
+
+   <message name="Dashboard">
+    <field name='enabled_1' type='byte'></field>
+    <field name='enabled_2' type='byte'></field>
+    <field name='enabled_3' type='byte'></field>
+    <field name='enabled_4' type='byte'></field>
+    <field name='enabled_5' type='byte'></field>
+    <field name='enabled_6' type='byte'></field>
+    <field name='enabled_7' type='byte'></field>
+    <field name='enabled_8' type='byte'></field>
+    <field name='state' type='byte'></field>
+  </message>
 </messages>
+
+
+</data>

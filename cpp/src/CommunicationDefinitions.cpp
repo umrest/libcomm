@@ -2,7 +2,7 @@
 
 using namespace comm;
 
-const std::map<::CommunicationDefinitions::TYPE, int> CommunicationDefinitions::PACKET_SIZES = {
+const std::map<CommunicationDefinitions::TYPE, int> CommunicationDefinitions::PACKET_SIZES = {
             {TYPE::JOYSTICK,  127},
             {TYPE::VISION,   127},
             {TYPE::REALSENSE,  127},
