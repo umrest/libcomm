@@ -82,6 +82,10 @@
     <field name='enabled_8' type='byte'></field>
     <field name='state' type='byte'></field>
   </message>
+
+  <message name="MotorInfo">
+
+  </message>
 </messages>
 
 

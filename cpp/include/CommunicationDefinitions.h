@@ -31,14 +31,17 @@ class CommunicationDefinitions
             DASHBOARD = 1,
             VISION = 2,
             TCPSERIAL = 3,
-            HERO = 4
+            HERO = 4,
+            DATASAVER = 5
         };
 
-         static const std::map<TYPE, int> PACKET_SIZES;
+        static const std::map<TYPE, int> PACKET_SIZES;
 
         CommunicationDefinitions(){
             
         }
+
+        static char  key[3];
 
         
     
