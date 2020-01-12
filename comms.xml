@@ -122,6 +122,10 @@
     <field name='enabled_8' type='uint8'></field>
     <field name='state' type='uint8'></field>
   </message>
+
+  <message name="MotorInfo">
+
+  </message>
 </messages>
 
 
