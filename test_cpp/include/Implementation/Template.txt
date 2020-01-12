@@ -1,0 +1,20 @@
+﻿#pragma once
+
+#include <stdint.h>
+
+#include "Types.hpp"
+
+namespace comm
+{
+    class [[MessageType]] : [[InterfaceType]]
+    {
+        public:
+            [[MessageType]]() {
+
+            }
+            [[Serializers]]
+
+            // Accessors
+            [[Accessors]]
+    };
+} // namespace comm

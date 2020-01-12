@@ -1,34 +1,46 @@
 <data>
-<types>
-  <type name="Joystick" id="1"></type>
-  <type name="Vision" id="2"></type>
+<maps>
+  <map name="PACKET_SIZES">
+    <pair key='BitArray8' value="1"></pair>
+    <pair key='int8' value="1"></pair>
+    <pair key='uint8' value="1"></pair>
+    <pair key='int16' value="2"></pair>
+    <pair key='TagPosition' value="12"></pair>
+    <pair key='FieldPosition' value="12"></pair>
+    <pair key='Obstacle' value="16"></pair>
+    <pair key='MotorInfo' value="16"></pair>
+    <pair key='BitArray8' value="1"></pair>
 
-</types>
+    <pair key='Joystick' value="127"></pair>
+    <pair key='Vision' value="127"></pair>
+    <pair key='Realsense' value="127"></pair>
+    <pair key='DataServer' value="127"></pair>
+    <pair key='Dashboard' value="127"></pair>
+    <pair key='RobotState' value="230"></pair>
+    <pair key='VisionCommand' value="127"></pair>
+    <pair key='VisionImage' value="8191"></pair>
+    <pair key='Identifier' value="127"></pair>
+    <pair key='VisionProperties' value="127"></pair>
+  </map>
+</maps>
+<enums>
+  <enum name="VISIONCOMMAND">
+    <element name="command" value="0"></element>
+  </enum>
+  <enum name="TYPES">
+    <element name="Joystick" id="1"></element>
+    <element name="Vision" id="2"></element>
+    <element name="Realsense" id="3"></element>
+    <element name="RobotState" id="10"></element>
+    <element name="DataServerState" id="8"></element>
+    <element name="DashboardData" id="9"></element>
+    <element name="Identifier" id="250"></element>
+    <element name="VisionCommand" id="12"></element>
+    <element name="VisionImage" id="13"></element>
+  </enum>
+</enums>
 
 <messages>
-  <message name="TagPosition">
-    <field name="yaw" type="int16">
-      <accessor type="float" scale=".01"></accessor>
-    </field>
-    <field name="pitch" type="int16">
-      <accessor type="float" scale=".01"></accessor>
-    </field>
-    <field name="roll" type="int16">
-      <accessor type="float" scale=".01"></accessor>
-    </field>
-    <field name="x" type="int16">
-      <accessor type="float" scale=".01"></accessor>
-    </field>
-    <field name="y" type="int16">
-      <accessor type="float" scale=".01"></accessor>
-    </field>
-    <field name="z" type="int16">
-      <accessor type="float" scale=".01"></accessor>
-    </field>
-  </message>
-  <message name="Obstacle">
-    
-  </message>
   <message name="Joystick">
     <field name="buttons_1" type="BitArray8">
       <bits>
@@ -69,9 +81,59 @@
     </field>
   </message>
 
+  <message name="TagPosition">
+    <field name="yaw" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="pitch" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="roll" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="x" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="y" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="z" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+  </message>
+
+  <message name="FieldPosition">
+    <field name="yaw" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="x" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="y" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+  </message>
+
+  <message name="Obstacle">
+    <field name="x" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="y" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="width" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+    <field name="height" type="int16">
+      <accessor type="float" scale="1/100"></accessor>
+    </field>
+  </message>
+  
+
   <message name="Vision">
     <field name='tag0' type='TagPosition'></field>
     <field name='tag1' type='TagPosition'></field>
+    <field name='field_position' type='FieldPosition'></field>
   </message>
 
   <message name="VisionCommand">
