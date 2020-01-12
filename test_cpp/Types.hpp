@@ -1,0 +1,11 @@
+#pragma once
+#include "Interfaces/TagPosition.h"
+#include "Interfaces/Obstacle.h"
+#include "Interfaces/Joystick.h"
+#include "Interfaces/Vision.h"
+#include "Interfaces/VisionCommand.h"
+#include "Interfaces/Realsense.h"
+#include "Interfaces/Identifier.h"
+#include "Interfaces/RobotState.h"
+#include "Interfaces/DataServer.h"
+#include "Interfaces/Dashboard.h"

@@ -6,6 +6,29 @@
 </types>
 
 <messages>
+  <message name="TagPosition">
+    <field name="yaw" type="int16">
+      <accessor type="float" scale=".01"></accessor>
+    </field>
+    <field name="pitch" type="int16">
+      <accessor type="float" scale=".01"></accessor>
+    </field>
+    <field name="roll" type="int16">
+      <accessor type="float" scale=".01"></accessor>
+    </field>
+    <field name="x" type="int16">
+      <accessor type="float" scale=".01"></accessor>
+    </field>
+    <field name="y" type="int16">
+      <accessor type="float" scale=".01"></accessor>
+    </field>
+    <field name="z" type="int16">
+      <accessor type="float" scale=".01"></accessor>
+    </field>
+  </message>
+  <message name="Obstacle">
+    
+  </message>
   <message name="Joystick">
     <field name="buttons_1" type="BitArray8">
       <bits>
@@ -26,7 +49,24 @@
       </bits>
     </field>
 
-    <field name="lj_x" type="byte"></field>   
+    <field name="lj_x" type="int8">
+      <accessor type="float" scale="1/127.0"></accessor>
+    </field>
+    <field name="lj_y" type="int8">
+      <accessor type="float" scale="1/127.0"></accessor>
+    </field>
+    <field name="rj_x" type="int8">
+      <accessor type="float" scale="1/127.0"></accessor>
+    </field>
+    <field name="rj_y" type="int8">
+      <accessor type="float" scale="1/127.0"></accessor>
+    </field>
+    <field name="lt" type="int8">
+      <accessor type="float" scale="1/127.0"></accessor>
+    </field>
+    <field name="rt" type="int8">
+      <accessor type="float" scale="1/127.0"></accessor>
+    </field>
   </message>
 
   <message name="Vision">
@@ -35,7 +75,7 @@
   </message>
 
   <message name="VisionCommand">
-    <field name='command' type='byte'></field>
+    <field name='command' type='uint8'></field>
   </message>
 
   <message name="Realsense">
@@ -46,7 +86,7 @@
   </message>
 
   <message name="Identifier">
-    <field name='identifier' type='byte'></field>
+    <field name='identifier' type='uint8'></field>
   </message>
 
   <message name="RobotState">
@@ -72,15 +112,15 @@
   </message>
 
    <message name="Dashboard">
-    <field name='enabled_1' type='byte'></field>
-    <field name='enabled_2' type='byte'></field>
-    <field name='enabled_3' type='byte'></field>
-    <field name='enabled_4' type='byte'></field>
-    <field name='enabled_5' type='byte'></field>
-    <field name='enabled_6' type='byte'></field>
-    <field name='enabled_7' type='byte'></field>
-    <field name='enabled_8' type='byte'></field>
-    <field name='state' type='byte'></field>
+    <field name='enabled_1' type='uint8'></field>
+    <field name='enabled_2' type='uint8'></field>
+    <field name='enabled_3' type='uint8'></field>
+    <field name='enabled_4' type='uint8'></field>
+    <field name='enabled_5' type='uint8'></field>
+    <field name='enabled_6' type='uint8'></field>
+    <field name='enabled_7' type='uint8'></field>
+    <field name='enabled_8' type='uint8'></field>
+    <field name='state' type='uint8'></field>
   </message>
 </messages>
 
