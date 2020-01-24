@@ -1,0 +1,17 @@
+#pragma once
+#include <stdint.h>
+#include <vector>
+#include "Primitives/RestPacket.h"
+#include "CommunicationDefinitions.h"
+#include "Interfaces/Joystick.h"
+#include "Interfaces/TagPosition.h"
+#include "Interfaces/FieldPosition.h"
+#include "Interfaces/Obstacle.h"
+#include "Interfaces/Vision.h"
+#include "Interfaces/VisionCommand.h"
+#include "Interfaces/Realsense.h"
+#include "Interfaces/Identifier.h"
+#include "Interfaces/RobotState.h"
+#include "Interfaces/DataServer.h"
+#include "Interfaces/Dashboard.h"
+#include "Interfaces/MotorInfo.h"

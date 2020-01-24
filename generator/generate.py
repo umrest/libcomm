@@ -33,7 +33,7 @@ TYPE_MAP = {
 
 class CSharpWriter:
     def __init__(self):
-        self.directory = "../test_csharp/"
+        self.directory = "../csharp/"
 
     def write_interface(self, message):
         pass
@@ -56,7 +56,18 @@ class CSharpWriter:
 
 class CppWriter:
     def __init__(self):
-        self.directory = "../test_cpp/"
+        self.directory = "../cpp/"
+    
+    def generate_requirements(self, message):
+        s = set()
+        for field in message.fields:
+            if(TYPE_MAP.get(field.type, None) == None):
+                s.add(field.type)
+        
+        req = ""
+        for t in s:
+            req += '#include "Implementation/{Type}.h"\n'.format(Type=t)
+        return req
     
     def write_interface(self, message):
         template = None
@@ -65,7 +76,7 @@ class CppWriter:
             template = file.read()
             template = template.replace("{", "{{").replace("}", "}}").replace("[[", "{").replace("]]", "}")
             
-            template = template.format(InterfaceType=message.name + "Interface", Variables=message.generate_variables_string('', "cpp"), Offsets=message.generate_offsets_string('const int', "cpp"), Size = size )
+            template = template.format(Requirements=self.generate_requirements(message), InterfaceType=message.name + "Interface", Variables=message.generate_variables_string('', "cpp"), Offsets=message.generate_offsets_string('const int', "cpp"), Size = size )
 
         
         with open(self.directory + 'include/Interfaces/{InterfaceType}.h'.format(InterfaceType=message.name), 'w') as file:
@@ -78,7 +89,7 @@ class CppWriter:
             data = file.read()
             data = data.replace("{", "{{").replace("}", "}}").replace("[[", "{").replace("]]", "}")
             
-            data = data.format(MessageType=message.name, InterfaceType = message.name + "Interface", Accessors=message.generate_accessors_string('', "cpp"),
+            data = data.format(Requirements=message.generate_interface(), MessageType=message.name, InterfaceType = message.name + "Interface", Accessors=message.generate_accessors_string('', "cpp"),
             Serializers=message.generate_ser_deser('cpp') )
 
         
@@ -91,7 +102,7 @@ class Field:
         self.type = ""
         self.offset = 0
         self.accessor = None
-        
+           
     
     def to_declaration(self, var, language):
         t = TYPE_MAP.get(self.type, None)
@@ -101,7 +112,7 @@ class Field:
         else:
             t = t[language]
         
-        return "{var} {Type} {Name};".format(var=var, Type=t, Name='_' + self.name)
+        return "{var} {Type} {Name};".format(var=var, Type=t, Name=self.name)
     
     def to_accessor(self, var, language):
         t = TYPE_MAP.get(self.type, None)
@@ -122,17 +133,26 @@ class Field:
         size = PACKET_SIZES[self.type]
         t = TYPE_MAP.get(self.type, None)
 
-        sub_type = False
+        custom_type = False
+        
         if(t == None):
             t = self.type
-            sub_type = True
+            custom_type = True
         else:
             t = t[language]
         if(language == "cpp"):
-            return """
-            {Type}* {Name}_ptr = &_{Name};
-            std::copy({Name}_ptr, {Name}_ptr + {Size}, data.begin() + {NameOffset}_OFFSET);
-            """.format(Type=t, Name=self.name, Size=size, NameOffset = self.name.upper().replace(" ", "_"))
+            f = ""
+            if (custom_type):
+                f = """
+                std::vector<uint8_t> {Name}_data = {Name}.Serialize();
+                std::copy({Name}_data.begin(), {Name}_data.begin() + {Size}, data.begin() + {NameOffset}_OFFSET);
+                """
+            else:
+                f = """
+                std::copy((uint8_t*)&{Name}, (uint8_t*)&{Name} + {Size}, data.begin() + {NameOffset}_OFFSET);
+                """
+            f = f.format(Type=t, Name=self.name, Size=size, NameOffset = self.name.upper().replace(" ", "_"))
+            return f
         if(language == "csharp"):
             return "csharpserializer"
         
@@ -141,17 +161,26 @@ class Field:
     def to_deserializer(self, language):
         size = PACKET_SIZES[self.type]
         t = TYPE_MAP.get(self.type, None)
+
+        custom_type = False
         if(t == None):
             t = self.type
+            custom_type = True
         else:
             t = t[language]
-        
         if(language == "cpp"):
-            return """
-            {Type}* {Name}_ptr = &_{Name};
-            std::copy(data + {NameOffset}_OFFSET, data + {NameOffset}_OFFSET + {Size}, {Name}_ptr);
-            """.format(Type=t, Name=self.name, Size=size, NameOffset = self.name.upper().replace(" ", "_"))
-
+            f = ""
+            if (custom_type):
+                f = """
+                std::vector<uint8_t> {Name}_data(data.begin() + {NameOffset}_OFFSET, data.begin() + {NameOffset}_OFFSET + {Size});
+                {Name}.Deserialize({Name}_data);
+                """
+            else:
+                f = """
+                std::copy(data.begin() + {NameOffset}_OFFSET, data.begin() + {NameOffset}_OFFSET + {Size}, (uint8_t *)&{Name});
+                """
+            f = f.format(Type=t, Name=self.name, Size=size, NameOffset = self.name.upper().replace(" ", "_"))
+            return f
 class Message:
     def __init__(self, name, fields):
         self.name = name
@@ -165,6 +194,9 @@ class Message:
         for field in self.fields:
             field.offset = off
             off = off + PACKET_SIZES[field.type]
+    
+    def generate_interface(self):
+        return '#include "Interfaces/{Type}.h"\n'.format(Type=self.name)
     
     def generate_variables_string(self, var, language):
         s = ''
@@ -204,14 +236,14 @@ class Message:
         s = ""
 
         s += """
-        std::array<char*, {Size}> Serialize() {{
-            std::array<char*, {Size}> data;
+        std::vector<uint8_t> Serialize() {{
+            std::vector<uint8_t> data({Size});
             {Serialize}
 
             return data;
         }}
 
-        void Deserialize(char* data) {{
+        void Deserialize(std::vector<uint8_t> data) {{
            {Deserialize} 
         }}
         """.format(Size = PACKET_SIZES[self.name], Serialize=self.generate_serializers(language), Deserialize=self.generate_deserializers(language))
@@ -233,12 +265,17 @@ def main():
     messages = root.find('messages').findall('message')
 
     # Generate c++ header for all types
-    with open('../test_cpp/Types.hpp', 'w') as file:
+    with open('../cpp/include/Types.hpp', 'w') as file:
         file.write("#pragma once\n")
-        file.write('#include "Primitives/{}.h"\n'.format("BitArray8"))
+        file.write('#include <stdint.h>\n')
+        file.write('#include <vector>\n')
+        file.write('#include "Primitives/{}.h"\n'.format("RestPacket"))
+
+        file.write('#include "CommunicationDefinitions.h"\n')
+
         for message in messages:
             file.write('#include "Interfaces/{}.h"\n'.format(message.get('name')))
-            file.write('#include "Implementation/{}.h"\n'.format(message.get('name')))
+            #file.write('#include "Implementation/{}.h"\n'.format(message.get('name')))
 
     for message in messages:
         name = message.get('name')
