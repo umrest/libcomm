@@ -1,7 +1,6 @@
 <data>
 <maps>
   <map name="PACKET_SIZES">
-    <pair key='BitArray8' value="1"></pair>
     <pair key='int8' value="1"></pair>
     <pair key='uint8' value="1"></pair>
     <pair key='int16' value="2"></pair>
@@ -27,23 +26,23 @@
   <enum name="VISIONCOMMAND">
     <element name="command" value="0"></element>
   </enum>
-  <enum name="TYPES">
-    <element name="Joystick" id="1"></element>
-    <element name="Vision" id="2"></element>
-    <element name="Realsense" id="3"></element>
-    <element name="RobotState" id="10"></element>
-    <element name="DataServerState" id="8"></element>
-    <element name="DashboardData" id="9"></element>
-    <element name="Identifier" id="250"></element>
-    <element name="VisionCommand" id="12"></element>
-    <element name="VisionImage" id="13"></element>
+  <enum name="TYPE_IDS">
+    <element name="Joystick" value="1"></element>
+    <element name="Vision" value="2"></element>
+    <element name="Realsense" value="3"></element>
+    <element name="RobotState" value="10"></element>
+    <element name="DataServer" value="8"></element>
+    <element name="DashboardData" value="9"></element>
+    <element name="Identifier" value="250"></element>
+    <element name="VisionCommand" value="12"></element>
+    <element name="VisionImage" value="13"></element>
   </enum>
 </enums>
 
 <messages>
   <message name="Joystick">
     <field name="buttons_1" type="BitArray8">
-      <bits>
+      <accessor type="bits">
         <bit>button_A</bit>
         <bit>button_B</bit>
         <bit>button_X</bit>
@@ -52,7 +51,7 @@
         <bit>button_RB</bit>
         <bit>button_Select</bit>
         <bit>button_Start</bit>
-      </bits>
+      </accessor>
     </field>
     <field name="buttons_2" type="BitArray8">
       <bits>

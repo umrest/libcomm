@@ -31,6 +31,10 @@ TYPE_MAP = {
     }
 }
 
+TYPE_IDS = {
+
+}
+
 class CSharpWriter:
     def __init__(self):
         self.directory = "../csharp/"
@@ -66,26 +70,26 @@ class CppWriter:
         
         req = ""
         for t in s:
-            req += '#include "Implementation/{Type}.h"\n'.format(Type=t)
+            req += '#include "comm/{Type}.h"\n'.format(Type=t)
         return req
     
     def write_interface(self, message):
         template = None
         size = PACKET_SIZES[message.name]
-        with open(self.directory + 'include/Interfaces/Template.txt', 'r') as file:
+        with open(self.directory + 'Templates/InterfaceTemplate.txt', 'r') as file:
             template = file.read()
             template = template.replace("{", "{{").replace("}", "}}").replace("[[", "{").replace("]]", "}")
             
             template = template.format(Requirements=self.generate_requirements(message), InterfaceType=message.name + "Interface", Variables=message.generate_variables_string('', "cpp"), Offsets=message.generate_offsets_string('const int', "cpp"), Size = size )
 
         
-        with open(self.directory + 'include/Interfaces/{InterfaceType}.h'.format(InterfaceType=message.name), 'w') as file:
+        with open(self.directory + 'include/comm/{InterfaceType}Interface.h'.format(InterfaceType=message.name), 'w') as file:
             file.write(template)
     
     def write_implementation(self, message):
         data = None
         
-        with open(self.directory + 'include/Implementation/Template.txt', 'r') as file:
+        with open(self.directory + 'Templates/Template.txt', 'r') as file:
             data = file.read()
             data = data.replace("{", "{{").replace("}", "}}").replace("[[", "{").replace("]]", "}")
             
@@ -93,7 +97,7 @@ class CppWriter:
             Serializers=message.generate_ser_deser('cpp') )
 
         
-        with open(self.directory + 'include/Implementation/{MessageType}.h'.format(MessageType=message.name), 'w') as file:
+        with open(self.directory + 'include/comm/{MessageType}.h'.format(MessageType=message.name), 'w') as file:
             file.write(data)
 
 class Field:
@@ -184,6 +188,7 @@ class Field:
 class Message:
     def __init__(self, name, fields):
         self.name = name
+        self.type_id= TYPE_IDS.get(self.name, None)
         self.fields = fields
         self.get_offsets()
     
@@ -191,12 +196,15 @@ class Message:
     def get_offsets(self):
         off = 1
 
+        if(self.type_id == None):
+            off = 0
+
         for field in self.fields:
             field.offset = off
             off = off + PACKET_SIZES[field.type]
     
     def generate_interface(self):
-        return '#include "Interfaces/{Type}.h"\n'.format(Type=self.name)
+        return '#include "comm/{Type}Interface.h"\n'.format(Type=self.name)
     
     def generate_variables_string(self, var, language):
         s = ''
@@ -233,11 +241,24 @@ class Message:
         return s
         
     def generate_ser_deser(self, language):
+        type_string = ""
+
+        if(self.type_id != None):
+            type_string = """
+            data[0] = {TypeId};
+            """.format(TypeId=self.type_id)
+        
+
         s = ""
+
+        size = PACKET_SIZES[self.name]
+        if(self.type_id != None):
+            size += 1
 
         s += """
         std::vector<uint8_t> Serialize() {{
             std::vector<uint8_t> data({Size});
+            {Type}
             {Serialize}
 
             return data;
@@ -246,7 +267,7 @@ class Message:
         void Deserialize(std::vector<uint8_t> data) {{
            {Deserialize} 
         }}
-        """.format(Size = PACKET_SIZES[self.name], Serialize=self.generate_serializers(language), Deserialize=self.generate_deserializers(language))
+        """.format(Type = type_string, Size = size, Serialize=self.generate_serializers(language), Deserialize=self.generate_deserializers(language))
         
         return s
 
@@ -262,20 +283,26 @@ def main():
     for size in packet_sizes:
         PACKET_SIZES[size.get('key')] = int(size.get('value'))
     
+    type_ids = root.find('enums').find('.//*[@name="TYPE_IDS"]')
+    type_ids = type_ids.findall('element')
+
+    for type_id in type_ids:
+        TYPE_IDS[type_id.get('name')] = int(type_id.get('value'))
+    
     messages = root.find('messages').findall('message')
 
     # Generate c++ header for all types
-    with open('../cpp/include/Types.hpp', 'w') as file:
+    with open('../cpp/include/comm/Types.hpp', 'w') as file:
         file.write("#pragma once\n")
         file.write('#include <stdint.h>\n')
         file.write('#include <vector>\n')
-        file.write('#include "Primitives/{}.h"\n'.format("RestPacket"))
+        file.write('#include "comm/{}.h"\n'.format("RestPacket"))
 
-        file.write('#include "CommunicationDefinitions.h"\n')
+        file.write('#include "comm/CommunicationDefinitions.h"\n')
 
         for message in messages:
-            file.write('#include "Interfaces/{}.h"\n'.format(message.get('name')))
-            #file.write('#include "Implementation/{}.h"\n'.format(message.get('name')))
+            file.write('#include "comm/{}.h"\n'.format(message.get('name')))
+            #file.write('#include "{}.h"\n'.format(message.get('name')))
 
     for message in messages:
         name = message.get('name')

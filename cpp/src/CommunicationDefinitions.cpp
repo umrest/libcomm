@@ -1,4 +1,4 @@
-#include "CommunicationDefinitions.h"
+#include "comm/CommunicationDefinitions.h"
 
 using namespace comm;
 
