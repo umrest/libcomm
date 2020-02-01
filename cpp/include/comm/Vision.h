@@ -11,10 +11,19 @@ namespace comm
             Vision() {
 
             }
+            // Accessors
+             TagPosition _tag0(){ return tag0; }
+
+ TagPosition _tag1(){ return tag1; }
+
+ FieldPosition _field_position(){ return field_position; }
+
+
+            
             // Serializers
             
         std::vector<uint8_t> Serialize() {
-            std::vector<uint8_t> data(128);
+            std::vector<uint8_t> data(37);
             
             data[0] = 2;
             
@@ -52,7 +61,7 @@ namespace comm
         }
         
 
-            // Accessors
+            
             
     };
 } // namespace comm

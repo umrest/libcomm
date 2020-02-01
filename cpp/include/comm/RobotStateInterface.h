@@ -1,19 +1,18 @@
 #pragma once
 
-#include "comm/MotorInfo.h"
-
+// Requirements
 #include "comm/Types.hpp"
 
 namespace comm
 {
-    class RobotStateInterface : RestPacket
+class RobotStateInterface : public RestPacket{
+    public :
+        RobotStateInterface()
     {
-        public:
-            RobotStateInterface() {
 
-            }
-            // Variables
-             MotorInfo motor_info_1;
+    }
+    // Variables
+     MotorInfo motor_info_1;
  MotorInfo motor_info_2;
  MotorInfo motor_info_3;
  MotorInfo motor_info_4;
@@ -23,8 +22,8 @@ namespace comm
  MotorInfo motor_info_8;
 
 
-            // Offsets
-            const int MOTOR_INFO_1_OFFSET = 1;
+    // Offsets
+    const int MOTOR_INFO_1_OFFSET = 1;
 
 const int MOTOR_INFO_2_OFFSET = 17;
 
@@ -41,5 +40,5 @@ const int MOTOR_INFO_7_OFFSET = 97;
 const int MOTOR_INFO_8_OFFSET = 113;
 
 
-    };
+};
 } // namespace comm

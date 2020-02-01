@@ -11,6 +11,9 @@ namespace comm
             MotorInfo() {
 
             }
+            // Accessors
+            
+            
             // Serializers
             
         std::vector<uint8_t> Serialize() {
@@ -26,7 +29,7 @@ namespace comm
         }
         
 
-            // Accessors
+            
             
     };
 } // namespace comm

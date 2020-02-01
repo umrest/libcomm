@@ -1,18 +1,18 @@
 #pragma once
 
-
+// Requirements
 #include "comm/Types.hpp"
 
 namespace comm
 {
-    class TagPositionInterface : RestPacket
+class TagPositionInterface : public RestPacket{
+    public :
+        TagPositionInterface()
     {
-        public:
-            TagPositionInterface() {
 
-            }
-            // Variables
-             int16_t yaw;
+    }
+    // Variables
+     int16_t yaw;
  int16_t pitch;
  int16_t roll;
  int16_t x;
@@ -20,8 +20,8 @@ namespace comm
  int16_t z;
 
 
-            // Offsets
-            const int YAW_OFFSET = 0;
+    // Offsets
+    const int YAW_OFFSET = 0;
 
 const int PITCH_OFFSET = 2;
 
@@ -34,5 +34,5 @@ const int Y_OFFSET = 8;
 const int Z_OFFSET = 10;
 
 
-    };
+};
 } // namespace comm

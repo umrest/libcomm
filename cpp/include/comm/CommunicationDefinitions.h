@@ -17,6 +17,7 @@ public:
         DASHBOARD_DATA = 9,
 
         ROBOT_STATE = 10,
+        SENSOR_STATE = 11,
 
         VISION_COMMAND = 12,
         VISION_IMAGE = 13,

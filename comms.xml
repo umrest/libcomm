@@ -10,12 +10,12 @@
     <pair key='MotorInfo' value="16"></pair>
     <pair key='BitArray8' value="1"></pair>
 
-    <pair key='Joystick' value="127"></pair>
-    <pair key='Vision' value="127"></pair>
+    <pair key='Joystick' value="8"></pair>
+    <pair key='Vision' value="36"></pair>
     <pair key='Realsense' value="127"></pair>
     <pair key='DataServer' value="127"></pair>
-    <pair key='Dashboard' value="127"></pair>
-    <pair key='RobotState' value="230"></pair>
+    <pair key='Dashboard' value="9"></pair>
+    <pair key='RobotState' value="120"></pair>
     <pair key='VisionCommand' value="127"></pair>
     <pair key='VisionImage' value="8191"></pair>
     <pair key='Identifier' value="127"></pair>
@@ -82,49 +82,49 @@
 
   <message name="TagPosition">
     <field name="yaw" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="int16_t" scale="364.0888"></accessor>
     </field>
     <field name="pitch" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="int16_t" scale="364.0888"></accessor>
     </field>
     <field name="roll" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="int16_t" scale="364.0888"></accessor>
     </field>
     <field name="x" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="int16_t" scale="10"></accessor>
     </field>
     <field name="y" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="int16_t" scale="10"></accessor>
     </field>
     <field name="z" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="int16_t" scale="10"></accessor>
     </field>
   </message>
 
   <message name="FieldPosition">
     <field name="yaw" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="float" scale="364.0888"></accessor>
     </field>
     <field name="x" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="float" scale="10"></accessor>
     </field>
     <field name="y" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="float" scale="10"></accessor>
     </field>
   </message>
 
   <message name="Obstacle">
     <field name="x" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="float" scale="10"></accessor>
     </field>
     <field name="y" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="float" scale="10"></accessor>
     </field>
     <field name="width" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="float" scale="10"></accessor>
     </field>
     <field name="height" type="int16">
-      <accessor type="float" scale="1/100"></accessor>
+      <accessor type="float" scale="10"></accessor>
     </field>
   </message>
   
@@ -148,6 +148,10 @@
 
   <message name="Identifier">
     <field name='identifier' type='uint8'></field>
+  </message>
+
+    <message name="MotorInfo">
+
   </message>
 
   <message name="RobotState">
@@ -184,9 +188,7 @@
     <field name='state' type='uint8'></field>
   </message>
 
-  <message name="MotorInfo">
 
-  </message>
 </messages>
 
 

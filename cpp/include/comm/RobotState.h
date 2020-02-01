@@ -11,10 +11,29 @@ namespace comm
             RobotState() {
 
             }
+            // Accessors
+             MotorInfo _motor_info_1(){ return motor_info_1; }
+
+ MotorInfo _motor_info_2(){ return motor_info_2; }
+
+ MotorInfo _motor_info_3(){ return motor_info_3; }
+
+ MotorInfo _motor_info_4(){ return motor_info_4; }
+
+ MotorInfo _motor_info_5(){ return motor_info_5; }
+
+ MotorInfo _motor_info_6(){ return motor_info_6; }
+
+ MotorInfo _motor_info_7(){ return motor_info_7; }
+
+ MotorInfo _motor_info_8(){ return motor_info_8; }
+
+
+            
             // Serializers
             
         std::vector<uint8_t> Serialize() {
-            std::vector<uint8_t> data(231);
+            std::vector<uint8_t> data(121);
             
             data[0] = 10;
             
@@ -92,7 +111,7 @@ namespace comm
         }
         
 
-            // Accessors
+            
             
     };
 } // namespace comm

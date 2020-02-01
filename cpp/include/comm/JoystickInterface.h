@@ -1,19 +1,18 @@
 #pragma once
 
-#include "comm/BitArray8.h"
-
+// Requirements
 #include "comm/Types.hpp"
 
 namespace comm
 {
-    class JoystickInterface : RestPacket
+class JoystickInterface : public RestPacket{
+    public :
+        JoystickInterface()
     {
-        public:
-            JoystickInterface() {
 
-            }
-            // Variables
-             BitArray8 buttons_1;
+    }
+    // Variables
+     BitArray8 buttons_1;
  BitArray8 buttons_2;
  int8_t lj_x;
  int8_t lj_y;
@@ -23,8 +22,8 @@ namespace comm
  int8_t rt;
 
 
-            // Offsets
-            const int BUTTONS_1_OFFSET = 1;
+    // Offsets
+    const int BUTTONS_1_OFFSET = 1;
 
 const int BUTTONS_2_OFFSET = 2;
 
@@ -41,5 +40,5 @@ const int LT_OFFSET = 7;
 const int RT_OFFSET = 8;
 
 
-    };
+};
 } // namespace comm

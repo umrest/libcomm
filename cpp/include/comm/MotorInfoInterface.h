@@ -1,20 +1,20 @@
 #pragma once
 
-
+// Requirements
 #include "comm/Types.hpp"
 
 namespace comm
 {
-    class MotorInfoInterface : RestPacket
+class MotorInfoInterface : public RestPacket{
+    public :
+        MotorInfoInterface()
     {
-        public:
-            MotorInfoInterface() {
 
-            }
-            // Variables
-            
+    }
+    // Variables
+    
 
-            // Offsets
-            
-    };
+    // Offsets
+    
+};
 } // namespace comm

@@ -11,10 +11,29 @@ namespace comm
             Joystick() {
 
             }
+            // Accessors
+             BitArray8 _buttons_1(){ return buttons_1; }
+
+ BitArray8 _buttons_2(){ return buttons_2; }
+
+ float _lj_x(){ return lj_x*1/127.0; }
+
+ float _lj_y(){ return lj_y*1/127.0; }
+
+ float _rj_x(){ return rj_x*1/127.0; }
+
+ float _rj_y(){ return rj_y*1/127.0; }
+
+ float _lt(){ return lt*1/127.0; }
+
+ float _rt(){ return rt*1/127.0; }
+
+
+            
             // Serializers
             
         std::vector<uint8_t> Serialize() {
-            std::vector<uint8_t> data(128);
+            std::vector<uint8_t> data(9);
             
             data[0] = 1;
             
@@ -27,22 +46,34 @@ namespace comm
                 std::copy(buttons_2_data.begin(), buttons_2_data.begin() + 1, data.begin() + BUTTONS_2_OFFSET);
                 
 
-                std::copy((uint8_t*)&lj_x, (uint8_t*)&lj_x + 1, data.begin() + LJ_X_OFFSET);
+                int8_t lj_x_ = _lj_x();
+                uint8_t* lj_x_data = (uint8_t*)&lj_x_;
+                std::copy(lj_x_data, lj_x_data + 1, data.begin() + LJ_X_OFFSET);
                 
 
-                std::copy((uint8_t*)&lj_y, (uint8_t*)&lj_y + 1, data.begin() + LJ_Y_OFFSET);
+                int8_t lj_y_ = _lj_y();
+                uint8_t* lj_y_data = (uint8_t*)&lj_y_;
+                std::copy(lj_y_data, lj_y_data + 1, data.begin() + LJ_Y_OFFSET);
                 
 
-                std::copy((uint8_t*)&rj_x, (uint8_t*)&rj_x + 1, data.begin() + RJ_X_OFFSET);
+                int8_t rj_x_ = _rj_x();
+                uint8_t* rj_x_data = (uint8_t*)&rj_x_;
+                std::copy(rj_x_data, rj_x_data + 1, data.begin() + RJ_X_OFFSET);
                 
 
-                std::copy((uint8_t*)&rj_y, (uint8_t*)&rj_y + 1, data.begin() + RJ_Y_OFFSET);
+                int8_t rj_y_ = _rj_y();
+                uint8_t* rj_y_data = (uint8_t*)&rj_y_;
+                std::copy(rj_y_data, rj_y_data + 1, data.begin() + RJ_Y_OFFSET);
                 
 
-                std::copy((uint8_t*)&lt, (uint8_t*)&lt + 1, data.begin() + LT_OFFSET);
+                int8_t lt_ = _lt();
+                uint8_t* lt_data = (uint8_t*)&lt_;
+                std::copy(lt_data, lt_data + 1, data.begin() + LT_OFFSET);
                 
 
-                std::copy((uint8_t*)&rt, (uint8_t*)&rt + 1, data.begin() + RT_OFFSET);
+                int8_t rt_ = _rt();
+                uint8_t* rt_data = (uint8_t*)&rt_;
+                std::copy(rt_data, rt_data + 1, data.begin() + RT_OFFSET);
                 
 
 
@@ -80,7 +111,7 @@ namespace comm
         }
         
 
-            // Accessors
+            
             
     };
 } // namespace comm

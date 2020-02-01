@@ -11,6 +11,11 @@ namespace comm
             VisionCommand() {
 
             }
+            // Accessors
+             uint8_t _command(){ return command; }
+
+
+            
             // Serializers
             
         std::vector<uint8_t> Serialize() {
@@ -19,7 +24,9 @@ namespace comm
             data[0] = 12;
             
             
-                std::copy((uint8_t*)&command, (uint8_t*)&command + 1, data.begin() + COMMAND_OFFSET);
+                uint8_t command_ = _command();
+                uint8_t* command_data = (uint8_t*)&command_;
+                std::copy(command_data, command_data + 1, data.begin() + COMMAND_OFFSET);
                 
 
 
@@ -34,7 +41,7 @@ namespace comm
         }
         
 
-            // Accessors
+            
             
     };
 } // namespace comm

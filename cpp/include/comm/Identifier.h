@@ -11,6 +11,11 @@ namespace comm
             Identifier() {
 
             }
+            // Accessors
+             uint8_t _identifier(){ return identifier; }
+
+
+            
             // Serializers
             
         std::vector<uint8_t> Serialize() {
@@ -19,7 +24,9 @@ namespace comm
             data[0] = 250;
             
             
-                std::copy((uint8_t*)&identifier, (uint8_t*)&identifier + 1, data.begin() + IDENTIFIER_OFFSET);
+                uint8_t identifier_ = _identifier();
+                uint8_t* identifier_data = (uint8_t*)&identifier_;
+                std::copy(identifier_data, identifier_data + 1, data.begin() + IDENTIFIER_OFFSET);
                 
 
 
@@ -34,7 +41,7 @@ namespace comm
         }
         
 
-            // Accessors
+            
             
     };
 } // namespace comm

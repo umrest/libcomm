@@ -10,10 +10,13 @@ namespace comm
             [[MessageType]]() {
 
             }
+            // Accessors
+            [[Accessors]]
+            
             // Serializers
             [[Serializers]]
 
-            // Accessors
+            
             
     };
 } // namespace comm

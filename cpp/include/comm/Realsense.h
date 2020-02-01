@@ -11,6 +11,17 @@ namespace comm
             Realsense() {
 
             }
+            // Accessors
+             Obstacle _obstacle_1(){ return obstacle_1; }
+
+ Obstacle _obstacle_2(){ return obstacle_2; }
+
+ Obstacle _obstacle_3(){ return obstacle_3; }
+
+ Obstacle _obstacle_4(){ return obstacle_4; }
+
+
+            
             // Serializers
             
         std::vector<uint8_t> Serialize() {
@@ -60,7 +71,7 @@ namespace comm
         }
         
 
-            // Accessors
+            
             
     };
 } // namespace comm

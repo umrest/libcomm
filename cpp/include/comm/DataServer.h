@@ -11,6 +11,11 @@ namespace comm
             DataServer() {
 
             }
+            // Accessors
+             BitArray8 _connected_status(){ return connected_status; }
+
+
+            
             // Serializers
             
         std::vector<uint8_t> Serialize() {
@@ -36,7 +41,7 @@ namespace comm
         }
         
 
-            // Accessors
+            
             
     };
 } // namespace comm

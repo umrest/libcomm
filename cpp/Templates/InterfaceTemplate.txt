@@ -5,14 +5,16 @@
 
 namespace comm
 {
-class[[InterfaceType]] : RestPacket{
+class [[InterfaceType]] : public RestPacket{
     public :
         [[InterfaceType]]()
     {
 
     }
     // Variables
+    [[Variables]]
 
     // Offsets
+    [[Offsets]]
 };
 } // namespace comm

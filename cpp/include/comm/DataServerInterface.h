@@ -1,24 +1,23 @@
 #pragma once
 
-#include "comm/BitArray8.h"
-
+// Requirements
 #include "comm/Types.hpp"
 
 namespace comm
 {
-    class DataServerInterface : RestPacket
+class DataServerInterface : public RestPacket{
+    public :
+        DataServerInterface()
     {
-        public:
-            DataServerInterface() {
 
-            }
-            // Variables
-             BitArray8 connected_status;
+    }
+    // Variables
+     BitArray8 connected_status;
 
 
-            // Offsets
-            const int CONNECTED_STATUS_OFFSET = 1;
+    // Offsets
+    const int CONNECTED_STATUS_OFFSET = 1;
 
 
-    };
+};
 } // namespace comm

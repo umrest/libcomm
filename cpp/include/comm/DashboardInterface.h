@@ -1,18 +1,18 @@
 #pragma once
 
-
+// Requirements
 #include "comm/Types.hpp"
 
 namespace comm
 {
-    class DashboardInterface : RestPacket
+class DashboardInterface : public RestPacket{
+    public :
+        DashboardInterface()
     {
-        public:
-            DashboardInterface() {
 
-            }
-            // Variables
-             uint8_t enabled_1;
+    }
+    // Variables
+     uint8_t enabled_1;
  uint8_t enabled_2;
  uint8_t enabled_3;
  uint8_t enabled_4;
@@ -23,8 +23,8 @@ namespace comm
  uint8_t state;
 
 
-            // Offsets
-            const int ENABLED_1_OFFSET = 0;
+    // Offsets
+    const int ENABLED_1_OFFSET = 0;
 
 const int ENABLED_2_OFFSET = 1;
 
@@ -43,5 +43,5 @@ const int ENABLED_8_OFFSET = 7;
 const int STATE_OFFSET = 8;
 
 
-    };
+};
 } // namespace comm

@@ -125,10 +125,10 @@ class Field:
         else:
             t = t[language]
         
-        if(self.accessor != None):
-            return "{var} {Type} {Name}(){{ return _{Name}*{Scale}; }}\n".format(var=var, Type=self.accessor.get("type"), Name=self.name, Scale=self.accessor.get("scale"))
+        if(self.accessor != None and self.accessor.get("type") != "bits"):
+            return "{var} {Type} _{Name}(){{ return {Name}*{Scale}; }}\n".format(var=var, Type=self.accessor.get("type"), Name=self.name, Scale=self.accessor.get("scale"))
         else:
-           return "{var} {Type} {Name}(){{ return _{Name}; }}\n".format(var=var, Type=t, Name=self.name)
+           return "{var} {Type} _{Name}(){{ return {Name}; }}\n".format(var=var, Type=t, Name=self.name)
     
     def to_offset(self, var, language):
         return "{var} {Name}_OFFSET = {Offset};\n".format(var=var, Name=self.name.upper().replace(" ", "_"), Offset=self.offset)
@@ -153,7 +153,9 @@ class Field:
                 """
             else:
                 f = """
-                std::copy((uint8_t*)&{Name}, (uint8_t*)&{Name} + {Size}, data.begin() + {NameOffset}_OFFSET);
+                {Type} {Name}_ = _{Name}();
+                uint8_t* {Name}_data = (uint8_t*)&{Name}_;
+                std::copy({Name}_data, {Name}_data + {Size}, data.begin() + {NameOffset}_OFFSET);
                 """
             f = f.format(Type=t, Name=self.name, Size=size, NameOffset = self.name.upper().replace(" ", "_"))
             return f
@@ -297,7 +299,7 @@ def main():
         file.write('#include <stdint.h>\n')
         file.write('#include <vector>\n')
         file.write('#include "comm/{}.h"\n'.format("RestPacket"))
-
+        file.write('#include "comm/{}.h"\n'.format("BitArray8"))
         file.write('#include "comm/CommunicationDefinitions.h"\n')
 
         for message in messages:
