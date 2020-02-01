@@ -1,0 +1,24 @@
+﻿#pragma once
+
+#include <stdint.h>
+#include "Types.hpp"
+
+namespace comm
+{
+    class [[InterfaceType]] : RESTPacket
+    {
+        public:
+            [[InterfaceType]]() {
+
+            }
+            virtual void Serialize() = 0;
+            virtual void Deserialize(char*) = 0;
+
+            // Variables
+            [[Variables]]
+
+        protected :
+            // Offsets
+            [[Offsets]]
+    };
+} // namespace comm
