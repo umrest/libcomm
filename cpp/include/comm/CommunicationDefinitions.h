@@ -16,8 +16,8 @@ public:
         DATAAGGREGATOR_STATE = 8,
         DASHBOARD_DATA = 9,
 
-        ROBOT_STATE = 10,
-        SENSOR_STATE = 11,
+        SENSOR_STATE = 10,
+        ROBOT_STATE = 11,
 
         VISION_COMMAND = 12,
         VISION_IMAGE = 13,
