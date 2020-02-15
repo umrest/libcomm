@@ -32,7 +32,8 @@ public:
         VISION = 2,
         TCPSERIAL = 3,
         HERO = 4,
-        DATASAVER = 5
+        DATASAVER = 5,
+        REALSENSE = 6
     };
 
     static const std::map<TYPE, int> PACKET_SIZES;
