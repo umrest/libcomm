@@ -23,7 +23,7 @@ namespace comm
             // Serializers
             
         std::vector<uint8_t> Serialize() {
-            std::vector<uint8_t> data(12);
+            std::vector<uint8_t> data(6);
             
             
                 int16_t yaw_ = _yaw();

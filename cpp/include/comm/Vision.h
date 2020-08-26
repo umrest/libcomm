@@ -18,12 +18,14 @@ namespace comm
 
  FieldPosition _field_position(){ return field_position; }
 
+ uint8_t _vision_good(){ return vision_good; }
+
 
             
             // Serializers
             
         std::vector<uint8_t> Serialize() {
-            std::vector<uint8_t> data(37);
+            std::vector<uint8_t> data(32);
             
             data[0] = 2;
             
@@ -37,7 +39,12 @@ namespace comm
                 
 
                 std::vector<uint8_t> field_position_data = field_position.Serialize();
-                std::copy(field_position_data.begin(), field_position_data.begin() + 12, data.begin() + FIELD_POSITION_OFFSET);
+                std::copy(field_position_data.begin(), field_position_data.begin() + 6, data.begin() + FIELD_POSITION_OFFSET);
+                
+
+                uint8_t vision_good_ = _vision_good();
+                uint8_t* vision_good_data = (uint8_t*)&vision_good_;
+                std::copy(vision_good_data, vision_good_data + 1, data.begin() + VISION_GOOD_OFFSET);
                 
 
 
@@ -54,8 +61,11 @@ namespace comm
                 tag1.Deserialize(tag1_data);
                 
 
-                std::vector<uint8_t> field_position_data(data.begin() + FIELD_POSITION_OFFSET, data.begin() + FIELD_POSITION_OFFSET + 12);
+                std::vector<uint8_t> field_position_data(data.begin() + FIELD_POSITION_OFFSET, data.begin() + FIELD_POSITION_OFFSET + 6);
                 field_position.Deserialize(field_position_data);
+                
+
+                std::copy(data.begin() + VISION_GOOD_OFFSET, data.begin() + VISION_GOOD_OFFSET + 1, (uint8_t *)&vision_good);
                 
  
         }

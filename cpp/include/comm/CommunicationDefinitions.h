@@ -22,6 +22,7 @@ public:
         VISION_COMMAND = 12,
         VISION_IMAGE = 13,
         VISION_PROPERTIES = 14,
+        HARDWARE = 15,
         IDENTIFIER = 250
 
     };
@@ -33,7 +34,8 @@ public:
         TCPSERIAL = 3,
         HERO = 4,
         DATASAVER = 5,
-        REALSENSE = 6
+        REALSENSE = 6,
+        HARDWARE = 10
     };
 
     static const std::map<TYPE, int> PACKET_SIZES;

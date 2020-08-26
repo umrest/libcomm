@@ -16,3 +16,4 @@
 #include "comm/RobotState.h"
 #include "comm/DataServer.h"
 #include "comm/Dashboard.h"
+#include "comm/Hardware.h"

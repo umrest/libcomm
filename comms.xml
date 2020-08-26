@@ -5,13 +5,15 @@
     <pair key='uint8' value="1"></pair>
     <pair key='int16' value="2"></pair>
     <pair key='TagPosition' value="12"></pair>
-    <pair key='FieldPosition' value="12"></pair>
+    <pair key='FieldPosition' value="6"></pair>
     <pair key='Obstacle' value="16"></pair>
     <pair key='MotorInfo' value="16"></pair>
     <pair key='BitArray8' value="1"></pair>
 
+    <pair key='Hardware' value="8"></pair>
+
     <pair key='Joystick' value="8"></pair>
-    <pair key='Vision' value="36"></pair>
+    <pair key='Vision' value="31"></pair>
     <pair key='Realsense' value="127"></pair>
     <pair key='DataServer' value="127"></pair>
     <pair key='Dashboard' value="9"></pair>
@@ -36,6 +38,7 @@
     <element name="Identifier" value="250"></element>
     <element name="VisionCommand" value="12"></element>
     <element name="VisionImage" value="13"></element>
+    <element name="Hardware" value="15"></element>
   </enum>
 </enums>
 
@@ -133,6 +136,7 @@
     <field name='tag0' type='TagPosition'></field>
     <field name='tag1' type='TagPosition'></field>
     <field name='field_position' type='FieldPosition'></field>
+    <field name='vision_good' type='uint8'></field>
   </message>
 
   <message name="VisionCommand">
@@ -186,6 +190,10 @@
     <field name='enabled_7' type='uint8'></field>
     <field name='enabled_8' type='uint8'></field>
     <field name='state' type='uint8'></field>
+  </message>
+
+   <message name="Hardware">
+    <field name='angle' type='uint8'></field>
   </message>
 
 
