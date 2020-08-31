@@ -1,0 +1,25 @@
+#pragma once
+
+// Requirements
+#include "RESTPacket.h"
+#include "CommunicationDefinitions.h"
+[[Requirements]]
+
+namespace comm
+{
+class [[InterfaceType]] : public RESTPacket{
+    public :
+        [[InterfaceType]]()
+    {
+
+    }
+    // Variables
+    [[Variables]]
+
+    // Offsets
+    [[Offsets]]
+
+    // Type
+    [[Type]]
+};
+} // namespace comm
