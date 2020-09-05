@@ -9,7 +9,11 @@
     <pair key='Obstacle' value="16"></pair>
     <pair key='MotorInfo' value="16"></pair>
     <pair key='BitArray8' value="1"></pair>
-
+    <pair key='Navigation_Path' value="200"></pair>
+    <pair key='Navigation_Obstacles' value="200"></pair>
+<pair key='Navigation_Line' value="8"></pair>
+<pair key='Navigation_State' value="120"></pair>
+    <pair key='Navigation_Obstacle' value="8"></pair>
      <pair key='bytearray' value="8191"></pair>
 
     <pair key='Hardware' value="8"></pair>
@@ -46,7 +50,9 @@
     <element name="Vision_Properties" value="14"></element>
     <element name="Hardware" value="15"></element>
     <element name="Realsense_Command" value="16"></element>
-    
+    <element name="Navigation_Path" value="17"></element>
+    <element name="Navigation_Obstacles" value="17"></element>
+    <element name="Navigation_State" value="18"></element>
     <element name="INVALID" value="255"></element>
   </enum>
   <enum name="IDENTIFIERS">
@@ -56,6 +62,7 @@
     <element name="HARDWARE" value="4"></element>
     <element name="DATASAVER" value="5"></element>
     <element name="REALSENSE" value="6"></element>
+    <element name="NAVIGATION" value="7"></element>
   </enum>
   </enums>
 
@@ -83,71 +90,128 @@
     </field>
 
     <field name="lj_x" type="int8">
-      <accessor type="float" scale="1/127.0"></accessor>
+      <accessor type="float" scale="0.00787401574"></accessor>
     </field>
     <field name="lj_y" type="int8">
-      <accessor type="float" scale="1/127.0"></accessor>
+      <accessor type="float" scale="0.00787401574"></accessor>
     </field>
     <field name="rj_x" type="int8">
-      <accessor type="float" scale="1/127.0"></accessor>
+      <accessor type="float" scale="0.00787401574"></accessor>
     </field>
     <field name="rj_y" type="int8">
-      <accessor type="float" scale="1/127.0"></accessor>
+      <accessor type="float" scale="0.00787401574"></accessor>
     </field>
     <field name="lt" type="int8">
-      <accessor type="float" scale="1/127.0"></accessor>
+      <accessor type="float" scale="0.00787401574"></accessor>
     </field>
     <field name="rt" type="int8">
-      <accessor type="float" scale="1/127.0"></accessor>
+      <accessor type="float" scale="0.00787401574"></accessor>
     </field>
   </message>
 
   <message name="TagPosition">
     <field name="yaw" type="int16">
-      <accessor type="int16_t" scale="364.0888"></accessor>
+      <accessor type="float" scale="0.0027465827"></accessor>
     </field>
     <field name="pitch" type="int16">
-      <accessor type="int16_t" scale="364.0888"></accessor>
+      <accessor type="float" scale="0.0027465827"></accessor>
     </field>
     <field name="roll" type="int16">
-      <accessor type="int16_t" scale="364.0888"></accessor>
+      <accessor type="float" scale="0.0027465827"></accessor>
     </field>
     <field name="x" type="int16">
-      <accessor type="int16_t" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
     <field name="y" type="int16">
-      <accessor type="int16_t" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
     <field name="z" type="int16">
-      <accessor type="int16_t" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
   </message>
 
   <message name="FieldPosition">
     <field name="yaw" type="int16">
-      <accessor type="float" scale="364.0888"></accessor>
+      <accessor type="float" scale="0.0027465827"></accessor>
     </field>
     <field name="x" type="int16">
-      <accessor type="float" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
     <field name="y" type="int16">
-      <accessor type="float" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
   </message>
 
   <message name="Obstacle">
     <field name="x" type="int16">
-      <accessor type="float" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
     <field name="y" type="int16">
-      <accessor type="float" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
     <field name="width" type="int16">
-      <accessor type="float" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
     <field name="height" type="int16">
-      <accessor type="float" scale="10"></accessor>
+      <accessor type="float" scale="0.1"></accessor>
     </field>
+  </message>
+
+  <message name="Navigation_Line">
+    <field name="x_start" type="int16">
+    </field>
+    <field name="y_start" type="int16">
+    </field>
+    <field name="x_end" type="int16">
+    </field>
+    <field name="y_end" type="int16">
+    </field>
+  </message>
+
+  <message name="Navigation_Path">
+    <field name="line_0" type="Navigation_Line"></field>
+    <field name="line_1" type="Navigation_Line"></field>
+    <field name="line_2" type="Navigation_Line"></field>
+    <field name="line_3" type="Navigation_Line"></field>
+    <field name="line_4" type="Navigation_Line"></field>
+    <field name="line_5" type="Navigation_Line"></field>
+    <field name="line_6" type="Navigation_Line"></field>
+    <field name="line_7" type="Navigation_Line"></field>
+    <field name="line_8" type="Navigation_Line"></field>
+    <field name="line_9" type="Navigation_Line"></field>
+    <field name="line_10" type="Navigation_Line"></field>
+    <field name="line_11" type="Navigation_Line"></field>
+    <field name="line_12" type="Navigation_Line"></field>
+    <field name="line_13" type="Navigation_Line"></field>
+    <field name="line_14" type="Navigation_Line"></field>
+    <field name="line_15" type="Navigation_Line"></field>
+    <field name="line_16" type="Navigation_Line"></field>
+    <field name="line_17" type="Navigation_Line"></field>
+    <field name="line_18" type="Navigation_Line"></field>
+    <field name="line_19" type="Navigation_Line"></field>
+    <field name="line_20" type="Navigation_Line"></field>
+  </message>
+
+  <message name="Navigation_Obstacle">
+    <field name="x" type="int16">
+    </field>
+    <field name="y" type="int16">
+    </field>
+    <field name="width" type="int16">
+    </field>
+    <field name="height" type="int16">
+    </field>
+  </message>
+
+  <message name="Navigation_Obstacles">
+    <field name="obstacle_0" type="Navigation_Obstacle"></field>
+    <field name="obstacle_1" type="Navigation_Obstacle"></field>
+    <field name="obstacle_2" type="Navigation_Obstacle"></field>
+    <field name="obstacle_3" type="Navigation_Obstacle"></field>
+  </message>
+
+   <message name="Navigation_State">
+    <field name="field_position" type="FieldPosition"></field>
   </message>
   
 

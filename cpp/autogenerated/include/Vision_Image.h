@@ -33,10 +33,12 @@ namespace comm
                      return data;
                      }
                  void Deserialize(std::vector<uint8_t> data)  {
-                     
             
-            std::copy(data.begin() + image_OFFSET, data.begin() + image_OFFSET + 1, (uint8_t *)&_image);
-        
+         std::vector<uint8_t> new_data;
+                     
+         
+            std::copy(data.begin() + image_OFFSET, data.begin() + image_OFFSET + 8191, (uint8_t *)&_image);
+            
                      }
                 
 

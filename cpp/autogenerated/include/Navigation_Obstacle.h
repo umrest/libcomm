@@ -1,50 +1,50 @@
 #pragma once
 
-#include "ObstacleInterface.h"
+#include "Navigation_ObstacleInterface.h"
 
 
 namespace comm
 {
-    class Obstacle : public ObstacleInterface
+    class Navigation_Obstacle : public Navigation_ObstacleInterface
     {
         public:
-            Obstacle() {
+            Navigation_Obstacle() {
 
             }
             // Accessors
             
-            float get_x(){
-                return _x * 0.1;
+            int16_t get_x(){
+                return _x;
             }
-            void set_x(float val){
-                _x = val / 0.1;
-            }
-            
-            float get_y(){
-                return _y * 0.1;
-            }
-            void set_y(float val){
-                _y = val / 0.1;
+            void set_x(int16_t val){
+                _x = val;
             }
             
-            float get_width(){
-                return _width * 0.1;
+            int16_t get_y(){
+                return _y;
             }
-            void set_width(float val){
-                _width = val / 0.1;
+            void set_y(int16_t val){
+                _y = val;
             }
             
-            float get_height(){
-                return _height * 0.1;
+            int16_t get_width(){
+                return _width;
             }
-            void set_height(float val){
-                _height = val / 0.1;
+            void set_width(int16_t val){
+                _width = val;
+            }
+            
+            int16_t get_height(){
+                return _height;
+            }
+            void set_height(int16_t val){
+                _height = val;
             }
             
             
             // Serializers
             std::vector<uint8_t> Serialize() {
-                     std::vector<uint8_t> data(16);
+                     std::vector<uint8_t> data(8);
                      
             
             uint8_t* ___x = (uint8_t*)&_x;

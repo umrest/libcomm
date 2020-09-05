@@ -85,45 +85,45 @@ namespace comm
             }
             
             float get_lj_x(){
-                return _lj_x * 1/127.0;
+                return _lj_x * 0.00787401574;
             }
             void set_lj_x(float val){
-                _lj_x = val / 1/127.0;
+                _lj_x = val / 0.00787401574;
             }
             
             float get_lj_y(){
-                return _lj_y * 1/127.0;
+                return _lj_y * 0.00787401574;
             }
             void set_lj_y(float val){
-                _lj_y = val / 1/127.0;
+                _lj_y = val / 0.00787401574;
             }
             
             float get_rj_x(){
-                return _rj_x * 1/127.0;
+                return _rj_x * 0.00787401574;
             }
             void set_rj_x(float val){
-                _rj_x = val / 1/127.0;
+                _rj_x = val / 0.00787401574;
             }
             
             float get_rj_y(){
-                return _rj_y * 1/127.0;
+                return _rj_y * 0.00787401574;
             }
             void set_rj_y(float val){
-                _rj_y = val / 1/127.0;
+                _rj_y = val / 0.00787401574;
             }
             
             float get_lt(){
-                return _lt * 1/127.0;
+                return _lt * 0.00787401574;
             }
             void set_lt(float val){
-                _lt = val / 1/127.0;
+                _lt = val / 0.00787401574;
             }
             
             float get_rt(){
-                return _rt * 1/127.0;
+                return _rt * 0.00787401574;
             }
             void set_rt(float val){
-                _rt = val / 1/127.0;
+                _rt = val / 0.00787401574;
             }
             
             
@@ -172,31 +172,39 @@ namespace comm
                      return data;
                      }
                  void Deserialize(std::vector<uint8_t> data)  {
+            
+         std::vector<uint8_t> new_data;
                      
+         
+            new_data.clear();
+            new_data.resize(1);
+            std::copy(data.begin() + buttons_1_OFFSET, data.begin() + buttons_1_OFFSET + 1, new_data.begin());
+            _buttons_1.Deserialize(new_data);
             
-            std::copy(data.begin() + buttons_1_OFFSET, data.begin() + buttons_1_OFFSET + 1, (uint8_t *)&_buttons_1);
-        
+         
+            new_data.clear();
+            new_data.resize(1);
+            std::copy(data.begin() + buttons_2_OFFSET, data.begin() + buttons_2_OFFSET + 1, new_data.begin());
+            _buttons_2.Deserialize(new_data);
             
-            std::copy(data.begin() + buttons_2_OFFSET, data.begin() + buttons_2_OFFSET + 1, (uint8_t *)&_buttons_2);
-        
-            
+         
             std::copy(data.begin() + lj_x_OFFSET, data.begin() + lj_x_OFFSET + 1, (uint8_t *)&_lj_x);
-        
             
+         
             std::copy(data.begin() + lj_y_OFFSET, data.begin() + lj_y_OFFSET + 1, (uint8_t *)&_lj_y);
-        
             
+         
             std::copy(data.begin() + rj_x_OFFSET, data.begin() + rj_x_OFFSET + 1, (uint8_t *)&_rj_x);
-        
             
+         
             std::copy(data.begin() + rj_y_OFFSET, data.begin() + rj_y_OFFSET + 1, (uint8_t *)&_rj_y);
-        
             
+         
             std::copy(data.begin() + lt_OFFSET, data.begin() + lt_OFFSET + 1, (uint8_t *)&_lt);
-        
             
+         
             std::copy(data.begin() + rt_OFFSET, data.begin() + rt_OFFSET + 1, (uint8_t *)&_rt);
-        
+            
                      }
                 
 

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "VisionInterface.h"
-#include "TagPositionInterface.h"
 #include "FieldPositionInterface.h"
+#include "TagPositionInterface.h"
 
 
 namespace comm
@@ -68,19 +68,30 @@ namespace comm
                      return data;
                      }
                  void Deserialize(std::vector<uint8_t> data)  {
+            
+         std::vector<uint8_t> new_data;
                      
+         
+            new_data.clear();
+            new_data.resize(12);
+            std::copy(data.begin() + tag0_OFFSET, data.begin() + tag0_OFFSET + 12, new_data.begin());
+            _tag0.Deserialize(new_data);
             
-            std::copy(data.begin() + tag0_OFFSET, data.begin() + tag0_OFFSET + 1, (uint8_t *)&_tag0);
-        
+         
+            new_data.clear();
+            new_data.resize(12);
+            std::copy(data.begin() + tag1_OFFSET, data.begin() + tag1_OFFSET + 12, new_data.begin());
+            _tag1.Deserialize(new_data);
             
-            std::copy(data.begin() + tag1_OFFSET, data.begin() + tag1_OFFSET + 1, (uint8_t *)&_tag1);
-        
+         
+            new_data.clear();
+            new_data.resize(6);
+            std::copy(data.begin() + field_position_OFFSET, data.begin() + field_position_OFFSET + 6, new_data.begin());
+            _field_position.Deserialize(new_data);
             
-            std::copy(data.begin() + field_position_OFFSET, data.begin() + field_position_OFFSET + 1, (uint8_t *)&_field_position);
-        
-            
+         
             std::copy(data.begin() + vision_good_OFFSET, data.begin() + vision_good_OFFSET + 1, (uint8_t *)&_vision_good);
-        
+            
                      }
                 
 

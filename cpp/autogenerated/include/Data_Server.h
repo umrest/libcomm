@@ -33,10 +33,15 @@ namespace comm
                      return data;
                      }
                  void Deserialize(std::vector<uint8_t> data)  {
-                     
             
-            std::copy(data.begin() + connected_status_OFFSET, data.begin() + connected_status_OFFSET + 1, (uint8_t *)&_connected_status);
-        
+         std::vector<uint8_t> new_data;
+                     
+         
+            new_data.clear();
+            new_data.resize(1);
+            std::copy(data.begin() + connected_status_OFFSET, data.begin() + connected_status_OFFSET + 1, new_data.begin());
+            _connected_status.Deserialize(new_data);
+            
                      }
                 
 

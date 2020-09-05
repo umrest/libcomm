@@ -14,24 +14,24 @@ namespace comm
             // Accessors
             
             float get_yaw(){
-                return _yaw * 364.0888;
+                return _yaw * 0.0027465827;
             }
             void set_yaw(float val){
-                _yaw = val / 364.0888;
+                _yaw = val / 0.0027465827;
             }
             
             float get_x(){
-                return _x * 10;
+                return _x * 0.1;
             }
             void set_x(float val){
-                _x = val / 10;
+                _x = val / 0.1;
             }
             
             float get_y(){
-                return _y * 10;
+                return _y * 0.1;
             }
             void set_y(float val){
-                _y = val / 10;
+                _y = val / 0.1;
             }
             
             
@@ -57,16 +57,18 @@ namespace comm
                      return data;
                      }
                  void Deserialize(std::vector<uint8_t> data)  {
+            
+         std::vector<uint8_t> new_data;
                      
+         
+            std::copy(data.begin() + yaw_OFFSET, data.begin() + yaw_OFFSET + 2, (uint8_t *)&_yaw);
             
-            std::copy(data.begin() + yaw_OFFSET, data.begin() + yaw_OFFSET + 1, (uint8_t *)&_yaw);
-        
+         
+            std::copy(data.begin() + x_OFFSET, data.begin() + x_OFFSET + 2, (uint8_t *)&_x);
             
-            std::copy(data.begin() + x_OFFSET, data.begin() + x_OFFSET + 1, (uint8_t *)&_x);
-        
+         
+            std::copy(data.begin() + y_OFFSET, data.begin() + y_OFFSET + 2, (uint8_t *)&_y);
             
-            std::copy(data.begin() + y_OFFSET, data.begin() + y_OFFSET + 1, (uint8_t *)&_y);
-        
                      }
                 
 

@@ -66,19 +66,33 @@ namespace comm
                      return data;
                      }
                  void Deserialize(std::vector<uint8_t> data)  {
+            
+         std::vector<uint8_t> new_data;
                      
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + obstacle_1_OFFSET, data.begin() + obstacle_1_OFFSET + 16, new_data.begin());
+            _obstacle_1.Deserialize(new_data);
             
-            std::copy(data.begin() + obstacle_1_OFFSET, data.begin() + obstacle_1_OFFSET + 1, (uint8_t *)&_obstacle_1);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + obstacle_2_OFFSET, data.begin() + obstacle_2_OFFSET + 16, new_data.begin());
+            _obstacle_2.Deserialize(new_data);
             
-            std::copy(data.begin() + obstacle_2_OFFSET, data.begin() + obstacle_2_OFFSET + 1, (uint8_t *)&_obstacle_2);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + obstacle_3_OFFSET, data.begin() + obstacle_3_OFFSET + 16, new_data.begin());
+            _obstacle_3.Deserialize(new_data);
             
-            std::copy(data.begin() + obstacle_3_OFFSET, data.begin() + obstacle_3_OFFSET + 1, (uint8_t *)&_obstacle_3);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + obstacle_4_OFFSET, data.begin() + obstacle_4_OFFSET + 16, new_data.begin());
+            _obstacle_4.Deserialize(new_data);
             
-            std::copy(data.begin() + obstacle_4_OFFSET, data.begin() + obstacle_4_OFFSET + 1, (uint8_t *)&_obstacle_4);
-        
                      }
                 
 

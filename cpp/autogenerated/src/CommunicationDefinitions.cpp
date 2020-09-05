@@ -5,7 +5,10 @@
 using namespace comm;
 
 const std::map<CommunicationDefinitions::TYPE, int> CommunicationDefinitions::PACKET_SIZES = {
-    {TYPE::HARDWARE, 8},
+    {TYPE::NAVIGATION_PATH, 200},
+{TYPE::NAVIGATION_OBSTACLES, 200},
+{TYPE::NAVIGATION_STATE, 120},
+{TYPE::HARDWARE, 8},
 {TYPE::JOYSTICK, 8},
 {TYPE::VISION, 31},
 {TYPE::REALSENSE, 127},

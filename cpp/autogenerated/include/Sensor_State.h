@@ -132,37 +132,69 @@ namespace comm
                      return data;
                      }
                  void Deserialize(std::vector<uint8_t> data)  {
+            
+         std::vector<uint8_t> new_data;
                      
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_1_OFFSET, data.begin() + motor_info_1_OFFSET + 16, new_data.begin());
+            _motor_info_1.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_1_OFFSET, data.begin() + motor_info_1_OFFSET + 1, (uint8_t *)&_motor_info_1);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_2_OFFSET, data.begin() + motor_info_2_OFFSET + 16, new_data.begin());
+            _motor_info_2.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_2_OFFSET, data.begin() + motor_info_2_OFFSET + 1, (uint8_t *)&_motor_info_2);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_3_OFFSET, data.begin() + motor_info_3_OFFSET + 16, new_data.begin());
+            _motor_info_3.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_3_OFFSET, data.begin() + motor_info_3_OFFSET + 1, (uint8_t *)&_motor_info_3);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_4_OFFSET, data.begin() + motor_info_4_OFFSET + 16, new_data.begin());
+            _motor_info_4.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_4_OFFSET, data.begin() + motor_info_4_OFFSET + 1, (uint8_t *)&_motor_info_4);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_5_OFFSET, data.begin() + motor_info_5_OFFSET + 16, new_data.begin());
+            _motor_info_5.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_5_OFFSET, data.begin() + motor_info_5_OFFSET + 1, (uint8_t *)&_motor_info_5);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_6_OFFSET, data.begin() + motor_info_6_OFFSET + 16, new_data.begin());
+            _motor_info_6.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_6_OFFSET, data.begin() + motor_info_6_OFFSET + 1, (uint8_t *)&_motor_info_6);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_7_OFFSET, data.begin() + motor_info_7_OFFSET + 16, new_data.begin());
+            _motor_info_7.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_7_OFFSET, data.begin() + motor_info_7_OFFSET + 1, (uint8_t *)&_motor_info_7);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_8_OFFSET, data.begin() + motor_info_8_OFFSET + 16, new_data.begin());
+            _motor_info_8.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_8_OFFSET, data.begin() + motor_info_8_OFFSET + 1, (uint8_t *)&_motor_info_8);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_9_OFFSET, data.begin() + motor_info_9_OFFSET + 16, new_data.begin());
+            _motor_info_9.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_9_OFFSET, data.begin() + motor_info_9_OFFSET + 1, (uint8_t *)&_motor_info_9);
-        
+         
+            new_data.clear();
+            new_data.resize(16);
+            std::copy(data.begin() + motor_info_10_OFFSET, data.begin() + motor_info_10_OFFSET + 16, new_data.begin());
+            _motor_info_10.Deserialize(new_data);
             
-            std::copy(data.begin() + motor_info_10_OFFSET, data.begin() + motor_info_10_OFFSET + 1, (uint8_t *)&_motor_info_10);
-        
                      }
                 
 

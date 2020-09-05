@@ -129,34 +129,36 @@ namespace comm
                      return data;
                      }
                  void Deserialize(std::vector<uint8_t> data)  {
+            
+         std::vector<uint8_t> new_data;
                      
-            
+         
             std::copy(data.begin() + enabled_1_OFFSET, data.begin() + enabled_1_OFFSET + 1, (uint8_t *)&_enabled_1);
-        
             
+         
             std::copy(data.begin() + enabled_2_OFFSET, data.begin() + enabled_2_OFFSET + 1, (uint8_t *)&_enabled_2);
-        
             
+         
             std::copy(data.begin() + enabled_3_OFFSET, data.begin() + enabled_3_OFFSET + 1, (uint8_t *)&_enabled_3);
-        
             
+         
             std::copy(data.begin() + enabled_4_OFFSET, data.begin() + enabled_4_OFFSET + 1, (uint8_t *)&_enabled_4);
-        
             
+         
             std::copy(data.begin() + enabled_5_OFFSET, data.begin() + enabled_5_OFFSET + 1, (uint8_t *)&_enabled_5);
-        
             
+         
             std::copy(data.begin() + enabled_6_OFFSET, data.begin() + enabled_6_OFFSET + 1, (uint8_t *)&_enabled_6);
-        
             
+         
             std::copy(data.begin() + enabled_7_OFFSET, data.begin() + enabled_7_OFFSET + 1, (uint8_t *)&_enabled_7);
-        
             
+         
             std::copy(data.begin() + enabled_8_OFFSET, data.begin() + enabled_8_OFFSET + 1, (uint8_t *)&_enabled_8);
-        
             
+         
             std::copy(data.begin() + state_OFFSET, data.begin() + state_OFFSET + 1, (uint8_t *)&_state);
-        
+            
                      }
                 
 

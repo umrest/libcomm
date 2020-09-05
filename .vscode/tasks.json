@@ -6,7 +6,7 @@
         {
             "label": "build cpp libcomm",
             "type": "shell",
-            "command": "cmake ../ && make",
+            "command": "cmake ../ && make clean && make",
             "options": {
                 "cwd": "${workspaceFolder}/cpp/build/"
             },

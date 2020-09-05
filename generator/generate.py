@@ -180,18 +180,35 @@ class CPPWriter:
             return f"""
             uint8_t* ___{field["@name"]} = (uint8_t*)&_{field["@name"]};
             """
-    
+
+
     def get_field_serializer(self, field):
         return f"""
             {self.get_field_serializer2(field)}
             std::copy(___{field["@name"]}, ___{field["@name"]} + {self.PACKET_SIZES[field["@type"]]}, data.begin() + {field["@name"]}_OFFSET);
             """
-        
+
+    def get_field_deserializer2(self, field):
+        if field["@type"] not in TYPE_MAP.keys():
+            return f"""
+            new_data.clear();
+            new_data.resize({self.PACKET_SIZES[field["@type"]]});
+            std::copy(data.begin() + {field["@name"]}_OFFSET, data.begin() + {field["@name"]}_OFFSET + {self.PACKET_SIZES[field["@type"]]}, new_data.begin());
+            _{field["@name"]}.Deserialize(new_data);
+            """
+                
+        # elif field["@type"] == "bytearray":
+        #    return f"""
+        #    uint8_t* ___{field["@name"]} = (uint8_t*)_{field["@name"]};
+        #    """
+        else:
+            return f"""
+            std::copy(data.begin() + {field["@name"]}_OFFSET, data.begin() + {field["@name"]}_OFFSET + {self.PACKET_SIZES[field["@type"]]}, (uint8_t *)&_{field["@name"]});
+            """
+
     def get_field_deserializer(self, field):
-        return f"""
-            
-            std::copy(data.begin() + {field["@name"]}_OFFSET, data.begin() + {field["@name"]}_OFFSET + 1, (uint8_t *)&_{field["@name"]});
-        """
+         return f"""
+         {self.get_field_deserializer2(field)}"""
     
     def get_serializers(self, message):
         fields = ""
@@ -213,6 +230,8 @@ class CPPWriter:
             fields += self.get_field_deserializer(field)
         
         data = f""" void Deserialize(std::vector<uint8_t> data)  {{
+            
+         std::vector<uint8_t> new_data;
                      {fields}
                      }}
                 """
