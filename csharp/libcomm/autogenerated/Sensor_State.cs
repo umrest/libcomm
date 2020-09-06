@@ -110,7 +110,6 @@ void set_motor_info_10(Motor_Info other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         
             byte[] __motor_info_1 = new byte[16];
             Array.Copy(data, MOTOR_INFO_1_OFFSET, __motor_info_1, 0, 16);

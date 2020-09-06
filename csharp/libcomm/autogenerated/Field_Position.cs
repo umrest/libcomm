@@ -21,13 +21,13 @@ double get_y(){
             }
 
 void set_yaw(double other){
-                _yaw = (int16)(other * 0.0027465827);
+                _yaw = (Int16)(other * 0.0027465827);
             }
 void set_x(double other){
-                _x = (int16)(other * 0.1);
+                _x = (Int16)(other * 0.1);
             }
 void set_y(double other){
-                _y = (int16)(other * 0.1);
+                _y = (Int16)(other * 0.1);
             }
 
             
@@ -47,7 +47,6 @@ void set_y(double other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         BitConverter.ToInt16(data, YAW_OFFSET);
         BitConverter.ToInt16(data, X_OFFSET);
         BitConverter.ToInt16(data, Y_OFFSET);}

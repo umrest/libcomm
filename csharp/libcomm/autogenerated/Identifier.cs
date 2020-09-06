@@ -29,7 +29,6 @@ void set_identifier(byte other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         _identifier = data[IDENTIFIER_OFFSET];}
         
 

@@ -56,7 +56,6 @@ void set_vision_good(byte other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         
             byte[] __tag0 = new byte[12];
             Array.Copy(data, TAG0_OFFSET, __tag0, 0, 12);

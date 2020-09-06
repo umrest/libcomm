@@ -56,7 +56,6 @@ void set_height(Int16 other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         BitConverter.ToInt16(data, X_OFFSET);
         BitConverter.ToInt16(data, Y_OFFSET);
         BitConverter.ToInt16(data, WIDTH_OFFSET);

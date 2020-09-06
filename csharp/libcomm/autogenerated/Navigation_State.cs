@@ -29,7 +29,6 @@ void set_field_position(Field_Position other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         
             byte[] __field_position = new byte[6];
             Array.Copy(data, FIELD_POSITION_OFFSET, __field_position, 0, 6);

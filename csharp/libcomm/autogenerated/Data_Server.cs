@@ -29,7 +29,6 @@ void set_connected_status(BitArray8 other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         
             byte[] __connected_status = new byte[1];
             Array.Copy(data, CONNECTED_STATUS_OFFSET, __connected_status, 0, 1);
