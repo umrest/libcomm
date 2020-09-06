@@ -12,35 +12,35 @@ namespace comm
 
             }
             // Accessors
-            bool get_vision_connected(){
+            bool get_hero_connected(){
                 return _connected_status.GetBit(0);
             }
-bool get_tcpserial_connected(){
+bool get_vision_connected(){
                 return _connected_status.GetBit(1);
             }
-bool get_hero_connected(){
+bool get_dashboard_connected(){
                 return _connected_status.GetBit(2);
             }
-bool get_dashboard_connected(){
+bool get_realsense_connected(){
                 return _connected_status.GetBit(3);
             }
-bool get_realsense_connected(){
+bool get_tcpserial_connected(){
                 return _connected_status.GetBit(4);
             }
 
-void set_vision_connected(bool other){
+void set_hero_connected(bool other){
                 _connected_status.SetBit(0, other);
             };
-void set_tcpserial_connected(bool other){
+void set_vision_connected(bool other){
                 _connected_status.SetBit(1, other);
             };
-void set_hero_connected(bool other){
+void set_dashboard_connected(bool other){
                 _connected_status.SetBit(2, other);
             };
-void set_dashboard_connected(bool other){
+void set_realsense_connected(bool other){
                 _connected_status.SetBit(3, other);
             };
-void set_realsense_connected(bool other){
+void set_tcpserial_connected(bool other){
                 _connected_status.SetBit(4, other);
             };
 
