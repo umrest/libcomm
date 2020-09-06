@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Obstacle : ObstacleInterface
+    public class Obstacle : ObstacleInterface
     {
             public Obstacle() {
 

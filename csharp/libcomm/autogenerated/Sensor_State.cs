@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Sensor_State : Sensor_StateInterface
+    public class Sensor_State : Sensor_StateInterface
     {
             public Sensor_State() {
 

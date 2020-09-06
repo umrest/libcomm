@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Realsense : RealsenseInterface
+    public class Realsense : RealsenseInterface
     {
             public Realsense() {
 

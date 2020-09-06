@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Navigation_Path : Navigation_PathInterface
+    public class Navigation_Path : Navigation_PathInterface
     {
             public Navigation_Path() {
 

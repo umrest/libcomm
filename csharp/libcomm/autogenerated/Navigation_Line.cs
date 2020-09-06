@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Navigation_Line : Navigation_LineInterface
+    public class Navigation_Line : Navigation_LineInterface
     {
             public Navigation_Line() {
 

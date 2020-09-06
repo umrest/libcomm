@@ -2,7 +2,7 @@ using System.Net.Sockets;
 
 namespace comm
 {
-    class RESTClient
+    public class RESTClient
     {
         private TcpClient client = new TcpClient();
 

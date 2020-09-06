@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Tag_Position : Tag_PositionInterface
+    public class Tag_Position : Tag_PositionInterface
     {
             public Tag_Position() {
 

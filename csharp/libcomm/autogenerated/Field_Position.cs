@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Field_Position : Field_PositionInterface
+    public class Field_Position : Field_PositionInterface
     {
             public Field_Position() {
 

@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Navigation_Obstacles : Navigation_ObstaclesInterface
+    public class Navigation_Obstacles : Navigation_ObstaclesInterface
     {
             public Navigation_Obstacles() {
 

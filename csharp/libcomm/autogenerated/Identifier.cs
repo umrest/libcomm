@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Identifier : IdentifierInterface
+    public class Identifier : IdentifierInterface
     {
             public Identifier() {
 

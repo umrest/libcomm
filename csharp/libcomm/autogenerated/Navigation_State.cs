@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Navigation_State : Navigation_StateInterface
+    public class Navigation_State : Navigation_StateInterface
     {
             public Navigation_State() {
 

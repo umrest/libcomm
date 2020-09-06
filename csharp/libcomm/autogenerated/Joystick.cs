@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Joystick : JoystickInterface
+    public class Joystick : JoystickInterface
     {
             public Joystick() {
 

@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Dashboard : DashboardInterface
+    public class Dashboard : DashboardInterface
     {
             public Dashboard() {
 

@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Vision_Properties : Vision_PropertiesInterface
+    public class Vision_Properties : Vision_PropertiesInterface
     {
             public Vision_Properties() {
 

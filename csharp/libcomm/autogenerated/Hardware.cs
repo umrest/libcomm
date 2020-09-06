@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Hardware : HardwareInterface
+    public class Hardware : HardwareInterface
     {
             public Hardware() {
 

@@ -4,7 +4,7 @@ using System;
 
 namespace comm
 {
-    class [[MessageType]] : [[InterfaceType]]
+    public class [[MessageType]] : [[InterfaceType]]
     {
             public [[MessageType]]() {
 

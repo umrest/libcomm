@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Data_Server : Data_ServerInterface
+    public class Data_Server : Data_ServerInterface
     {
             public Data_Server() {
 

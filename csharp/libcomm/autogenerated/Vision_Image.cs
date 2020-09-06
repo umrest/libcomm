@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Vision_Image : Vision_ImageInterface
+    public class Vision_Image : Vision_ImageInterface
     {
             public Vision_Image() {
 

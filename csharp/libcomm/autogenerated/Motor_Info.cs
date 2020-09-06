@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-    class Motor_Info : Motor_InfoInterface
+    public class Motor_Info : Motor_InfoInterface
     {
             public Motor_Info() {
 
