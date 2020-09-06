@@ -132,20 +132,20 @@ namespace comm
             return messages.ToArray();
         }
 
-        void send_message(RESTPacket msg)
+        public void send_message(RESTPacket msg)
         {
             byte[] data = msg.Serialize();
             client.GetStream().Write(data, 0, data.Length);
         }
 
-        void send_identifier()
+        private void send_identifier()
         {
             comm.Identifier identifier_data = new comm.Identifier();
             identifier_data.set_identifier((byte)identifier);
             send_message(identifier_data);
         }
 
-        void on_connect()
+        private void on_connect()
         {
             Console.WriteLine("on_connect");
             send_identifier();
