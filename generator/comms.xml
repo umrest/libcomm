@@ -12,6 +12,7 @@
     <pair key='OBSTACLE' value="16"></pair>
     <pair key='MOTOR_INFO' value="16"></pair>
     <pair key='BITARRAY8' value="1"></pair>
+    <pair key='ROBOT_STATE' value="1"></pair>
     <pair key='NAVIGATION_PATH' value="200"></pair>
     <pair key='NAVIGATION_OBSTACLES' value="200"></pair>
     <pair key='NAVIGATION_LINE' value="8"></pair>
@@ -256,6 +257,10 @@
     <field name='percent' type='uint8'></field>
     <field name='position' type='uint32'></field>
     <field name='velocity' type='uint32'></field>
+  </message>
+
+  <message name="Robot_State">
+    <field name='state' type='uint8'></field>
   </message>
 
   <message name="Sensor_State">
