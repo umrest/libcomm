@@ -9,51 +9,51 @@ class Navigation_PathInterface : RESTPacket{
     }
 
            // Variables
-    Navigation_Line _line_0;
-Navigation_Line _line_1;
-Navigation_Line _line_2;
-Navigation_Line _line_3;
-Navigation_Line _line_4;
-Navigation_Line _line_5;
-Navigation_Line _line_6;
-Navigation_Line _line_7;
-Navigation_Line _line_8;
-Navigation_Line _line_9;
-Navigation_Line _line_10;
-Navigation_Line _line_11;
-Navigation_Line _line_12;
-Navigation_Line _line_13;
-Navigation_Line _line_14;
-Navigation_Line _line_15;
-Navigation_Line _line_16;
-Navigation_Line _line_17;
-Navigation_Line _line_18;
-Navigation_Line _line_19;
-Navigation_Line _line_20;
+    protected Navigation_Line _line_0;
+protected Navigation_Line _line_1;
+protected Navigation_Line _line_2;
+protected Navigation_Line _line_3;
+protected Navigation_Line _line_4;
+protected Navigation_Line _line_5;
+protected Navigation_Line _line_6;
+protected Navigation_Line _line_7;
+protected Navigation_Line _line_8;
+protected Navigation_Line _line_9;
+protected Navigation_Line _line_10;
+protected Navigation_Line _line_11;
+protected Navigation_Line _line_12;
+protected Navigation_Line _line_13;
+protected Navigation_Line _line_14;
+protected Navigation_Line _line_15;
+protected Navigation_Line _line_16;
+protected Navigation_Line _line_17;
+protected Navigation_Line _line_18;
+protected Navigation_Line _line_19;
+protected Navigation_Line _line_20;
 
 
     // Offsets
-    int LINE_0_OFFSET = 0;
-int LINE_1_OFFSET = 8;
-int LINE_2_OFFSET = 16;
-int LINE_3_OFFSET = 24;
-int LINE_4_OFFSET = 32;
-int LINE_5_OFFSET = 40;
-int LINE_6_OFFSET = 48;
-int LINE_7_OFFSET = 56;
-int LINE_8_OFFSET = 64;
-int LINE_9_OFFSET = 72;
-int LINE_10_OFFSET = 80;
-int LINE_11_OFFSET = 88;
-int LINE_12_OFFSET = 96;
-int LINE_13_OFFSET = 104;
-int LINE_14_OFFSET = 112;
-int LINE_15_OFFSET = 120;
-int LINE_16_OFFSET = 128;
-int LINE_17_OFFSET = 136;
-int LINE_18_OFFSET = 144;
-int LINE_19_OFFSET = 152;
-int LINE_20_OFFSET = 160;
+    protected int LINE_0_OFFSET = 0;
+protected int LINE_1_OFFSET = 8;
+protected int LINE_2_OFFSET = 16;
+protected int LINE_3_OFFSET = 24;
+protected int LINE_4_OFFSET = 32;
+protected int LINE_5_OFFSET = 40;
+protected int LINE_6_OFFSET = 48;
+protected int LINE_7_OFFSET = 56;
+protected int LINE_8_OFFSET = 64;
+protected int LINE_9_OFFSET = 72;
+protected int LINE_10_OFFSET = 80;
+protected int LINE_11_OFFSET = 88;
+protected int LINE_12_OFFSET = 96;
+protected int LINE_13_OFFSET = 104;
+protected int LINE_14_OFFSET = 112;
+protected int LINE_15_OFFSET = 120;
+protected int LINE_16_OFFSET = 128;
+protected int LINE_17_OFFSET = 136;
+protected int LINE_18_OFFSET = 144;
+protected int LINE_19_OFFSET = 152;
+protected int LINE_20_OFFSET = 160;
 
 
     // Type

@@ -9,15 +9,15 @@ class Field_PositionInterface : RESTPacket{
     }
 
            // Variables
-    Int16 _yaw;
-Int16 _x;
-Int16 _y;
+    protected Int16 _yaw;
+protected Int16 _x;
+protected Int16 _y;
 
 
     // Offsets
-    int YAW_OFFSET = 0;
-int X_OFFSET = 2;
-int Y_OFFSET = 4;
+    protected int YAW_OFFSET = 0;
+protected int X_OFFSET = 2;
+protected int Y_OFFSET = 4;
 
 
     // Type

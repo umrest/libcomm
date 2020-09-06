@@ -9,17 +9,17 @@ class Navigation_ObstaclesInterface : RESTPacket{
     }
 
            // Variables
-    Navigation_Obstacle _obstacle_0;
-Navigation_Obstacle _obstacle_1;
-Navigation_Obstacle _obstacle_2;
-Navigation_Obstacle _obstacle_3;
+    protected Navigation_Obstacle _obstacle_0;
+protected Navigation_Obstacle _obstacle_1;
+protected Navigation_Obstacle _obstacle_2;
+protected Navigation_Obstacle _obstacle_3;
 
 
     // Offsets
-    int OBSTACLE_0_OFFSET = 0;
-int OBSTACLE_1_OFFSET = 8;
-int OBSTACLE_2_OFFSET = 16;
-int OBSTACLE_3_OFFSET = 24;
+    protected int OBSTACLE_0_OFFSET = 0;
+protected int OBSTACLE_1_OFFSET = 8;
+protected int OBSTACLE_2_OFFSET = 16;
+protected int OBSTACLE_3_OFFSET = 24;
 
 
     // Type

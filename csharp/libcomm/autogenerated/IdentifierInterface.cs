@@ -9,11 +9,11 @@ class IdentifierInterface : RESTPacket{
     }
 
            // Variables
-    byte _identifier;
+    protected byte _identifier;
 
 
     // Offsets
-    int IDENTIFIER_OFFSET = 0;
+    protected int IDENTIFIER_OFFSET = 0;
 
 
     // Type

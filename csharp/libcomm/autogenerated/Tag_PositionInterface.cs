@@ -9,21 +9,21 @@ class Tag_PositionInterface : RESTPacket{
     }
 
            // Variables
-    Int16 _yaw;
-Int16 _pitch;
-Int16 _roll;
-Int16 _x;
-Int16 _y;
-Int16 _z;
+    protected Int16 _yaw;
+protected Int16 _pitch;
+protected Int16 _roll;
+protected Int16 _x;
+protected Int16 _y;
+protected Int16 _z;
 
 
     // Offsets
-    int YAW_OFFSET = 0;
-int PITCH_OFFSET = 2;
-int ROLL_OFFSET = 4;
-int X_OFFSET = 6;
-int Y_OFFSET = 8;
-int Z_OFFSET = 10;
+    protected int YAW_OFFSET = 0;
+protected int PITCH_OFFSET = 2;
+protected int ROLL_OFFSET = 4;
+protected int X_OFFSET = 6;
+protected int Y_OFFSET = 8;
+protected int Z_OFFSET = 10;
 
 
     // Type

@@ -82,7 +82,7 @@ class CSharpFieldAccessorWriter:
         
         return f"""void set_{field.name}({self.accessor_type(field)} other){{
                 {self.get_setter2(field)}
-            }};\n"""
+            }}\n"""
 
 class CSharpMessageWriter:
     def __init__(self, templates_dir, src_dir, message, communication_definitions):
@@ -130,14 +130,14 @@ class CSharpMessageWriter:
     def get_variables(self):
         ret = ""
         for field in self.message.fields:
-            ret += f'{get_type(field.type, "csharp")} _{field.name};\n'
+            ret += f'protected {get_type(field.type, "csharp")} _{field.name};\n'
         return ret
     
     def get_offsets(self):
         ret = ""
         offset = 0
         for field in self.message.fields:
-            ret += f'int {field.name.upper()}_OFFSET = {offset};\n'
+            ret += f'protected int {field.name.upper()}_OFFSET = {offset};\n'
             offset += self.communication_definitions["PACKET_SIZES"][field.type.upper()]
         return ret
     

@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Identifier : IdentifierInterface
     {
-        public:
             Identifier() {
 
             }
@@ -15,7 +16,7 @@ namespace comm
 
 void set_identifier(byte other){
                 _identifier = other;
-            };
+            }
 
             
             // Serializers

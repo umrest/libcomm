@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Vision : VisionInterface
     {
-        public:
             Vision() {
 
             }
@@ -24,16 +25,16 @@ byte get_vision_good(){
 
 void set_tag0(Tag_Position other){
                 _tag0 = other;
-            };
+            }
 void set_tag1(Tag_Position other){
                 _tag1 = other;
-            };
+            }
 void set_field_position(Field_Position other){
                 _field_position = other;
-            };
+            }
 void set_vision_good(byte other){
                 _vision_good = other;
-            };
+            }
 
             
             // Serializers

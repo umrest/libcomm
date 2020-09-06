@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Joystick : JoystickInterface
     {
-        public:
             Joystick() {
 
             }
@@ -60,52 +61,52 @@ float get_rt(){
 
 void set_button_A(bool other){
                 _buttons_1.SetBit(0, other);
-            };
+            }
 void set_button_B(bool other){
                 _buttons_1.SetBit(1, other);
-            };
+            }
 void set_button_X(bool other){
                 _buttons_1.SetBit(2, other);
-            };
+            }
 void set_button_Y(bool other){
                 _buttons_1.SetBit(3, other);
-            };
+            }
 void set_button_LB(bool other){
                 _buttons_1.SetBit(4, other);
-            };
+            }
 void set_button_RB(bool other){
                 _buttons_1.SetBit(5, other);
-            };
+            }
 void set_button_Select(bool other){
                 _buttons_1.SetBit(6, other);
-            };
+            }
 void set_button_Start(bool other){
                 _buttons_1.SetBit(7, other);
-            };
+            }
 void set_button_LJ(bool other){
                 _buttons_2.SetBit(0, other);
-            };
+            }
 void set_button_RJ(bool other){
                 _buttons_2.SetBit(1, other);
-            };
+            }
 void set_lj_x(float other){
                 _lj_x = other * 0.00787401574;
-            };
+            }
 void set_lj_y(float other){
                 _lj_y = other * 0.00787401574;
-            };
+            }
 void set_rj_x(float other){
                 _rj_x = other * 0.00787401574;
-            };
+            }
 void set_rj_y(float other){
                 _rj_y = other * 0.00787401574;
-            };
+            }
 void set_lt(float other){
                 _lt = other * 0.00787401574;
-            };
+            }
 void set_rt(float other){
                 _rt = other * 0.00787401574;
-            };
+            }
 
             
             // Serializers

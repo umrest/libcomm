@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Field_Position : Field_PositionInterface
     {
-        public:
             Field_Position() {
 
             }
@@ -21,13 +22,13 @@ float get_y(){
 
 void set_yaw(float other){
                 _yaw = other * 0.0027465827;
-            };
+            }
 void set_x(float other){
                 _x = other * 0.1;
-            };
+            }
 void set_y(float other){
                 _y = other * 0.1;
-            };
+            }
 
             
             // Serializers

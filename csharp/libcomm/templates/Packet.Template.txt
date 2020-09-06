@@ -1,10 +1,11 @@
+using System;
+
 [[Requirements]]
 
 namespace comm
 {
     class [[MessageType]] : [[InterfaceType]]
     {
-        public:
             [[MessageType]]() {
 
             }

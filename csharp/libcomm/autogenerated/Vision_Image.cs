@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Vision_Image : Vision_ImageInterface
     {
-        public:
             Vision_Image() {
 
             }
@@ -15,7 +16,7 @@ namespace comm
 
 void set_image(byte[] other){
                 _image = other;
-            };
+            }
 
             
             // Serializers

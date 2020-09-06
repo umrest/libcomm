@@ -9,11 +9,11 @@ class HardwareInterface : RESTPacket{
     }
 
            // Variables
-    byte _angle;
+    protected byte _angle;
 
 
     // Offsets
-    int ANGLE_OFFSET = 0;
+    protected int ANGLE_OFFSET = 0;
 
 
     // Type

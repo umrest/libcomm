@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Realsense_Command : Realsense_CommandInterface
     {
-        public:
             Realsense_Command() {
 
             }
@@ -15,7 +16,7 @@ namespace comm
 
 void set_command(byte other){
                 _command = other;
-            };
+            }
 
             
             // Serializers

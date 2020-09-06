@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Navigation_Line : Navigation_LineInterface
     {
-        public:
             Navigation_Line() {
 
             }
@@ -24,16 +25,16 @@ Int16 get_y_end(){
 
 void set_x_start(Int16 other){
                 _x_start = other;
-            };
+            }
 void set_y_start(Int16 other){
                 _y_start = other;
-            };
+            }
 void set_x_end(Int16 other){
                 _x_end = other;
-            };
+            }
 void set_y_end(Int16 other){
                 _y_end = other;
-            };
+            }
 
             
             // Serializers
