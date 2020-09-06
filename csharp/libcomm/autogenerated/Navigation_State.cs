@@ -6,7 +6,7 @@ namespace comm
 {
     class Navigation_State : Navigation_StateInterface
     {
-            Navigation_State() {
+            public Navigation_State() {
 
             }
             // Accessors

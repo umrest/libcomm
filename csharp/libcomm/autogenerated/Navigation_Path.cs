@@ -6,7 +6,7 @@ namespace comm
 {
     class Navigation_Path : Navigation_PathInterface
     {
-            Navigation_Path() {
+            public Navigation_Path() {
 
             }
             // Accessors

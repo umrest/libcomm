@@ -6,7 +6,7 @@ namespace comm
 {
     class Identifier : IdentifierInterface
     {
-            Identifier() {
+            public Identifier() {
 
             }
             // Accessors

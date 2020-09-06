@@ -6,7 +6,7 @@ namespace comm
 {
     class Vision_Properties : Vision_PropertiesInterface
     {
-            Vision_Properties() {
+            public Vision_Properties() {
 
             }
             // Accessors

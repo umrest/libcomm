@@ -6,7 +6,7 @@ namespace comm
 {
     class Tag_Position : Tag_PositionInterface
     {
-            Tag_Position() {
+            public Tag_Position() {
 
             }
             // Accessors

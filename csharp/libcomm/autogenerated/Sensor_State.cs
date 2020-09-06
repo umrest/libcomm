@@ -6,7 +6,7 @@ namespace comm
 {
     class Sensor_State : Sensor_StateInterface
     {
-            Sensor_State() {
+            public Sensor_State() {
 
             }
             // Accessors

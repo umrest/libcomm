@@ -6,7 +6,7 @@ namespace comm
 {
     class Obstacle : ObstacleInterface
     {
-            Obstacle() {
+            public Obstacle() {
 
             }
             // Accessors

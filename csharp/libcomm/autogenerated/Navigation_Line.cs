@@ -6,7 +6,7 @@ namespace comm
 {
     class Navigation_Line : Navigation_LineInterface
     {
-            Navigation_Line() {
+            public Navigation_Line() {
 
             }
             // Accessors
