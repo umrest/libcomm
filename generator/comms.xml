@@ -3,6 +3,8 @@
     <pair key='INT8' value="1"></pair>
     <pair key='UINT8' value="1"></pair>
     <pair key='INT16' value="2"></pair>
+    <pair key='UINT16' value="2"></pair>
+    <pair key='UINT32' value="4"></pair>
     <pair key='BYTEARRAY' value="8191"></pair>
 
     <pair key='TAG_POSITION' value="12"></pair>
@@ -248,7 +250,11 @@
   </message>
 
   <message name="Motor_Info">
-
+    <field name='can_id' type='uint8'></field>
+    <field name='can_id' type='uint16'></field>
+    <field name='percent' type='uint8'></field>
+    <field name='position' type='uint32'></field>
+    <field name='velocity' type='uint32'></field>
   </message>
 
   <message name="Sensor_State">

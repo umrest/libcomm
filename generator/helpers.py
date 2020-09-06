@@ -31,6 +31,15 @@ PRIMITIVE_TYPE_MAP = {
         "cpp": "uint32_t",
         "csharp": "UInt32"
     },
+    "uint64": {
+        "cpp": "uint64_t",
+        "csharp": "Int64"
+    },
+    "int64": {
+        "cpp": "int64_t",
+        "csharp": "Int64"
+    },
+    
     "bytearray": {
         "cpp": "char*",
         "csharp": "byte[]"
