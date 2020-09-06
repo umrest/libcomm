@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Vision_Properties : Vision_PropertiesInterface
     {
-        public:
             Vision_Properties() {
 
             }
@@ -15,7 +16,7 @@ namespace comm
 
 void set_command(byte other){
                 _command = other;
-            };
+            }
 
             
             // Serializers

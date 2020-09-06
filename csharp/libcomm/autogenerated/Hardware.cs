@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Hardware : HardwareInterface
     {
-        public:
             Hardware() {
 
             }
@@ -15,7 +16,7 @@ namespace comm
 
 void set_angle(byte other){
                 _angle = other;
-            };
+            }
 
             
             // Serializers

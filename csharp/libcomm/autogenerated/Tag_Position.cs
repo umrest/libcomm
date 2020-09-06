@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Tag_Position : Tag_PositionInterface
     {
-        public:
             Tag_Position() {
 
             }
@@ -30,22 +31,22 @@ float get_z(){
 
 void set_yaw(float other){
                 _yaw = other * 0.0027465827;
-            };
+            }
 void set_pitch(float other){
                 _pitch = other * 0.0027465827;
-            };
+            }
 void set_roll(float other){
                 _roll = other * 0.0027465827;
-            };
+            }
 void set_x(float other){
                 _x = other * 0.1;
-            };
+            }
 void set_y(float other){
                 _y = other * 0.1;
-            };
+            }
 void set_z(float other){
                 _z = other * 0.1;
-            };
+            }
 
             
             // Serializers

@@ -9,25 +9,25 @@ class JoystickInterface : RESTPacket{
     }
 
            // Variables
-    BitArray8 _buttons_1;
-BitArray8 _buttons_2;
-sbyte _lj_x;
-sbyte _lj_y;
-sbyte _rj_x;
-sbyte _rj_y;
-sbyte _lt;
-sbyte _rt;
+    protected BitArray8 _buttons_1;
+protected BitArray8 _buttons_2;
+protected sbyte _lj_x;
+protected sbyte _lj_y;
+protected sbyte _rj_x;
+protected sbyte _rj_y;
+protected sbyte _lt;
+protected sbyte _rt;
 
 
     // Offsets
-    int BUTTONS_1_OFFSET = 0;
-int BUTTONS_2_OFFSET = 1;
-int LJ_X_OFFSET = 2;
-int LJ_Y_OFFSET = 3;
-int RJ_X_OFFSET = 4;
-int RJ_Y_OFFSET = 5;
-int LT_OFFSET = 6;
-int RT_OFFSET = 7;
+    protected int BUTTONS_1_OFFSET = 0;
+protected int BUTTONS_2_OFFSET = 1;
+protected int LJ_X_OFFSET = 2;
+protected int LJ_Y_OFFSET = 3;
+protected int RJ_X_OFFSET = 4;
+protected int RJ_Y_OFFSET = 5;
+protected int LT_OFFSET = 6;
+protected int RT_OFFSET = 7;
 
 
     // Type

@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Dashboard : DashboardInterface
     {
-        public:
             Dashboard() {
 
             }
@@ -39,31 +40,31 @@ byte get_state(){
 
 void set_enabled_1(byte other){
                 _enabled_1 = other;
-            };
+            }
 void set_enabled_2(byte other){
                 _enabled_2 = other;
-            };
+            }
 void set_enabled_3(byte other){
                 _enabled_3 = other;
-            };
+            }
 void set_enabled_4(byte other){
                 _enabled_4 = other;
-            };
+            }
 void set_enabled_5(byte other){
                 _enabled_5 = other;
-            };
+            }
 void set_enabled_6(byte other){
                 _enabled_6 = other;
-            };
+            }
 void set_enabled_7(byte other){
                 _enabled_7 = other;
-            };
+            }
 void set_enabled_8(byte other){
                 _enabled_8 = other;
-            };
+            }
 void set_state(byte other){
                 _state = other;
-            };
+            }
 
             
             // Serializers

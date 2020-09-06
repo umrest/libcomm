@@ -9,11 +9,11 @@ class Vision_ImageInterface : RESTPacket{
     }
 
            // Variables
-    byte[] _image;
+    protected byte[] _image;
 
 
     // Offsets
-    int IMAGE_OFFSET = 0;
+    protected int IMAGE_OFFSET = 0;
 
 
     // Type

@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Realsense : RealsenseInterface
     {
-        public:
             Realsense() {
 
             }
@@ -24,16 +25,16 @@ Obstacle get_obstacle_4(){
 
 void set_obstacle_1(Obstacle other){
                 _obstacle_1 = other;
-            };
+            }
 void set_obstacle_2(Obstacle other){
                 _obstacle_2 = other;
-            };
+            }
 void set_obstacle_3(Obstacle other){
                 _obstacle_3 = other;
-            };
+            }
 void set_obstacle_4(Obstacle other){
                 _obstacle_4 = other;
-            };
+            }
 
             
             // Serializers

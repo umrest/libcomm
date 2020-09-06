@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Navigation_State : Navigation_StateInterface
     {
-        public:
             Navigation_State() {
 
             }
@@ -15,7 +16,7 @@ namespace comm
 
 void set_field_position(Field_Position other){
                 _field_position = other;
-            };
+            }
 
             
             // Serializers

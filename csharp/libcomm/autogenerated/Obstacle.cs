@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Obstacle : ObstacleInterface
     {
-        public:
             Obstacle() {
 
             }
@@ -24,16 +25,16 @@ float get_height(){
 
 void set_x(float other){
                 _x = other * 0.1;
-            };
+            }
 void set_y(float other){
                 _y = other * 0.1;
-            };
+            }
 void set_width(float other){
                 _width = other * 0.1;
-            };
+            }
 void set_height(float other){
                 _height = other * 0.1;
-            };
+            }
 
             
             // Serializers

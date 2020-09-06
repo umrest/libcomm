@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Navigation_Obstacles : Navigation_ObstaclesInterface
     {
-        public:
             Navigation_Obstacles() {
 
             }
@@ -24,16 +25,16 @@ Navigation_Obstacle get_obstacle_3(){
 
 void set_obstacle_0(Navigation_Obstacle other){
                 _obstacle_0 = other;
-            };
+            }
 void set_obstacle_1(Navigation_Obstacle other){
                 _obstacle_1 = other;
-            };
+            }
 void set_obstacle_2(Navigation_Obstacle other){
                 _obstacle_2 = other;
-            };
+            }
 void set_obstacle_3(Navigation_Obstacle other){
                 _obstacle_3 = other;
-            };
+            }
 
             
             // Serializers

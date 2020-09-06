@@ -9,17 +9,17 @@ class VisionInterface : RESTPacket{
     }
 
            // Variables
-    Tag_Position _tag0;
-Tag_Position _tag1;
-Field_Position _field_position;
-byte _vision_good;
+    protected Tag_Position _tag0;
+protected Tag_Position _tag1;
+protected Field_Position _field_position;
+protected byte _vision_good;
 
 
     // Offsets
-    int TAG0_OFFSET = 0;
-int TAG1_OFFSET = 12;
-int FIELD_POSITION_OFFSET = 24;
-int VISION_GOOD_OFFSET = 30;
+    protected int TAG0_OFFSET = 0;
+protected int TAG1_OFFSET = 12;
+protected int FIELD_POSITION_OFFSET = 24;
+protected int VISION_GOOD_OFFSET = 30;
 
 
     // Type

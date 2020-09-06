@@ -9,11 +9,11 @@ class Realsense_CommandInterface : RESTPacket{
     }
 
            // Variables
-    byte _command;
+    protected byte _command;
 
 
     // Offsets
-    int COMMAND_OFFSET = 0;
+    protected int COMMAND_OFFSET = 0;
 
 
     // Type

@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Data_Server : Data_ServerInterface
     {
-        public:
             Data_Server() {
 
             }
@@ -15,7 +16,7 @@ namespace comm
 
 void set_connected_status(BitArray8 other){
                 _connected_status = other;
-            };
+            }
 
             
             // Serializers

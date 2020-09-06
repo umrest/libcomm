@@ -1,10 +1,11 @@
+using System;
+
 using comm;
 
 namespace comm
 {
     class Navigation_Obstacle : Navigation_ObstacleInterface
     {
-        public:
             Navigation_Obstacle() {
 
             }
@@ -24,16 +25,16 @@ Int16 get_height(){
 
 void set_x(Int16 other){
                 _x = other;
-            };
+            }
 void set_y(Int16 other){
                 _y = other;
-            };
+            }
 void set_width(Int16 other){
                 _width = other;
-            };
+            }
 void set_height(Int16 other){
                 _height = other;
-            };
+            }
 
             
             // Serializers

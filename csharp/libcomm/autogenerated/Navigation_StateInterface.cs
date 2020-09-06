@@ -9,11 +9,11 @@ class Navigation_StateInterface : RESTPacket{
     }
 
            // Variables
-    Field_Position _field_position;
+    protected Field_Position _field_position;
 
 
     // Offsets
-    int FIELD_POSITION_OFFSET = 0;
+    protected int FIELD_POSITION_OFFSET = 0;
 
 
     // Type

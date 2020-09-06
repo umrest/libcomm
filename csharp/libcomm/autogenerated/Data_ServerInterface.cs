@@ -9,11 +9,11 @@ class Data_ServerInterface : RESTPacket{
     }
 
            // Variables
-    BitArray8 _connected_status;
+    protected BitArray8 _connected_status;
 
 
     // Offsets
-    int CONNECTED_STATUS_OFFSET = 0;
+    protected int CONNECTED_STATUS_OFFSET = 0;
 
 
     // Type
