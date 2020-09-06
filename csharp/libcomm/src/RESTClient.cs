@@ -7,7 +7,7 @@ namespace comm
 {
     public class RESTClient
     {
-        private TcpClient client = new TcpClient();
+        private TcpClient client;
 
         private int cur_key_idx = 0;
 
@@ -17,9 +17,10 @@ namespace comm
 
         comm.CommunicationDefinitions.IDENTIFIER identifier;
 
-        public RESTClient(comm.CommunicationDefinitions.IDENTIFIER _identifier)
+        public RESTClient(string host, int port, comm.CommunicationDefinitions.IDENTIFIER _identifier)
         {
             identifier = _identifier;
+            client = new TcpClient(host, port);
         }
 
         public bool read_nonblocking(byte[] recv, int offset, int size)
