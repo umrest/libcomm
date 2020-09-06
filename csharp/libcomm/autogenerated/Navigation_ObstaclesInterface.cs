@@ -11,10 +11,10 @@ public abstract class Navigation_ObstaclesInterface : RESTPacket{
     }
 
            // Variables
-    protected Navigation_Obstacle _obstacle_0 = new Navigation_Obstacle();
-protected Navigation_Obstacle _obstacle_1 = new Navigation_Obstacle();
-protected Navigation_Obstacle _obstacle_2 = new Navigation_Obstacle();
-protected Navigation_Obstacle _obstacle_3 = new Navigation_Obstacle();
+    protected Navigation_Obstacle _obstacle_0;
+protected Navigation_Obstacle _obstacle_1;
+protected Navigation_Obstacle _obstacle_2;
+protected Navigation_Obstacle _obstacle_3;
 
 
     // Offsets

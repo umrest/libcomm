@@ -11,14 +11,14 @@ public abstract class JoystickInterface : RESTPacket{
     }
 
            // Variables
-    protected BitArray8 _buttons_1 = new BitArray8();
-protected BitArray8 _buttons_2 = new BitArray8();
-protected sbyte _lj_x = new sbyte();
-protected sbyte _lj_y = new sbyte();
-protected sbyte _rj_x = new sbyte();
-protected sbyte _rj_y = new sbyte();
-protected sbyte _lt = new sbyte();
-protected sbyte _rt = new sbyte();
+    protected BitArray8 _buttons_1;
+protected BitArray8 _buttons_2;
+protected sbyte _lj_x;
+protected sbyte _lj_y;
+protected sbyte _rj_x;
+protected sbyte _rj_y;
+protected sbyte _lt;
+protected sbyte _rt;
 
 
     // Offsets

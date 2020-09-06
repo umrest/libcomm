@@ -11,7 +11,7 @@ public abstract class Robot_StateInterface : RESTPacket{
     }
 
            // Variables
-    protected byte _state = new byte();
+    protected byte _state;
 
 
     // Offsets

@@ -11,7 +11,7 @@ public abstract class Realsense_CommandInterface : RESTPacket{
     }
 
            // Variables
-    protected byte _command = new byte();
+    protected byte _command;
 
 
     // Offsets

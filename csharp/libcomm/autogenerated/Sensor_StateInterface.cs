@@ -11,16 +11,16 @@ public abstract class Sensor_StateInterface : RESTPacket{
     }
 
            // Variables
-    protected Motor_Info _motor_info_1 = new Motor_Info();
-protected Motor_Info _motor_info_2 = new Motor_Info();
-protected Motor_Info _motor_info_3 = new Motor_Info();
-protected Motor_Info _motor_info_4 = new Motor_Info();
-protected Motor_Info _motor_info_5 = new Motor_Info();
-protected Motor_Info _motor_info_6 = new Motor_Info();
-protected Motor_Info _motor_info_7 = new Motor_Info();
-protected Motor_Info _motor_info_8 = new Motor_Info();
-protected Motor_Info _motor_info_9 = new Motor_Info();
-protected Motor_Info _motor_info_10 = new Motor_Info();
+    protected Motor_Info _motor_info_1;
+protected Motor_Info _motor_info_2;
+protected Motor_Info _motor_info_3;
+protected Motor_Info _motor_info_4;
+protected Motor_Info _motor_info_5;
+protected Motor_Info _motor_info_6;
+protected Motor_Info _motor_info_7;
+protected Motor_Info _motor_info_8;
+protected Motor_Info _motor_info_9;
+protected Motor_Info _motor_info_10;
 
 
     // Offsets

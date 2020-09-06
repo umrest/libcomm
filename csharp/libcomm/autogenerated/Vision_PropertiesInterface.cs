@@ -11,8 +11,8 @@ public abstract class Vision_PropertiesInterface : RESTPacket{
     }
 
            // Variables
-    protected UInt32 _exposure = new UInt32();
-protected UInt32 _gain = new UInt32();
+    protected UInt32 _exposure;
+protected UInt32 _gain;
 
 
     // Offsets

@@ -11,10 +11,10 @@ public abstract class Navigation_ObstacleInterface : RESTPacket{
     }
 
            // Variables
-    protected Int16 _x = new Int16();
-protected Int16 _y = new Int16();
-protected Int16 _width = new Int16();
-protected Int16 _height = new Int16();
+    protected Int16 _x;
+protected Int16 _y;
+protected Int16 _width;
+protected Int16 _height;
 
 
     // Offsets

@@ -11,9 +11,9 @@ public abstract class Field_PositionInterface : RESTPacket{
     }
 
            // Variables
-    protected Int16 _yaw = new Int16();
-protected Int16 _x = new Int16();
-protected Int16 _y = new Int16();
+    protected Int16 _yaw;
+protected Int16 _x;
+protected Int16 _y;
 
 
     // Offsets

@@ -11,7 +11,7 @@ public abstract class Data_ServerInterface : RESTPacket{
     }
 
            // Variables
-    protected BitArray8 _connected_status = new BitArray8();
+    protected BitArray8 _connected_status;
 
 
     // Offsets
