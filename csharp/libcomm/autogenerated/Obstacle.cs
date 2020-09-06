@@ -10,29 +10,29 @@ namespace comm
 
             }
             // Accessors
-            float get_x(){
-                return _x / 0.1;
+            double get_x(){
+                return (double)(_x / 0.1);
             }
-float get_y(){
-                return _y / 0.1;
+double get_y(){
+                return (double)(_y / 0.1);
             }
-float get_width(){
-                return _width / 0.1;
+double get_width(){
+                return (double)(_width / 0.1);
             }
-float get_height(){
-                return _height / 0.1;
+double get_height(){
+                return (double)(_height / 0.1);
             }
 
-void set_x(float other){
+void set_x(double other){
                 _x = other * 0.1;
             }
-void set_y(float other){
+void set_y(double other){
                 _y = other * 0.1;
             }
-void set_width(float other){
+void set_width(double other){
                 _width = other * 0.1;
             }
-void set_height(float other){
+void set_height(double other){
                 _height = other * 0.1;
             }
 
@@ -45,18 +45,14 @@ void set_height(float other){
             byte[] ___x = BitConverter.GetBytes(_x);
             Array.Copy(___x, 0, data, X_OFFSET, 2);
             
-            
             byte[] ___y = BitConverter.GetBytes(_y);
             Array.Copy(___y, 0, data, Y_OFFSET, 2);
-            
             
             byte[] ___width = BitConverter.GetBytes(_width);
             Array.Copy(___width, 0, data, WIDTH_OFFSET, 2);
             
-            
             byte[] ___height = BitConverter.GetBytes(_height);
             Array.Copy(___height, 0, data, HEIGHT_OFFSET, 2);
-            
         return data;
         }
         void Deserialize(byte[] data)  {

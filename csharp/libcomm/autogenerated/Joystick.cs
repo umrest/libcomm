@@ -40,23 +40,23 @@ bool get_button_LJ(){
 bool get_button_RJ(){
                 return _buttons_2.GetBit(1);
             }
-float get_lj_x(){
-                return _lj_x / 0.00787401574;
+double get_lj_x(){
+                return (double)(_lj_x / 0.00787401574);
             }
-float get_lj_y(){
-                return _lj_y / 0.00787401574;
+double get_lj_y(){
+                return (double)(_lj_y / 0.00787401574);
             }
-float get_rj_x(){
-                return _rj_x / 0.00787401574;
+double get_rj_x(){
+                return (double)(_rj_x / 0.00787401574);
             }
-float get_rj_y(){
-                return _rj_y / 0.00787401574;
+double get_rj_y(){
+                return (double)(_rj_y / 0.00787401574);
             }
-float get_lt(){
-                return _lt / 0.00787401574;
+double get_lt(){
+                return (double)(_lt / 0.00787401574);
             }
-float get_rt(){
-                return _rt / 0.00787401574;
+double get_rt(){
+                return (double)(_rt / 0.00787401574);
             }
 
 void set_button_A(bool other){
@@ -89,22 +89,22 @@ void set_button_LJ(bool other){
 void set_button_RJ(bool other){
                 _buttons_2.SetBit(1, other);
             }
-void set_lj_x(float other){
+void set_lj_x(double other){
                 _lj_x = other * 0.00787401574;
             }
-void set_lj_y(float other){
+void set_lj_y(double other){
                 _lj_y = other * 0.00787401574;
             }
-void set_rj_x(float other){
+void set_rj_x(double other){
                 _rj_x = other * 0.00787401574;
             }
-void set_rj_y(float other){
+void set_rj_y(double other){
                 _rj_y = other * 0.00787401574;
             }
-void set_lt(float other){
+void set_lt(double other){
                 _lt = other * 0.00787401574;
             }
-void set_rt(float other){
+void set_rt(double other){
                 _rt = other * 0.00787401574;
             }
 
@@ -114,51 +114,47 @@ void set_rt(float other){
                      byte[] data = new byte[8];
                      
             
-            return _buttons_1.Serialize();
+            byte[] ___buttons_1 = _buttons_1.Serialize();
+            Array.Copy(___buttons_1, 0, data, BUTTONS_1_OFFSET, 1);
             
-            return _buttons_2.Serialize();
+            byte[] ___buttons_2 = _buttons_2.Serialize();
+            Array.Copy(___buttons_2, 0, data, BUTTONS_2_OFFSET, 1);
             
             byte[] ___lj_x = BitConverter.GetBytes(_lj_x);
             Array.Copy(___lj_x, 0, data, LJ_X_OFFSET, 1);
             
-            
             byte[] ___lj_y = BitConverter.GetBytes(_lj_y);
             Array.Copy(___lj_y, 0, data, LJ_Y_OFFSET, 1);
-            
             
             byte[] ___rj_x = BitConverter.GetBytes(_rj_x);
             Array.Copy(___rj_x, 0, data, RJ_X_OFFSET, 1);
             
-            
             byte[] ___rj_y = BitConverter.GetBytes(_rj_y);
             Array.Copy(___rj_y, 0, data, RJ_Y_OFFSET, 1);
-            
             
             byte[] ___lt = BitConverter.GetBytes(_lt);
             Array.Copy(___lt, 0, data, LT_OFFSET, 1);
             
-            
             byte[] ___rt = BitConverter.GetBytes(_rt);
             Array.Copy(___rt, 0, data, RT_OFFSET, 1);
-            
         return data;
         }
         void Deserialize(byte[] data)  {
          byte[] new_data;
         
-            byte[] __buttons_1[1];
+            byte[] __buttons_1 = new byte[1];
             Array.Copy(data, BUTTONS_1_OFFSET, __buttons_1, 0, 1);
             _buttons_1.Deserialize(__buttons_1);
         
-            byte[] __buttons_2[1];
+            byte[] __buttons_2 = new byte[1];
             Array.Copy(data, BUTTONS_2_OFFSET, __buttons_2, 0, 1);
             _buttons_2.Deserialize(__buttons_2);
-        BitConverter.Tosbyte(data, LJ_X_OFFSET);
-        BitConverter.Tosbyte(data, LJ_Y_OFFSET);
-        BitConverter.Tosbyte(data, RJ_X_OFFSET);
-        BitConverter.Tosbyte(data, RJ_Y_OFFSET);
-        BitConverter.Tosbyte(data, LT_OFFSET);
-        BitConverter.Tosbyte(data, RT_OFFSET);}
+        _lj_x = (sbyte)data[LJ_X_OFFSET]
+        _lj_y = (sbyte)data[LJ_Y_OFFSET]
+        _rj_x = (sbyte)data[RJ_X_OFFSET]
+        _rj_y = (sbyte)data[RJ_Y_OFFSET]
+        _lt = (sbyte)data[LT_OFFSET]
+        _rt = (sbyte)data[RT_OFFSET]}
         
 
             

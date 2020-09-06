@@ -45,18 +45,14 @@ void set_y_end(Int16 other){
             byte[] ___x_start = BitConverter.GetBytes(_x_start);
             Array.Copy(___x_start, 0, data, X_START_OFFSET, 2);
             
-            
             byte[] ___y_start = BitConverter.GetBytes(_y_start);
             Array.Copy(___y_start, 0, data, Y_START_OFFSET, 2);
-            
             
             byte[] ___x_end = BitConverter.GetBytes(_x_end);
             Array.Copy(___x_end, 0, data, X_END_OFFSET, 2);
             
-            
             byte[] ___y_end = BitConverter.GetBytes(_y_end);
             Array.Copy(___y_end, 0, data, Y_END_OFFSET, 2);
-            
         return data;
         }
         void Deserialize(byte[] data)  {

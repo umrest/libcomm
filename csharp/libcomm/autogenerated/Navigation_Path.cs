@@ -144,133 +144,154 @@ void set_line_20(Navigation_Line other){
                      byte[] data = new byte[200];
                      
             
-            return _line_0.Serialize();
+            byte[] ___line_0 = _line_0.Serialize();
+            Array.Copy(___line_0, 0, data, LINE_0_OFFSET, 8);
             
-            return _line_1.Serialize();
+            byte[] ___line_1 = _line_1.Serialize();
+            Array.Copy(___line_1, 0, data, LINE_1_OFFSET, 8);
             
-            return _line_2.Serialize();
+            byte[] ___line_2 = _line_2.Serialize();
+            Array.Copy(___line_2, 0, data, LINE_2_OFFSET, 8);
             
-            return _line_3.Serialize();
+            byte[] ___line_3 = _line_3.Serialize();
+            Array.Copy(___line_3, 0, data, LINE_3_OFFSET, 8);
             
-            return _line_4.Serialize();
+            byte[] ___line_4 = _line_4.Serialize();
+            Array.Copy(___line_4, 0, data, LINE_4_OFFSET, 8);
             
-            return _line_5.Serialize();
+            byte[] ___line_5 = _line_5.Serialize();
+            Array.Copy(___line_5, 0, data, LINE_5_OFFSET, 8);
             
-            return _line_6.Serialize();
+            byte[] ___line_6 = _line_6.Serialize();
+            Array.Copy(___line_6, 0, data, LINE_6_OFFSET, 8);
             
-            return _line_7.Serialize();
+            byte[] ___line_7 = _line_7.Serialize();
+            Array.Copy(___line_7, 0, data, LINE_7_OFFSET, 8);
             
-            return _line_8.Serialize();
+            byte[] ___line_8 = _line_8.Serialize();
+            Array.Copy(___line_8, 0, data, LINE_8_OFFSET, 8);
             
-            return _line_9.Serialize();
+            byte[] ___line_9 = _line_9.Serialize();
+            Array.Copy(___line_9, 0, data, LINE_9_OFFSET, 8);
             
-            return _line_10.Serialize();
+            byte[] ___line_10 = _line_10.Serialize();
+            Array.Copy(___line_10, 0, data, LINE_10_OFFSET, 8);
             
-            return _line_11.Serialize();
+            byte[] ___line_11 = _line_11.Serialize();
+            Array.Copy(___line_11, 0, data, LINE_11_OFFSET, 8);
             
-            return _line_12.Serialize();
+            byte[] ___line_12 = _line_12.Serialize();
+            Array.Copy(___line_12, 0, data, LINE_12_OFFSET, 8);
             
-            return _line_13.Serialize();
+            byte[] ___line_13 = _line_13.Serialize();
+            Array.Copy(___line_13, 0, data, LINE_13_OFFSET, 8);
             
-            return _line_14.Serialize();
+            byte[] ___line_14 = _line_14.Serialize();
+            Array.Copy(___line_14, 0, data, LINE_14_OFFSET, 8);
             
-            return _line_15.Serialize();
+            byte[] ___line_15 = _line_15.Serialize();
+            Array.Copy(___line_15, 0, data, LINE_15_OFFSET, 8);
             
-            return _line_16.Serialize();
+            byte[] ___line_16 = _line_16.Serialize();
+            Array.Copy(___line_16, 0, data, LINE_16_OFFSET, 8);
             
-            return _line_17.Serialize();
+            byte[] ___line_17 = _line_17.Serialize();
+            Array.Copy(___line_17, 0, data, LINE_17_OFFSET, 8);
             
-            return _line_18.Serialize();
+            byte[] ___line_18 = _line_18.Serialize();
+            Array.Copy(___line_18, 0, data, LINE_18_OFFSET, 8);
             
-            return _line_19.Serialize();
+            byte[] ___line_19 = _line_19.Serialize();
+            Array.Copy(___line_19, 0, data, LINE_19_OFFSET, 8);
             
-            return _line_20.Serialize();
+            byte[] ___line_20 = _line_20.Serialize();
+            Array.Copy(___line_20, 0, data, LINE_20_OFFSET, 8);
         return data;
         }
         void Deserialize(byte[] data)  {
          byte[] new_data;
         
-            byte[] __line_0[8];
+            byte[] __line_0 = new byte[8];
             Array.Copy(data, LINE_0_OFFSET, __line_0, 0, 8);
             _line_0.Deserialize(__line_0);
         
-            byte[] __line_1[8];
+            byte[] __line_1 = new byte[8];
             Array.Copy(data, LINE_1_OFFSET, __line_1, 0, 8);
             _line_1.Deserialize(__line_1);
         
-            byte[] __line_2[8];
+            byte[] __line_2 = new byte[8];
             Array.Copy(data, LINE_2_OFFSET, __line_2, 0, 8);
             _line_2.Deserialize(__line_2);
         
-            byte[] __line_3[8];
+            byte[] __line_3 = new byte[8];
             Array.Copy(data, LINE_3_OFFSET, __line_3, 0, 8);
             _line_3.Deserialize(__line_3);
         
-            byte[] __line_4[8];
+            byte[] __line_4 = new byte[8];
             Array.Copy(data, LINE_4_OFFSET, __line_4, 0, 8);
             _line_4.Deserialize(__line_4);
         
-            byte[] __line_5[8];
+            byte[] __line_5 = new byte[8];
             Array.Copy(data, LINE_5_OFFSET, __line_5, 0, 8);
             _line_5.Deserialize(__line_5);
         
-            byte[] __line_6[8];
+            byte[] __line_6 = new byte[8];
             Array.Copy(data, LINE_6_OFFSET, __line_6, 0, 8);
             _line_6.Deserialize(__line_6);
         
-            byte[] __line_7[8];
+            byte[] __line_7 = new byte[8];
             Array.Copy(data, LINE_7_OFFSET, __line_7, 0, 8);
             _line_7.Deserialize(__line_7);
         
-            byte[] __line_8[8];
+            byte[] __line_8 = new byte[8];
             Array.Copy(data, LINE_8_OFFSET, __line_8, 0, 8);
             _line_8.Deserialize(__line_8);
         
-            byte[] __line_9[8];
+            byte[] __line_9 = new byte[8];
             Array.Copy(data, LINE_9_OFFSET, __line_9, 0, 8);
             _line_9.Deserialize(__line_9);
         
-            byte[] __line_10[8];
+            byte[] __line_10 = new byte[8];
             Array.Copy(data, LINE_10_OFFSET, __line_10, 0, 8);
             _line_10.Deserialize(__line_10);
         
-            byte[] __line_11[8];
+            byte[] __line_11 = new byte[8];
             Array.Copy(data, LINE_11_OFFSET, __line_11, 0, 8);
             _line_11.Deserialize(__line_11);
         
-            byte[] __line_12[8];
+            byte[] __line_12 = new byte[8];
             Array.Copy(data, LINE_12_OFFSET, __line_12, 0, 8);
             _line_12.Deserialize(__line_12);
         
-            byte[] __line_13[8];
+            byte[] __line_13 = new byte[8];
             Array.Copy(data, LINE_13_OFFSET, __line_13, 0, 8);
             _line_13.Deserialize(__line_13);
         
-            byte[] __line_14[8];
+            byte[] __line_14 = new byte[8];
             Array.Copy(data, LINE_14_OFFSET, __line_14, 0, 8);
             _line_14.Deserialize(__line_14);
         
-            byte[] __line_15[8];
+            byte[] __line_15 = new byte[8];
             Array.Copy(data, LINE_15_OFFSET, __line_15, 0, 8);
             _line_15.Deserialize(__line_15);
         
-            byte[] __line_16[8];
+            byte[] __line_16 = new byte[8];
             Array.Copy(data, LINE_16_OFFSET, __line_16, 0, 8);
             _line_16.Deserialize(__line_16);
         
-            byte[] __line_17[8];
+            byte[] __line_17 = new byte[8];
             Array.Copy(data, LINE_17_OFFSET, __line_17, 0, 8);
             _line_17.Deserialize(__line_17);
         
-            byte[] __line_18[8];
+            byte[] __line_18 = new byte[8];
             Array.Copy(data, LINE_18_OFFSET, __line_18, 0, 8);
             _line_18.Deserialize(__line_18);
         
-            byte[] __line_19[8];
+            byte[] __line_19 = new byte[8];
             Array.Copy(data, LINE_19_OFFSET, __line_19, 0, 8);
             _line_19.Deserialize(__line_19);
         
-            byte[] __line_20[8];
+            byte[] __line_20 = new byte[8];
             Array.Copy(data, LINE_20_OFFSET, __line_20, 0, 8);
             _line_20.Deserialize(__line_20);}
         

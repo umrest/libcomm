@@ -42,29 +42,31 @@ void set_vision_good(byte other){
                      byte[] data = new byte[31];
                      
             
-            return _tag0.Serialize();
+            byte[] ___tag0 = _tag0.Serialize();
+            Array.Copy(___tag0, 0, data, TAG0_OFFSET, 12);
             
-            return _tag1.Serialize();
+            byte[] ___tag1 = _tag1.Serialize();
+            Array.Copy(___tag1, 0, data, TAG1_OFFSET, 12);
             
-            return _field_position.Serialize();
+            byte[] ___field_position = _field_position.Serialize();
+            Array.Copy(___field_position, 0, data, FIELD_POSITION_OFFSET, 6);
             
             byte[] ___vision_good = BitConverter.GetBytes(_vision_good);
             Array.Copy(___vision_good, 0, data, VISION_GOOD_OFFSET, 1);
-            
         return data;
         }
         void Deserialize(byte[] data)  {
          byte[] new_data;
         
-            byte[] __tag0[12];
+            byte[] __tag0 = new byte[12];
             Array.Copy(data, TAG0_OFFSET, __tag0, 0, 12);
             _tag0.Deserialize(__tag0);
         
-            byte[] __tag1[12];
+            byte[] __tag1 = new byte[12];
             Array.Copy(data, TAG1_OFFSET, __tag1, 0, 12);
             _tag1.Deserialize(__tag1);
         
-            byte[] __field_position[6];
+            byte[] __field_position = new byte[6];
             Array.Copy(data, FIELD_POSITION_OFFSET, __field_position, 0, 6);
             _field_position.Deserialize(__field_position);
         _vision_good = data[VISION_GOOD_OFFSET]}

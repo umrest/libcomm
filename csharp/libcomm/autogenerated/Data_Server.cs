@@ -24,13 +24,14 @@ void set_connected_status(BitArray8 other){
                      byte[] data = new byte[127];
                      
             
-            return _connected_status.Serialize();
+            byte[] ___connected_status = _connected_status.Serialize();
+            Array.Copy(___connected_status, 0, data, CONNECTED_STATUS_OFFSET, 1);
         return data;
         }
         void Deserialize(byte[] data)  {
          byte[] new_data;
         
-            byte[] __connected_status[1];
+            byte[] __connected_status = new byte[1];
             Array.Copy(data, CONNECTED_STATUS_OFFSET, __connected_status, 0, 1);
             _connected_status.Deserialize(__connected_status);}
         

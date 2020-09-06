@@ -26,7 +26,6 @@ void set_image(byte[] other){
             
             byte[] ___image = BitConverter.GetBytes(_image);
             Array.Copy(___image, 0, data, IMAGE_OFFSET, 8191);
-            
         return data;
         }
         void Deserialize(byte[] data)  {

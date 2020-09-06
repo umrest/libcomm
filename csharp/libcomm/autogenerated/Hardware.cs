@@ -26,7 +26,6 @@ void set_angle(byte other){
             
             byte[] ___angle = BitConverter.GetBytes(_angle);
             Array.Copy(___angle, 0, data, ANGLE_OFFSET, 1);
-            
         return data;
         }
         void Deserialize(byte[] data)  {

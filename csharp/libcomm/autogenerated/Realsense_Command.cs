@@ -26,7 +26,6 @@ void set_command(byte other){
             
             byte[] ___command = BitConverter.GetBytes(_command);
             Array.Copy(___command, 0, data, COMMAND_OFFSET, 1);
-            
         return data;
         }
         void Deserialize(byte[] data)  {

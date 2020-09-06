@@ -2,20 +2,30 @@ import os
 
 from helpers import *
 
+BitConverterMap = {
+    "float": "Single",
+    "double": "Double",
+
+}
+
 class CSharpFieldSerializerWriter:
     def __init__(self, message, communication_definitions):
         self.message = message
         self.communication_definitions = communication_definitions
     
     def get_serializer2(self, field):
+        ret = ""
         if not is_primitive(field.type):
-            return f"""
-            return _{field.name}.Serialize();"""
-        
-        return f"""
-            byte[] ___{field.name} = BitConverter.GetBytes(_{field.name});
-            Array.Copy(___{field.name}, 0, data, {field.name.upper()}_OFFSET, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
+            ret += f"""
+            byte[] ___{field.name} = _{field.name}.Serialize();
             """
+        
+        else:
+            ret +=f"""
+            byte[] ___{field.name} = BitConverter.GetBytes(_{field.name});
+            """
+        ret += f"""Array.Copy(___{field.name}, 0, data, {field.name.upper()}_OFFSET, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});"""
+        return ret
     
     def get_serializer(self, field):
         return f"""
@@ -24,12 +34,14 @@ class CSharpFieldSerializerWriter:
     def get_deserializer2(self, field):
         if not is_primitive(field.type):
             return f"""
-            byte[] __{field.name}[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
+            byte[] __{field.name} = new byte[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
             Array.Copy(data, {field.name.upper()}_OFFSET, __{field.name}, 0, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
             _{field.name}.Deserialize(__{field.name});"""
         if field.type == "uint8":
             return f"_{field.name} = data[{field.name.upper()}_OFFSET]"
-        return f"""BitConverter.To{get_type(field.type, "csharp")}(data, {field.name.upper()}_OFFSET);"""
+        if field.type == "int8":
+            return f"_{field.name} = (sbyte)data[{field.name.upper()}_OFFSET]"
+        return f"""BitConverter.To{BitConverterMap.get(get_type(field.type, "csharp"), get_type(field.type, "csharp"))}(data, {field.name.upper()}_OFFSET);"""
 
     def get_deserializer(self, field):
         return f"""
@@ -43,7 +55,7 @@ class CSharpFieldAccessorWriter:
     def accessor_type(self, field):
         if field.accessor:
             if field.accessor.type == "float":
-                return "float"
+                return "double"
         if is_primitive(field.type):
             return get_type(field.type, "csharp")
         return field.type
@@ -52,7 +64,7 @@ class CSharpFieldAccessorWriter:
         if field.accessor.type == "bit":
             return f"return _{field.bit_array.name}.GetBit({field.idx});"
         if field.accessor.type == "float":
-            return f"return _{field.name} / {field.accessor.scale};"
+            return f"return (double)(_{field.name} / {field.accessor.scale});"
         return f"return _{field.name};"
     
     def get_getter(self, field):

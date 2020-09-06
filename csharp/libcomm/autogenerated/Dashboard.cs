@@ -75,38 +75,29 @@ void set_state(byte other){
             byte[] ___enabled_1 = BitConverter.GetBytes(_enabled_1);
             Array.Copy(___enabled_1, 0, data, ENABLED_1_OFFSET, 1);
             
-            
             byte[] ___enabled_2 = BitConverter.GetBytes(_enabled_2);
             Array.Copy(___enabled_2, 0, data, ENABLED_2_OFFSET, 1);
-            
             
             byte[] ___enabled_3 = BitConverter.GetBytes(_enabled_3);
             Array.Copy(___enabled_3, 0, data, ENABLED_3_OFFSET, 1);
             
-            
             byte[] ___enabled_4 = BitConverter.GetBytes(_enabled_4);
             Array.Copy(___enabled_4, 0, data, ENABLED_4_OFFSET, 1);
-            
             
             byte[] ___enabled_5 = BitConverter.GetBytes(_enabled_5);
             Array.Copy(___enabled_5, 0, data, ENABLED_5_OFFSET, 1);
             
-            
             byte[] ___enabled_6 = BitConverter.GetBytes(_enabled_6);
             Array.Copy(___enabled_6, 0, data, ENABLED_6_OFFSET, 1);
-            
             
             byte[] ___enabled_7 = BitConverter.GetBytes(_enabled_7);
             Array.Copy(___enabled_7, 0, data, ENABLED_7_OFFSET, 1);
             
-            
             byte[] ___enabled_8 = BitConverter.GetBytes(_enabled_8);
             Array.Copy(___enabled_8, 0, data, ENABLED_8_OFFSET, 1);
             
-            
             byte[] ___state = BitConverter.GetBytes(_state);
             Array.Copy(___state, 0, data, STATE_OFFSET, 1);
-            
         return data;
         }
         void Deserialize(byte[] data)  {

@@ -24,13 +24,14 @@ void set_field_position(Field_Position other){
                      byte[] data = new byte[120];
                      
             
-            return _field_position.Serialize();
+            byte[] ___field_position = _field_position.Serialize();
+            Array.Copy(___field_position, 0, data, FIELD_POSITION_OFFSET, 6);
         return data;
         }
         void Deserialize(byte[] data)  {
          byte[] new_data;
         
-            byte[] __field_position[6];
+            byte[] __field_position = new byte[6];
             Array.Copy(data, FIELD_POSITION_OFFSET, __field_position, 0, 6);
             _field_position.Deserialize(__field_position);}
         

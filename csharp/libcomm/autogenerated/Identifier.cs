@@ -26,7 +26,6 @@ void set_identifier(byte other){
             
             byte[] ___identifier = BitConverter.GetBytes(_identifier);
             Array.Copy(___identifier, 0, data, IDENTIFIER_OFFSET, 1);
-            
         return data;
         }
         void Deserialize(byte[] data)  {
