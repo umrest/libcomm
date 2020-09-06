@@ -10,12 +10,30 @@ namespace comm
 
             }
             // Accessors
-            public BitArray8 get_connected_status(){
-                return _connected_status;
+            public bool get_{'@name': 'vision_connected'}(){
+                return _connected_status.GetBit(0);
+            }
+public bool get_{'@name': 'tcpserial_connected'}(){
+                return _connected_status.GetBit(1);
+            }
+public bool get_{'@name': 'hero_connected'}(){
+                return _connected_status.GetBit(2);
+            }
+public bool get_{'@name': 'dashboard_connected'}(){
+                return _connected_status.GetBit(3);
             }
 
-public void set_connected_status(BitArray8 other){
-                _connected_status = other;
+public void set_{'@name': 'vision_connected'}(bool other){
+                _connected_status.SetBit(0, other);
+            }
+public void set_{'@name': 'tcpserial_connected'}(bool other){
+                _connected_status.SetBit(1, other);
+            }
+public void set_{'@name': 'hero_connected'}(bool other){
+                _connected_status.SetBit(2, other);
+            }
+public void set_{'@name': 'dashboard_connected'}(bool other){
+                _connected_status.SetBit(3, other);
             }
 
             
