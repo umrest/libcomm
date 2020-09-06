@@ -47,9 +47,9 @@ public void set_y(double other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-        BitConverter.ToInt16(data, YAW_OFFSET);
-        BitConverter.ToInt16(data, X_OFFSET);
-        BitConverter.ToInt16(data, Y_OFFSET);}
+        _yaw = BitConverter.ToInt16(data, YAW_OFFSET);
+        _x = BitConverter.ToInt16(data, X_OFFSET);
+        _y = BitConverter.ToInt16(data, Y_OFFSET);}
         
 
             

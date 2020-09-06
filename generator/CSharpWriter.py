@@ -41,7 +41,11 @@ class CSharpFieldSerializerWriter:
             return f"_{field.name} = data[{field.name.upper()}_OFFSET];"
         if field.type == "int8":
             return f"_{field.name} = (sbyte)data[{field.name.upper()}_OFFSET];"
-        return f"""BitConverter.To{BitConverterMap.get(get_type(field.type, "csharp"), get_type(field.type, "csharp"))}(data, {field.name.upper()}_OFFSET);"""
+        if field.type == "bytearray":
+            return f"""_{field.name} = new byte[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
+                    Array.Copy(data, {field.name.upper()}_OFFSET, 0, _{field.name}.Length);
+                    """
+        return f"""_{field.name} = BitConverter.To{BitConverterMap.get(get_type(field.type, "csharp"), get_type(field.type, "csharp"))}(data, {field.name.upper()}_OFFSET);"""
 
     def get_deserializer(self, field):
         return f"""
@@ -222,7 +226,7 @@ class CSharpCommunicationDefinitionsWriter:
                 """
     
     def write(self):
-        template = open(os.path.join(self.templates_dir, "CommunicationDefinitions.Template.cs")).read()
+        template = open(os.path.join(self.templates_dir, "CommunicationDefinitions.Template.txt")).read()
         template = template.replace("[[ENUMS]]", self.get_enum_header(self.communication_definitions["TYPES"], "TYPE") + "\n" + self.get_enum_header(self.communication_definitions["IDENTIFIERS"], "IDENTIFIER"))
         template = template.replace("[[MAPS]]", self.get_map_source(self.communication_definitions["PACKET_SIZES"], "PACKET_SIZES"))
         open(os.path.join(self.src_dir, "CommunicationDefinitions.cs"), "w").write(template)

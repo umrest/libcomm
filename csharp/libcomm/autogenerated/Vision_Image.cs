@@ -29,7 +29,9 @@ public void set_image(byte[] other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-        BitConverter.Tobyte[](data, IMAGE_OFFSET);}
+        _image = new byte[8191];
+                    Array.Copy(data, IMAGE_OFFSET, 0, _image.Length);
+                    }
         
 
             
