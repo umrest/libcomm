@@ -6,7 +6,7 @@ namespace comm
 {
     class Field_Position : Field_PositionInterface
     {
-            Field_Position() {
+            public Field_Position() {
 
             }
             // Accessors

@@ -6,7 +6,7 @@ namespace comm
 {
     class [[MessageType]] : [[InterfaceType]]
     {
-            [[MessageType]]() {
+            public [[MessageType]]() {
 
             }
             // Accessors

@@ -6,7 +6,7 @@ namespace comm
 {
     class Data_Server : Data_ServerInterface
     {
-            Data_Server() {
+            public Data_Server() {
 
             }
             // Accessors

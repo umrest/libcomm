@@ -6,7 +6,7 @@ namespace comm
 {
     class Dashboard : DashboardInterface
     {
-            Dashboard() {
+            public Dashboard() {
 
             }
             // Accessors

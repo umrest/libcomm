@@ -6,7 +6,7 @@ namespace comm
 {
     class Joystick : JoystickInterface
     {
-            Joystick() {
+            public Joystick() {
 
             }
             // Accessors

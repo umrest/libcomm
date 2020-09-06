@@ -6,7 +6,7 @@ namespace comm
 {
     class Hardware : HardwareInterface
     {
-            Hardware() {
+            public Hardware() {
 
             }
             // Accessors

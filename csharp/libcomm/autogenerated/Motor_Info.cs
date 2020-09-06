@@ -6,7 +6,7 @@ namespace comm
 {
     class Motor_Info : Motor_InfoInterface
     {
-            Motor_Info() {
+            public Motor_Info() {
 
             }
             // Accessors

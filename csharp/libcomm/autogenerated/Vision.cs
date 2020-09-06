@@ -6,7 +6,7 @@ namespace comm
 {
     class Vision : VisionInterface
     {
-            Vision() {
+            public Vision() {
 
             }
             // Accessors

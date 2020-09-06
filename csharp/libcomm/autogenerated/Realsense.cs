@@ -6,7 +6,7 @@ namespace comm
 {
     class Realsense : RealsenseInterface
     {
-            Realsense() {
+            public Realsense() {
 
             }
             // Accessors

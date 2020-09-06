@@ -6,7 +6,7 @@ namespace comm
 {
     class Navigation_Obstacle : Navigation_ObstacleInterface
     {
-            Navigation_Obstacle() {
+            public Navigation_Obstacle() {
 
             }
             // Accessors
