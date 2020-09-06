@@ -22,6 +22,9 @@ public bool get_hero_connected(){
 public bool get_dashboard_connected(){
                 return _connected_status.GetBit(3);
             }
+public bool get_realsense_connected(){
+                return _connected_status.GetBit(4);
+            }
 
 public void set_vision_connected(bool other){
                 _connected_status.SetBit(0, other);
@@ -34,6 +37,9 @@ public void set_hero_connected(bool other){
             }
 public void set_dashboard_connected(bool other){
                 _connected_status.SetBit(3, other);
+            }
+public void set_realsense_connected(bool other){
+                _connected_status.SetBit(4, other);
             }
 
             

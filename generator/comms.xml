@@ -283,6 +283,7 @@
         <bit>tcpserial_connected</bit>
         <bit>hero_connected</bit>
         <bit>dashboard_connected</bit>
+        <bit>realsense_connected</bit>
       </accessor>
     </field>
   </message>
