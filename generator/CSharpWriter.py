@@ -19,7 +19,9 @@ class CSharpFieldSerializerWriter:
             ret += f"""
             byte[] ___{field.name} = _{field.name}.Serialize();
             """
-        
+        elif field.type == "bytearray":
+            ret += f"""byte[] ___{field.name} = _{field.name}
+            """
         else:
             ret +=f"""
             byte[] ___{field.name} = BitConverter.GetBytes(_{field.name});
@@ -37,13 +39,13 @@ class CSharpFieldSerializerWriter:
             byte[] __{field.name} = new byte[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
             Array.Copy(data, {field.name.upper()}_OFFSET, __{field.name}, 0, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
             _{field.name}.Deserialize(__{field.name});"""
-        if field.type == "uint8":
+        elif field.type == "uint8":
             return f"_{field.name} = data[{field.name.upper()}_OFFSET];"
-        if field.type == "int8":
+        elif field.type == "int8":
             return f"_{field.name} = (sbyte)data[{field.name.upper()}_OFFSET];"
-        if field.type == "bytearray":
+        elif field.type == "bytearray":
             return f"""_{field.name} = new byte[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
-                    Array.Copy(data, {field.name.upper()}_OFFSET, 0, _{field.name}.Length);
+                    Array.Copy(data, {field.name.upper()}_OFFSET, _{field.name}, 0, _{field.name}.Length);
                     """
         return f"""_{field.name} = BitConverter.To{BitConverterMap.get(get_type(field.type, "csharp"), get_type(field.type, "csharp"))}(data, {field.name.upper()}_OFFSET);"""
 
