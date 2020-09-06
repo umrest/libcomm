@@ -55,8 +55,7 @@ NAVIGATION = 7,
 {TYPE.VISION_PROPERTIES, 127},
 
         };
-                
 
-        public static byte[] key = { 44, 254, 153 };
+        public static byte[] key_ = { 44, 254, 153 };
     }
 }
