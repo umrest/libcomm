@@ -68,7 +68,7 @@ void set_state(byte other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[9];
                      
             
@@ -100,17 +100,17 @@ void set_state(byte other){
             Array.Copy(___state, 0, data, STATE_OFFSET, 1);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
-        _enabled_1 = data[ENABLED_1_OFFSET]
-        _enabled_2 = data[ENABLED_2_OFFSET]
-        _enabled_3 = data[ENABLED_3_OFFSET]
-        _enabled_4 = data[ENABLED_4_OFFSET]
-        _enabled_5 = data[ENABLED_5_OFFSET]
-        _enabled_6 = data[ENABLED_6_OFFSET]
-        _enabled_7 = data[ENABLED_7_OFFSET]
-        _enabled_8 = data[ENABLED_8_OFFSET]
-        _state = data[STATE_OFFSET]}
+        _enabled_1 = data[ENABLED_1_OFFSET];
+        _enabled_2 = data[ENABLED_2_OFFSET];
+        _enabled_3 = data[ENABLED_3_OFFSET];
+        _enabled_4 = data[ENABLED_4_OFFSET];
+        _enabled_5 = data[ENABLED_5_OFFSET];
+        _enabled_6 = data[ENABLED_6_OFFSET];
+        _enabled_7 = data[ENABLED_7_OFFSET];
+        _enabled_8 = data[ENABLED_8_OFFSET];
+        _state = data[STATE_OFFSET];}
         
 
             

@@ -38,7 +38,7 @@ void set_y_end(Int16 other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[8];
                      
             
@@ -55,7 +55,7 @@ void set_y_end(Int16 other){
             Array.Copy(___y_end, 0, data, Y_END_OFFSET, 2);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         BitConverter.ToInt16(data, X_START_OFFSET);
         BitConverter.ToInt16(data, Y_START_OFFSET);

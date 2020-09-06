@@ -90,27 +90,27 @@ void set_button_RJ(bool other){
                 _buttons_2.SetBit(1, other);
             }
 void set_lj_x(double other){
-                _lj_x = other * 0.00787401574;
+                _lj_x = (int8)(other * 0.00787401574);
             }
 void set_lj_y(double other){
-                _lj_y = other * 0.00787401574;
+                _lj_y = (int8)(other * 0.00787401574);
             }
 void set_rj_x(double other){
-                _rj_x = other * 0.00787401574;
+                _rj_x = (int8)(other * 0.00787401574);
             }
 void set_rj_y(double other){
-                _rj_y = other * 0.00787401574;
+                _rj_y = (int8)(other * 0.00787401574);
             }
 void set_lt(double other){
-                _lt = other * 0.00787401574;
+                _lt = (int8)(other * 0.00787401574);
             }
 void set_rt(double other){
-                _rt = other * 0.00787401574;
+                _rt = (int8)(other * 0.00787401574);
             }
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[8];
                      
             
@@ -139,7 +139,7 @@ void set_rt(double other){
             Array.Copy(___rt, 0, data, RT_OFFSET, 1);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         
             byte[] __buttons_1 = new byte[1];
@@ -149,12 +149,12 @@ void set_rt(double other){
             byte[] __buttons_2 = new byte[1];
             Array.Copy(data, BUTTONS_2_OFFSET, __buttons_2, 0, 1);
             _buttons_2.Deserialize(__buttons_2);
-        _lj_x = (sbyte)data[LJ_X_OFFSET]
-        _lj_y = (sbyte)data[LJ_Y_OFFSET]
-        _rj_x = (sbyte)data[RJ_X_OFFSET]
-        _rj_y = (sbyte)data[RJ_Y_OFFSET]
-        _lt = (sbyte)data[LT_OFFSET]
-        _rt = (sbyte)data[RT_OFFSET]}
+        _lj_x = (sbyte)data[LJ_X_OFFSET];
+        _lj_y = (sbyte)data[LJ_Y_OFFSET];
+        _rj_x = (sbyte)data[RJ_X_OFFSET];
+        _rj_y = (sbyte)data[RJ_Y_OFFSET];
+        _lt = (sbyte)data[LT_OFFSET];
+        _rt = (sbyte)data[RT_OFFSET];}
         
 
             

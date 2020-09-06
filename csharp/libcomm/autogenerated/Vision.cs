@@ -38,7 +38,7 @@ void set_vision_good(byte other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[31];
                      
             
@@ -55,7 +55,7 @@ void set_vision_good(byte other){
             Array.Copy(___vision_good, 0, data, VISION_GOOD_OFFSET, 1);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         
             byte[] __tag0 = new byte[12];
@@ -69,7 +69,7 @@ void set_vision_good(byte other){
             byte[] __field_position = new byte[6];
             Array.Copy(data, FIELD_POSITION_OFFSET, __field_position, 0, 6);
             _field_position.Deserialize(__field_position);
-        _vision_good = data[VISION_GOOD_OFFSET]}
+        _vision_good = data[VISION_GOOD_OFFSET];}
         
 
             

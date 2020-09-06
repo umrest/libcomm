@@ -20,7 +20,7 @@ void set_identifier(byte other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[127];
                      
             
@@ -28,9 +28,9 @@ void set_identifier(byte other){
             Array.Copy(___identifier, 0, data, IDENTIFIER_OFFSET, 1);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
-        _identifier = data[IDENTIFIER_OFFSET]}
+        _identifier = data[IDENTIFIER_OFFSET];}
         
 
             
