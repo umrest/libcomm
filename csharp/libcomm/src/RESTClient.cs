@@ -38,7 +38,7 @@ namespace comm
 
             while (valid_key == false && read_nonblocking(recv, cur_key_idx, 1))
             {
-                if (recv[cur_key_idx] != comm.CommunicationDefinitions.key_[cur_key_idx])
+                if (recv[cur_key_idx] != comm.CommunicationDefinitions.key[cur_key_idx])
                 {
                     cur_key_idx = 0;
                     valid_key = false;
