@@ -147,7 +147,7 @@ class CSharpMessageWriter:
     def get_variables(self):
         ret = ""
         for field in self.message.fields:
-            ret += f'protected {get_type(field.type, "csharp")} _{field.name};\n'
+            ret += f'protected {get_type(field.type, "csharp")} _{field.name} = new {get_type(field.type, "csharp")}();\n'
         return ret
     
     def get_offsets(self):

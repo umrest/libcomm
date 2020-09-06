@@ -11,15 +11,15 @@ public abstract class DashboardInterface : RESTPacket{
     }
 
            // Variables
-    protected byte _enabled_1;
-protected byte _enabled_2;
-protected byte _enabled_3;
-protected byte _enabled_4;
-protected byte _enabled_5;
-protected byte _enabled_6;
-protected byte _enabled_7;
-protected byte _enabled_8;
-protected byte _state;
+    protected byte _enabled_1 = new byte();
+protected byte _enabled_2 = new byte();
+protected byte _enabled_3 = new byte();
+protected byte _enabled_4 = new byte();
+protected byte _enabled_5 = new byte();
+protected byte _enabled_6 = new byte();
+protected byte _enabled_7 = new byte();
+protected byte _enabled_8 = new byte();
+protected byte _state = new byte();
 
 
     // Offsets

@@ -11,7 +11,7 @@ public abstract class IdentifierInterface : RESTPacket{
     }
 
            // Variables
-    protected byte _identifier;
+    protected byte _identifier = new byte();
 
 
     // Offsets

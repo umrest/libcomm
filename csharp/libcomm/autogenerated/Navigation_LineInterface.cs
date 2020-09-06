@@ -11,10 +11,10 @@ public abstract class Navigation_LineInterface : RESTPacket{
     }
 
            // Variables
-    protected Int16 _x_start;
-protected Int16 _y_start;
-protected Int16 _x_end;
-protected Int16 _y_end;
+    protected Int16 _x_start = new Int16();
+protected Int16 _y_start = new Int16();
+protected Int16 _x_end = new Int16();
+protected Int16 _y_end = new Int16();
 
 
     // Offsets
