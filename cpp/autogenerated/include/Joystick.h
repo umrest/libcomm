@@ -42,6 +42,18 @@ bool get_button_LJ(){
 bool get_button_RJ(){
                 return _buttons_2.GetBit(1);
             }
+bool get_button_POVU(){
+                return _buttons_2.GetBit(2);
+            }
+bool get_button_POVR(){
+                return _buttons_2.GetBit(3);
+            }
+bool get_button_POVD(){
+                return _buttons_2.GetBit(4);
+            }
+bool get_button_POVL(){
+                return _buttons_2.GetBit(5);
+            }
 float get_lj_x(){
                 return _lj_x / 0.00787401574;
             }
@@ -90,6 +102,18 @@ void set_button_LJ(bool other){
             };
 void set_button_RJ(bool other){
                 _buttons_2.SetBit(1, other);
+            };
+void set_button_POVU(bool other){
+                _buttons_2.SetBit(2, other);
+            };
+void set_button_POVR(bool other){
+                _buttons_2.SetBit(3, other);
+            };
+void set_button_POVD(bool other){
+                _buttons_2.SetBit(4, other);
+            };
+void set_button_POVL(bool other){
+                _buttons_2.SetBit(5, other);
             };
 void set_lj_x(float other){
                 _lj_x = other * 0.00787401574;

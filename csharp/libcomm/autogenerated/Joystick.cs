@@ -40,6 +40,18 @@ public bool get_button_LJ(){
 public bool get_button_RJ(){
                 return _buttons_2.GetBit(1);
             }
+public bool get_button_POVU(){
+                return _buttons_2.GetBit(2);
+            }
+public bool get_button_POVR(){
+                return _buttons_2.GetBit(3);
+            }
+public bool get_button_POVD(){
+                return _buttons_2.GetBit(4);
+            }
+public bool get_button_POVL(){
+                return _buttons_2.GetBit(5);
+            }
 public double get_lj_x(){
                 return (double)(_lj_x / 0.00787401574);
             }
@@ -88,6 +100,18 @@ public void set_button_LJ(bool other){
             }
 public void set_button_RJ(bool other){
                 _buttons_2.SetBit(1, other);
+            }
+public void set_button_POVU(bool other){
+                _buttons_2.SetBit(2, other);
+            }
+public void set_button_POVR(bool other){
+                _buttons_2.SetBit(3, other);
+            }
+public void set_button_POVD(bool other){
+                _buttons_2.SetBit(4, other);
+            }
+public void set_button_POVL(bool other){
+                _buttons_2.SetBit(5, other);
             }
 public void set_lj_x(double other){
                 _lj_x = (sbyte)(other * 0.00787401574);

@@ -84,6 +84,10 @@
       <accessor type="bits">
         <bit>button_LJ</bit>
         <bit>button_RJ</bit>
+        <bit>button_POVU</bit>
+        <bit>button_POVR</bit>
+        <bit>button_POVD</bit>
+        <bit>button_POVL</bit>
       </accessor>
     </field>
 
