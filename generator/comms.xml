@@ -47,8 +47,8 @@
     <element name="HARDWARE" value="15"></element>
     <element name="REALSENSE_COMMAND" value="16"></element>
     <element name="NAVIGATION_PATH" value="17"></element>
-    <element name="NAVIGATION_OBSTACLES" value="17"></element>
     <element name="NAVIGATION_STATE" value="18"></element>
+    <element name="NAVIGATION_OBSTACLES" value="19"></element>
     <element name="INVALID" value="255"></element>
   </enum>
   <enum name="IDENTIFIERS">
