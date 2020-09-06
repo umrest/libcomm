@@ -10,29 +10,29 @@ namespace comm
 
             }
             // Accessors
-            public bool get_{'@name': 'vision_connected'}(){
+            public bool get_vision_connected(){
                 return _connected_status.GetBit(0);
             }
-public bool get_{'@name': 'tcpserial_connected'}(){
+public bool get_tcpserial_connected(){
                 return _connected_status.GetBit(1);
             }
-public bool get_{'@name': 'hero_connected'}(){
+public bool get_hero_connected(){
                 return _connected_status.GetBit(2);
             }
-public bool get_{'@name': 'dashboard_connected'}(){
+public bool get_dashboard_connected(){
                 return _connected_status.GetBit(3);
             }
 
-public void set_{'@name': 'vision_connected'}(bool other){
+public void set_vision_connected(bool other){
                 _connected_status.SetBit(0, other);
             }
-public void set_{'@name': 'tcpserial_connected'}(bool other){
+public void set_tcpserial_connected(bool other){
                 _connected_status.SetBit(1, other);
             }
-public void set_{'@name': 'hero_connected'}(bool other){
+public void set_hero_connected(bool other){
                 _connected_status.SetBit(2, other);
             }
-public void set_{'@name': 'dashboard_connected'}(bool other){
+public void set_dashboard_connected(bool other){
                 _connected_status.SetBit(3, other);
             }
 

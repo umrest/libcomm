@@ -279,11 +279,11 @@
   <message name="Data_Server">
     <field name='connected_status' type='BitArray8'>
       <accessor type="bits">
-        <bit name="vision_connected"></bit>
-        <bit name="tcpserial_connected"></bit>
-        <bit name="hero_connected"></bit>
-        <bit name="dashboard_connected"></bit>
-      </accessor >
+        <bit>vision_connected</bit>
+        <bit>tcpserial_connected</bit>
+        <bit>hero_connected</bit>
+        <bit>dashboard_connected</bit>
+      </accessor>
     </field>
   </message>
 
