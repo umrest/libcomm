@@ -11,27 +11,27 @@ public abstract class Navigation_PathInterface : RESTPacket{
     }
 
            // Variables
-    protected Navigation_Line _line_0;
-protected Navigation_Line _line_1;
-protected Navigation_Line _line_2;
-protected Navigation_Line _line_3;
-protected Navigation_Line _line_4;
-protected Navigation_Line _line_5;
-protected Navigation_Line _line_6;
-protected Navigation_Line _line_7;
-protected Navigation_Line _line_8;
-protected Navigation_Line _line_9;
-protected Navigation_Line _line_10;
-protected Navigation_Line _line_11;
-protected Navigation_Line _line_12;
-protected Navigation_Line _line_13;
-protected Navigation_Line _line_14;
-protected Navigation_Line _line_15;
-protected Navigation_Line _line_16;
-protected Navigation_Line _line_17;
-protected Navigation_Line _line_18;
-protected Navigation_Line _line_19;
-protected Navigation_Line _line_20;
+    protected Navigation_Line _line_0 = new Navigation_Line();
+protected Navigation_Line _line_1 = new Navigation_Line();
+protected Navigation_Line _line_2 = new Navigation_Line();
+protected Navigation_Line _line_3 = new Navigation_Line();
+protected Navigation_Line _line_4 = new Navigation_Line();
+protected Navigation_Line _line_5 = new Navigation_Line();
+protected Navigation_Line _line_6 = new Navigation_Line();
+protected Navigation_Line _line_7 = new Navigation_Line();
+protected Navigation_Line _line_8 = new Navigation_Line();
+protected Navigation_Line _line_9 = new Navigation_Line();
+protected Navigation_Line _line_10 = new Navigation_Line();
+protected Navigation_Line _line_11 = new Navigation_Line();
+protected Navigation_Line _line_12 = new Navigation_Line();
+protected Navigation_Line _line_13 = new Navigation_Line();
+protected Navigation_Line _line_14 = new Navigation_Line();
+protected Navigation_Line _line_15 = new Navigation_Line();
+protected Navigation_Line _line_16 = new Navigation_Line();
+protected Navigation_Line _line_17 = new Navigation_Line();
+protected Navigation_Line _line_18 = new Navigation_Line();
+protected Navigation_Line _line_19 = new Navigation_Line();
+protected Navigation_Line _line_20 = new Navigation_Line();
 
 
     // Offsets

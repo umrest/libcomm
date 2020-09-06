@@ -11,7 +11,7 @@ public abstract class Vision_ImageInterface : RESTPacket{
     }
 
            // Variables
-    protected byte[] _image;
+    protected byte[] _image = new byte[8191];
 
 
     // Offsets

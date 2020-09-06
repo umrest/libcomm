@@ -147,7 +147,10 @@ class CSharpMessageWriter:
     def get_variables(self):
         ret = ""
         for field in self.message.fields:
-            ret += f'protected {get_type(field.type, "csharp")} _{field.name};\n'
+            if field.type == "bytearray":
+                ret += f'protected {get_type(field.type, "csharp")} _{field.name} = new byte[{self.communication_definitions["PACKET_SIZES"][self.message.name.upper()]}];\n'
+            else:
+                ret += f'protected {get_type(field.type, "csharp")} _{field.name} = new {get_type(field.type, "csharp")}();\n'
 
         return ret
     

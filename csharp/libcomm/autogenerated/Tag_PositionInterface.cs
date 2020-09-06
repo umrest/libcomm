@@ -11,12 +11,12 @@ public abstract class Tag_PositionInterface : RESTPacket{
     }
 
            // Variables
-    protected Int16 _yaw;
-protected Int16 _pitch;
-protected Int16 _roll;
-protected Int16 _x;
-protected Int16 _y;
-protected Int16 _z;
+    protected Int16 _yaw = new Int16();
+protected Int16 _pitch = new Int16();
+protected Int16 _roll = new Int16();
+protected Int16 _x = new Int16();
+protected Int16 _y = new Int16();
+protected Int16 _z = new Int16();
 
 
     // Offsets

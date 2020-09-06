@@ -11,10 +11,10 @@ public abstract class RealsenseInterface : RESTPacket{
     }
 
            // Variables
-    protected Obstacle _obstacle_1;
-protected Obstacle _obstacle_2;
-protected Obstacle _obstacle_3;
-protected Obstacle _obstacle_4;
+    protected Obstacle _obstacle_1 = new Obstacle();
+protected Obstacle _obstacle_2 = new Obstacle();
+protected Obstacle _obstacle_3 = new Obstacle();
+protected Obstacle _obstacle_4 = new Obstacle();
 
 
     // Offsets

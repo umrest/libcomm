@@ -11,7 +11,7 @@ public abstract class HardwareInterface : RESTPacket{
     }
 
            // Variables
-    protected byte _angle;
+    protected byte _angle = new byte();
 
 
     // Offsets

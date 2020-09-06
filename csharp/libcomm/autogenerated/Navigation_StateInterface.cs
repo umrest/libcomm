@@ -11,7 +11,7 @@ public abstract class Navigation_StateInterface : RESTPacket{
     }
 
            // Variables
-    protected Field_Position _field_position;
+    protected Field_Position _field_position = new Field_Position();
 
 
     // Offsets

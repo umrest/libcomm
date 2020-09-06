@@ -11,10 +11,10 @@ public abstract class VisionInterface : RESTPacket{
     }
 
            // Variables
-    protected Tag_Position _tag0;
-protected Tag_Position _tag1;
-protected Field_Position _field_position;
-protected byte _vision_good;
+    protected Tag_Position _tag0 = new Tag_Position();
+protected Tag_Position _tag1 = new Tag_Position();
+protected Field_Position _field_position = new Field_Position();
+protected byte _vision_good = new byte();
 
 
     // Offsets
