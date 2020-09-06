@@ -5,7 +5,7 @@ using System.Runtime.Remoting;
 
 namespace comm
 {
-    class RESTClient
+    public class RESTClient
     {
         private TcpClient client = new TcpClient();
 
