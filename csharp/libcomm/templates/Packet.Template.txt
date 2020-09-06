@@ -1,0 +1,20 @@
+[[Requirements]]
+
+namespace comm
+{
+    class [[MessageType]] : [[InterfaceType]]
+    {
+        public:
+            [[MessageType]]() {
+
+            }
+            // Accessors
+            [[Accessors]]
+            
+            // Serializers
+            [[Serializers]]
+
+            
+            
+    };
+} // namespace comm

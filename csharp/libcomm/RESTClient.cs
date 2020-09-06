@@ -1,6 +1,6 @@
 using System.Net.Sockets;
 
-namespace libcomm
+namespace comm
 {
     class RESTClient
     {

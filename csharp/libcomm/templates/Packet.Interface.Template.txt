@@ -1,0 +1,21 @@
+[[Requirements]]
+
+namespace comm
+{
+class [[InterfaceType]] : RESTPacket{
+    public [[InterfaceType]]()
+    {
+
+    }
+
+           // Variables
+    [[Variables]]
+
+    // Offsets
+    [[Offsets]]
+
+    // Type
+    [[Type]]
+    
+};
+} // namespace comm
