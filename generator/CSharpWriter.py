@@ -38,9 +38,9 @@ class CSharpFieldSerializerWriter:
             Array.Copy(data, {field.name.upper()}_OFFSET, __{field.name}, 0, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
             _{field.name}.Deserialize(__{field.name});"""
         if field.type == "uint8":
-            return f"_{field.name} = data[{field.name.upper()}_OFFSET]"
+            return f"_{field.name} = data[{field.name.upper()}_OFFSET];"
         if field.type == "int8":
-            return f"_{field.name} = (sbyte)data[{field.name.upper()}_OFFSET]"
+            return f"_{field.name} = (sbyte)data[{field.name.upper()}_OFFSET];"
         return f"""BitConverter.To{BitConverterMap.get(get_type(field.type, "csharp"), get_type(field.type, "csharp"))}(data, {field.name.upper()}_OFFSET);"""
 
     def get_deserializer(self, field):
@@ -82,7 +82,7 @@ class CSharpFieldAccessorWriter:
         if field.accessor.type == "bit":
             return f"_{field.bit_array.name}.SetBit({field.idx}, other);"
         if field.accessor.type == "float":
-            return f"_{field.name} = other * {field.accessor.scale};"
+            return f"_{field.name} = ({field.type})(other * {field.accessor.scale});"
         return f"_{field.name} = other;"
         
     def get_setter(self, field):
@@ -117,7 +117,7 @@ class CSharpMessageWriter:
         return ret
     
     def get_serializer(self):
-        ret = f"""byte[] Serialize() {{
+        ret = f"""public override byte[] Serialize() {{
                      byte[] data = new byte[{self.communication_definitions["PACKET_SIZES"][self.message.name.upper()]}];
                      """
         writer = CSharpFieldSerializerWriter(self.message, self.communication_definitions)
@@ -130,7 +130,7 @@ class CSharpMessageWriter:
         return ret
     
     def get_deserializer(self):
-        ret = f"""void Deserialize(byte[] data)  {{
+        ret = f"""public override void Deserialize(byte[] data)  {{
          byte[] new_data;"""
         writer = CSharpFieldSerializerWriter(self.message, self.communication_definitions)
         for field in self.message.fields:

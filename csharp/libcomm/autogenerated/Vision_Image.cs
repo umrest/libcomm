@@ -20,7 +20,7 @@ void set_image(byte[] other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[8191];
                      
             
@@ -28,7 +28,7 @@ void set_image(byte[] other){
             Array.Copy(___image, 0, data, IMAGE_OFFSET, 8191);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         BitConverter.Tobyte[](data, IMAGE_OFFSET);}
         

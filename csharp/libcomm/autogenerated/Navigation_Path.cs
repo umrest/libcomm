@@ -140,7 +140,7 @@ void set_line_20(Navigation_Line other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[200];
                      
             
@@ -208,7 +208,7 @@ void set_line_20(Navigation_Line other){
             Array.Copy(___line_20, 0, data, LINE_20_OFFSET, 8);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         
             byte[] __line_0 = new byte[8];

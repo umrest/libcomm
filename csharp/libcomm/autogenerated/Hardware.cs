@@ -20,7 +20,7 @@ void set_angle(byte other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[8];
                      
             
@@ -28,9 +28,9 @@ void set_angle(byte other){
             Array.Copy(___angle, 0, data, ANGLE_OFFSET, 1);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
-        _angle = data[ANGLE_OFFSET]}
+        _angle = data[ANGLE_OFFSET];}
         
 
             

@@ -30,27 +30,27 @@ double get_z(){
             }
 
 void set_yaw(double other){
-                _yaw = other * 0.0027465827;
+                _yaw = (int16)(other * 0.0027465827);
             }
 void set_pitch(double other){
-                _pitch = other * 0.0027465827;
+                _pitch = (int16)(other * 0.0027465827);
             }
 void set_roll(double other){
-                _roll = other * 0.0027465827;
+                _roll = (int16)(other * 0.0027465827);
             }
 void set_x(double other){
-                _x = other * 0.1;
+                _x = (int16)(other * 0.1);
             }
 void set_y(double other){
-                _y = other * 0.1;
+                _y = (int16)(other * 0.1);
             }
 void set_z(double other){
-                _z = other * 0.1;
+                _z = (int16)(other * 0.1);
             }
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[12];
                      
             
@@ -73,7 +73,7 @@ void set_z(double other){
             Array.Copy(___z, 0, data, Z_OFFSET, 2);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         BitConverter.ToInt16(data, YAW_OFFSET);
         BitConverter.ToInt16(data, PITCH_OFFSET);

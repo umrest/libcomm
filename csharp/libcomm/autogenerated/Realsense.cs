@@ -38,7 +38,7 @@ void set_obstacle_4(Obstacle other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[127];
                      
             
@@ -55,7 +55,7 @@ void set_obstacle_4(Obstacle other){
             Array.Copy(___obstacle_4, 0, data, OBSTACLE_4_OFFSET, 16);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         
             byte[] __obstacle_1 = new byte[16];

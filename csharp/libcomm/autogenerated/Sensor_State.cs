@@ -74,7 +74,7 @@ void set_motor_info_10(Motor_Info other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[160];
                      
             
@@ -109,7 +109,7 @@ void set_motor_info_10(Motor_Info other){
             Array.Copy(___motor_info_10, 0, data, MOTOR_INFO_10_OFFSET, 16);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         
             byte[] __motor_info_1 = new byte[16];

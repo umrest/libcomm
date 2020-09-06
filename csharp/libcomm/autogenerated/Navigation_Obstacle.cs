@@ -38,7 +38,7 @@ void set_height(Int16 other){
 
             
             // Serializers
-            byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[8];
                      
             
@@ -55,7 +55,7 @@ void set_height(Int16 other){
             Array.Copy(___height, 0, data, HEIGHT_OFFSET, 2);
         return data;
         }
-        void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
          byte[] new_data;
         BitConverter.ToInt16(data, X_OFFSET);
         BitConverter.ToInt16(data, Y_OFFSET);
