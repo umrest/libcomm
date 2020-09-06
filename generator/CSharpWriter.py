@@ -199,7 +199,7 @@ class CSharpCommunicationDefinitionsWriter:
         ret = ""
         for key, value in map.items():
             if key in self.communication_definitions["TYPES"].keys():
-                ret += f"{{TYPE::{key}, {value}}},\n"
+                ret += f"{{TYPE.{key}, {value}}},\n"
 
         return ret
 
