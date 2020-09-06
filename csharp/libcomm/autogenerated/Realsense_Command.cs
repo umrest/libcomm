@@ -10,11 +10,11 @@ namespace comm
 
             }
             // Accessors
-            byte get_command(){
+            public byte get_command(){
                 return _command;
             }
 
-void set_command(byte other){
+public void set_command(byte other){
                 _command = other;
             }
 

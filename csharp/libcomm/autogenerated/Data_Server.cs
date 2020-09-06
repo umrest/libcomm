@@ -10,11 +10,11 @@ namespace comm
 
             }
             // Accessors
-            BitArray8 get_connected_status(){
+            public BitArray8 get_connected_status(){
                 return _connected_status;
             }
 
-void set_connected_status(BitArray8 other){
+public void set_connected_status(BitArray8 other){
                 _connected_status = other;
             }
 

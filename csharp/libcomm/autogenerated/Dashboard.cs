@@ -10,59 +10,59 @@ namespace comm
 
             }
             // Accessors
-            byte get_enabled_1(){
+            public byte get_enabled_1(){
                 return _enabled_1;
             }
-byte get_enabled_2(){
+public byte get_enabled_2(){
                 return _enabled_2;
             }
-byte get_enabled_3(){
+public byte get_enabled_3(){
                 return _enabled_3;
             }
-byte get_enabled_4(){
+public byte get_enabled_4(){
                 return _enabled_4;
             }
-byte get_enabled_5(){
+public byte get_enabled_5(){
                 return _enabled_5;
             }
-byte get_enabled_6(){
+public byte get_enabled_6(){
                 return _enabled_6;
             }
-byte get_enabled_7(){
+public byte get_enabled_7(){
                 return _enabled_7;
             }
-byte get_enabled_8(){
+public byte get_enabled_8(){
                 return _enabled_8;
             }
-byte get_state(){
+public byte get_state(){
                 return _state;
             }
 
-void set_enabled_1(byte other){
+public void set_enabled_1(byte other){
                 _enabled_1 = other;
             }
-void set_enabled_2(byte other){
+public void set_enabled_2(byte other){
                 _enabled_2 = other;
             }
-void set_enabled_3(byte other){
+public void set_enabled_3(byte other){
                 _enabled_3 = other;
             }
-void set_enabled_4(byte other){
+public void set_enabled_4(byte other){
                 _enabled_4 = other;
             }
-void set_enabled_5(byte other){
+public void set_enabled_5(byte other){
                 _enabled_5 = other;
             }
-void set_enabled_6(byte other){
+public void set_enabled_6(byte other){
                 _enabled_6 = other;
             }
-void set_enabled_7(byte other){
+public void set_enabled_7(byte other){
                 _enabled_7 = other;
             }
-void set_enabled_8(byte other){
+public void set_enabled_8(byte other){
                 _enabled_8 = other;
             }
-void set_state(byte other){
+public void set_state(byte other){
                 _state = other;
             }
 

@@ -10,11 +10,11 @@ namespace comm
 
             }
             // Accessors
-            Field_Position get_field_position(){
+            public Field_Position get_field_position(){
                 return _field_position;
             }
 
-void set_field_position(Field_Position other){
+public void set_field_position(Field_Position other){
                 _field_position = other;
             }
 

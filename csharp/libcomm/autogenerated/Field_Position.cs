@@ -10,23 +10,23 @@ namespace comm
 
             }
             // Accessors
-            double get_yaw(){
+            public double get_yaw(){
                 return (double)(_yaw / 0.0027465827);
             }
-double get_x(){
+public double get_x(){
                 return (double)(_x / 0.1);
             }
-double get_y(){
+public double get_y(){
                 return (double)(_y / 0.1);
             }
 
-void set_yaw(double other){
+public void set_yaw(double other){
                 _yaw = (Int16)(other * 0.0027465827);
             }
-void set_x(double other){
+public void set_x(double other){
                 _x = (Int16)(other * 0.1);
             }
-void set_y(double other){
+public void set_y(double other){
                 _y = (Int16)(other * 0.1);
             }
 

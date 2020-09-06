@@ -74,7 +74,7 @@ class CSharpFieldAccessorWriter:
                 ret += self.get_getter(bit)
             return ret
         
-        return f"""{self.accessor_type(field)} get_{field.name}(){{
+        return f"""public {self.accessor_type(field)} get_{field.name}(){{
                 {self.get_getter2(field)}
             }}\n"""
     
@@ -92,7 +92,7 @@ class CSharpFieldAccessorWriter:
                 ret += self.get_setter(bit)
             return ret
         
-        return f"""void set_{field.name}({self.accessor_type(field)} other){{
+        return f"""public void set_{field.name}({self.accessor_type(field)} other){{
                 {self.get_setter2(field)}
             }}\n"""
 
