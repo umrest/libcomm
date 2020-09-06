@@ -7,6 +7,7 @@ import json
 import os
 
 from CPPWriter import CPPWriter
+from CSharpWriter import CSharpWriter
 
 from helpers import *
 

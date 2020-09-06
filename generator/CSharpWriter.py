@@ -10,23 +10,26 @@ class CSharpFieldSerializerWriter:
     def get_serializer2(self, field):
         if not is_primitive(field.type):
             return f"""
-            auto ___{field.name} = _{field.name}.Serialize();
-            uint8_t* __{field.name} = (uint8_t*)&___{field.name}[0];"""
-        return f"""uint8_t* __{field.name} = (uint8_t*)&_{field.name};"""
+            return _{field.name}.Serialize();"""
+        
+        return f"""
+            byte[] ___{field.name} = BitConverter.GetBytes(_{field.name});
+            Array.Copy(___{field.name}, 0, data, {field.name.upper()}_OFFSET, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
+            """
     
     def get_serializer(self, field):
         return f"""
-            {self.get_serializer2(field)}
-
-            std::copy(__{field.name}, __{field.name} + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, data.begin() + {field.name.upper()}_OFFSET);\n"""
+            {self.get_serializer2(field)}"""
     
     def get_deserializer2(self, field):
         if not is_primitive(field.type):
             return f"""
-            std::vector<uint8_t> __{field.name}({self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
-            std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, new_data.begin());
+            byte[] __{field.name}[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
+            Array.Copy(data, {field.name.upper()}_OFFSET, __{field.name}, 0, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
             _{field.name}.Deserialize(__{field.name});"""
-        return f"""std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, (uint8_t *)&_{field.name});"""
+        if field.type == "uint8":
+            return f"_{field.name} = data[{field.name.upper()}_OFFSET]"
+        return f"""BitConverter.To{get_type(field.type, "csharp")}(data, {field.name.upper()}_OFFSET);"""
 
     def get_deserializer(self, field):
         return f"""
@@ -42,7 +45,7 @@ class CSharpFieldAccessorWriter:
             if field.accessor.type == "float":
                 return "float"
         if is_primitive(field.type):
-            return get_type(field.type, "CSharp")
+            return get_type(field.type, "csharp")
         return field.type
     
     def get_getter2(self, field):
@@ -82,25 +85,14 @@ class CSharpFieldAccessorWriter:
             }};\n"""
 
 class CSharpMessageWriter:
-    def __init__(self, templates_dir, include_dir, src_dir, message, communication_definitions):
+    def __init__(self, templates_dir, src_dir, message, communication_definitions):
         self.templates_dir = templates_dir
-        self.include_dir = include_dir
         self.src_dir = src_dir
         self.message = message
         self.communication_definitions = communication_definitions
     
     def get_requirements(self, interface = False):
-        if interface:
-            return f'#include "{self.message.name}Interface.h"\n'
-        
-        required_types = set()
-        ret = ""
-        for field in self.message.fields:
-            if not is_primitive(field.type):
-                required_types.add(field.type)
-        for t in required_types:
-            ret += f'#include "{t}.h"\n'
-        return ret
+        return "using comm;"
     
     def get_accessors(self):
         ret = ""
@@ -113,8 +105,8 @@ class CSharpMessageWriter:
         return ret
     
     def get_serializer(self):
-        ret = f"""std::vector<uint8_t> Serialize() {{
-                     std::vector<uint8_t> data({self.communication_definitions["PACKET_SIZES"][self.message.name.upper()]});
+        ret = f"""byte[] Serialize() {{
+                     byte[] data = new byte[{self.communication_definitions["PACKET_SIZES"][self.message.name.upper()]}];
                      """
         writer = CSharpFieldSerializerWriter(self.message, self.communication_definitions)
         for field in self.message.fields:
@@ -126,8 +118,8 @@ class CSharpMessageWriter:
         return ret
     
     def get_deserializer(self):
-        ret = f"""void Deserialize(std::vector<uint8_t> data)  {{
-         std::vector<uint8_t> new_data;"""
+        ret = f"""void Deserialize(byte[] data)  {{
+         byte[] new_data;"""
         writer = CSharpFieldSerializerWriter(self.message, self.communication_definitions)
         for field in self.message.fields:
             ret += writer.get_deserializer(field)
@@ -138,7 +130,7 @@ class CSharpMessageWriter:
     def get_variables(self):
         ret = ""
         for field in self.message.fields:
-            ret += f'{get_type(field.type, "CSharp")} _{field.name};\n'
+            ret += f'{get_type(field.type, "csharp")} _{field.name};\n'
         return ret
     
     def get_offsets(self):
@@ -151,7 +143,7 @@ class CSharpMessageWriter:
     
     def get_type(self):
         if self.message.name.upper() in self.communication_definitions["TYPES"].keys():
-            return f"CommunicationDefinitions::TYPE type(){{ return CommunicationDefinitions::TYPE::{self.message.name.upper()}; }}"
+            return f"CommunicationDefinitions.TYPE type(){{ return CommunicationDefinitions.TYPE.{self.message.name.upper()}; }}"
         return ""
 
     def write(self):
@@ -163,7 +155,7 @@ class CSharpMessageWriter:
         template = template.replace("[[Offsets]]", self.get_offsets())
 
         template = template.replace("[[Type]]", self.get_type())
-        open(os.path.join(self.include_dir, self.message.name + "Interface" + ".h"), "w").write(template)
+        open(os.path.join(self.src_dir, self.message.name + "Interface" + ".cs"), "w").write(template)
 
         
         template = open(os.path.join(self.templates_dir, "Packet.Template.txt")).read()
@@ -174,14 +166,13 @@ class CSharpMessageWriter:
 
         template = template.replace("[[Serializers]]", self.get_serializer() + self.get_deserializer())
 
-        open(os.path.join(self.include_dir, self.message.name + ".h"), "w").write(template)
+        open(os.path.join(self.src_dir, self.message.name + ".cs"), "w").write(template)
         
 
 
 class CSharpCommunicationDefinitionsWriter:
-    def __init__(self, templates_dir, include_dir, src_dir, communication_definitions):
+    def __init__(self, templates_dir, src_dir, communication_definitions):
         self.templates_dir = templates_dir
-        self.include_dir = include_dir
         self.src_dir = src_dir
         self.communication_definitions = communication_definitions
 
@@ -194,7 +185,7 @@ class CSharpCommunicationDefinitionsWriter:
         return ret
 
     def get_enum_header(self, enum, name):
-        ret = f"""enum class {name}
+        ret = f"""public enum class {name} : byte
                 {{
                     {self.get_enum_header2(enum)}
                 }};"""
@@ -214,30 +205,25 @@ class CSharpCommunicationDefinitionsWriter:
 
     def get_map_source(self, map, name):
         return f"""
-        const std::map<CommunicationDefinitions::TYPE, int> CommunicationDefinitions::PACKET_SIZES = {{
+        public static Dictionary<TYPE, int> PACKET_SIZES = new Dictionary<TYPE, int>(){{
             {self.get_map_source2(map)}
         }};
                 """
     
     def write(self):
-        template = open(os.path.join(self.templates_dir, "CommunicationDefinitions.Template.h")).read()
+        template = open(os.path.join(self.templates_dir, "CommunicationDefinitions.Template.cs")).read()
         template = template.replace("[[ENUMS]]", self.get_enum_header(self.communication_definitions["TYPES"], "TYPE") + "\n" + self.get_enum_header(self.communication_definitions["IDENTIFIERS"], "IDENTIFIER"))
-        template = template.replace("[[MAPS]]", self.get_map_header(self.communication_definitions["PACKET_SIZES"], "PACKET_SIZES"))
-        open(os.path.join(self.include_dir, "CommunicationDefinitions.h"), "w").write(template)
-
-        template = open(os.path.join(self.templates_dir, "CommunicationDefinitions.Template.CSharp")).read()
         template = template.replace("[[MAPS]]", self.get_map_source(self.communication_definitions["PACKET_SIZES"], "PACKET_SIZES"))
-        open(os.path.join(self.src_dir, "CommunicationDefinitions.CSharp"), "w").write(template)
+        open(os.path.join(self.src_dir, "CommunicationDefinitions.cs"), "w").write(template)
 
 
 class CSharpWriter:
-    def __init__(self, CSharp_dir):
-        self.include_dir = os.path.join(CSharp_dir, "autogenerated/include")
-        self.src_dir = os.path.join(CSharp_dir, "autogenerated/src")
-        self.templates_dir = os.path.join(CSharp_dir, "templates")
+    def __init__(self, csharp_dir):
+        self.src_dir = os.path.join(csharp_dir, "libcomm/autogenerated/")
+        self.templates_dir = os.path.join(csharp_dir, "libcomm/templates")
 
     def run(self, messages, communication_definitions):
         for message in messages:
-            CSharpMessageWriter(self.templates_dir, self.include_dir, self.src_dir, message, communication_definitions).write()
+            CSharpMessageWriter(self.templates_dir, self.src_dir, message, communication_definitions).write()
         
-        CSharpCommunicationDefinitionsWriter(self.templates_dir, self.include_dir, self.src_dir, communication_definitions).write()
+        CSharpCommunicationDefinitionsWriter(self.templates_dir, self.src_dir, communication_definitions).write()

@@ -32,7 +32,8 @@ PRIMITIVE_TYPE_MAP = {
         "csharp": "UInt32"
     },
     "bytearray": {
-        "cpp": "char*"
+        "cpp": "char*",
+        "csharp": "byte[]"
     }
 }
 
