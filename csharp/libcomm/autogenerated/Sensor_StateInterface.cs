@@ -37,7 +37,7 @@ protected int MOTOR_INFO_10_OFFSET = 144;
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.SENSOR_STATE; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.SENSOR_STATE; }
     
 };
 } // namespace comm

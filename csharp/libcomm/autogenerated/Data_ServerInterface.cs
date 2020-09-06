@@ -19,7 +19,7 @@ public abstract class Data_ServerInterface : RESTPacket{
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.DATA_SERVER; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.DATA_SERVER; }
     
 };
 } // namespace comm

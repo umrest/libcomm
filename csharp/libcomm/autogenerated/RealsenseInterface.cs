@@ -25,7 +25,7 @@ protected int OBSTACLE_4_OFFSET = 48;
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.REALSENSE; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.REALSENSE; }
     
 };
 } // namespace comm

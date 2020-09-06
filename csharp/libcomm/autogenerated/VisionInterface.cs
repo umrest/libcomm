@@ -25,7 +25,7 @@ protected int VISION_GOOD_OFFSET = 30;
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.VISION; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.VISION; }
     
 };
 } // namespace comm

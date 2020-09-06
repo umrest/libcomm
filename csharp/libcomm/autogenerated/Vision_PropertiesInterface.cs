@@ -21,7 +21,7 @@ protected int GAIN_OFFSET = 4;
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.VISION_PROPERTIES; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.VISION_PROPERTIES; }
     
 };
 } // namespace comm

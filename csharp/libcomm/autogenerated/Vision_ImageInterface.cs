@@ -19,7 +19,7 @@ public abstract class Vision_ImageInterface : RESTPacket{
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.VISION_IMAGE; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.VISION_IMAGE; }
     
 };
 } // namespace comm

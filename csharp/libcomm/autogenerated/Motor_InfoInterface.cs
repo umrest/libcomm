@@ -27,7 +27,7 @@ protected int VELOCITY_OFFSET = 8;
 
 
     // Type
-    
+    public override CommunicationDefinitions.TYPE type(){{ return 0; }}
     
 };
 } // namespace comm

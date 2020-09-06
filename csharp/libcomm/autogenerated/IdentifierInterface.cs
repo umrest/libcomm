@@ -19,7 +19,7 @@ public abstract class IdentifierInterface : RESTPacket{
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.IDENTIFIER; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.IDENTIFIER; }
     
 };
 } // namespace comm

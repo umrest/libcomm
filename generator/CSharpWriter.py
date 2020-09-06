@@ -161,8 +161,9 @@ class CSharpMessageWriter:
     
     def get_type(self):
         if self.message.name.upper() in self.communication_definitions["TYPES"].keys():
-            return f"CommunicationDefinitions.TYPE type(){{ return CommunicationDefinitions.TYPE.{self.message.name.upper()}; }}"
-        return ""
+            return f"public override CommunicationDefinitions.TYPE type(){{ return CommunicationDefinitions.TYPE.{self.message.name.upper()}; }}"
+        
+        return "public override CommunicationDefinitions.TYPE type(){{ return 0; }}"
 
     def write(self):
         template = open(os.path.join(self.templates_dir, "Packet.Interface.Template.txt")).read()

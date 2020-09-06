@@ -25,7 +25,7 @@ protected int Y_END_OFFSET = 6;
 
 
     // Type
-    
+    public override CommunicationDefinitions.TYPE type(){{ return 0; }}
     
 };
 } // namespace comm

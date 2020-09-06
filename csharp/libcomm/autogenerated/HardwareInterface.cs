@@ -19,7 +19,7 @@ public abstract class HardwareInterface : RESTPacket{
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.HARDWARE; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.HARDWARE; }
     
 };
 } // namespace comm

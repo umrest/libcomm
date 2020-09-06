@@ -35,7 +35,7 @@ protected int STATE_OFFSET = 8;
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.DASHBOARD; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.DASHBOARD; }
     
 };
 } // namespace comm

@@ -25,7 +25,7 @@ protected int OBSTACLE_3_OFFSET = 24;
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.NAVIGATION_OBSTACLES; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.NAVIGATION_OBSTACLES; }
     
 };
 } // namespace comm

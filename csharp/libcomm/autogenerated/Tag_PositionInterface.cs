@@ -29,7 +29,7 @@ protected int Z_OFFSET = 10;
 
 
     // Type
-    
+    public override CommunicationDefinitions.TYPE type(){{ return 0; }}
     
 };
 } // namespace comm

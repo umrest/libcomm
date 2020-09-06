@@ -19,7 +19,7 @@ public abstract class Realsense_CommandInterface : RESTPacket{
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.REALSENSE_COMMAND; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.REALSENSE_COMMAND; }
     
 };
 } // namespace comm

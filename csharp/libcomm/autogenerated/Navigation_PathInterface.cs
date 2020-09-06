@@ -59,7 +59,7 @@ protected int LINE_20_OFFSET = 160;
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.NAVIGATION_PATH; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.NAVIGATION_PATH; }
     
 };
 } // namespace comm

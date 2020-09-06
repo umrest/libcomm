@@ -33,7 +33,7 @@ protected int RT_OFFSET = 7;
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.JOYSTICK; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.JOYSTICK; }
     
 };
 } // namespace comm

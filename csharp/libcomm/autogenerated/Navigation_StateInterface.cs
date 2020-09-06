@@ -19,7 +19,7 @@ public abstract class Navigation_StateInterface : RESTPacket{
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.NAVIGATION_STATE; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.NAVIGATION_STATE; }
     
 };
 } // namespace comm

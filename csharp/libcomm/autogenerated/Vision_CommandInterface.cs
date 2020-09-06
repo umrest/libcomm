@@ -19,7 +19,7 @@ public abstract class Vision_CommandInterface : RESTPacket{
 
 
     // Type
-    CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.VISION_COMMAND; }
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.VISION_COMMAND; }
     
 };
 } // namespace comm
