@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Realsense_CommandInterface : RESTPacket{
+abstract class Realsense_CommandInterface : RESTPacket{
     public Realsense_CommandInterface()
     {
 

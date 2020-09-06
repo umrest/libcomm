@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class IdentifierInterface : RESTPacket{
+abstract class IdentifierInterface : RESTPacket{
     public IdentifierInterface()
     {
 

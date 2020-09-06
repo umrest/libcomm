@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class VisionInterface : RESTPacket{
+abstract class VisionInterface : RESTPacket{
     public VisionInterface()
     {
 

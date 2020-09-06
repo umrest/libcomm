@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Navigation_ObstacleInterface : RESTPacket{
+abstract class Navigation_ObstacleInterface : RESTPacket{
     public Navigation_ObstacleInterface()
     {
 

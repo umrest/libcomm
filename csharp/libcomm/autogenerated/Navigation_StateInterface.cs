@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Navigation_StateInterface : RESTPacket{
+abstract class Navigation_StateInterface : RESTPacket{
     public Navigation_StateInterface()
     {
 

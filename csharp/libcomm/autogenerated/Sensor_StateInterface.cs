@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Sensor_StateInterface : RESTPacket{
+abstract class Sensor_StateInterface : RESTPacket{
     public Sensor_StateInterface()
     {
 

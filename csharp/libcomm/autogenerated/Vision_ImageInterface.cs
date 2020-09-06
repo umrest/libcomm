@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Vision_ImageInterface : RESTPacket{
+abstract class Vision_ImageInterface : RESTPacket{
     public Vision_ImageInterface()
     {
 

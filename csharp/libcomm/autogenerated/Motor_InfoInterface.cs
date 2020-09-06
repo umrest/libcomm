@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Motor_InfoInterface : RESTPacket{
+abstract class Motor_InfoInterface : RESTPacket{
     public Motor_InfoInterface()
     {
 

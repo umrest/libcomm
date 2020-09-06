@@ -4,7 +4,7 @@ namespace comm
 {
     public static class CommunicationDefinitions
     {
-        public enum class TYPE : byte
+        public enum TYPE : byte
                 {
                     JOYSTICK = 1,
 VISION = 2,
@@ -24,7 +24,7 @@ NAVIGATION_STATE = 18,
 INVALID = 255,
 
                 };
-public enum class IDENTIFIER : byte
+public enum IDENTIFIER : byte
                 {
                     DASHBOARD = 1,
 VISION = 2,

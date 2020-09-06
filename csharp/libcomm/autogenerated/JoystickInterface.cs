@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class JoystickInterface : RESTPacket{
+abstract class JoystickInterface : RESTPacket{
     public JoystickInterface()
     {
 

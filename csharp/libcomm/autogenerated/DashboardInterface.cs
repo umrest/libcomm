@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class DashboardInterface : RESTPacket{
+abstract class DashboardInterface : RESTPacket{
     public DashboardInterface()
     {
 

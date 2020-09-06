@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Tag_PositionInterface : RESTPacket{
+abstract class Tag_PositionInterface : RESTPacket{
     public Tag_PositionInterface()
     {
 

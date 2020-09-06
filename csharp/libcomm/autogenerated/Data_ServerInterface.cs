@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Data_ServerInterface : RESTPacket{
+abstract class Data_ServerInterface : RESTPacket{
     public Data_ServerInterface()
     {
 

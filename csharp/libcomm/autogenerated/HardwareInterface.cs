@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class HardwareInterface : RESTPacket{
+abstract class HardwareInterface : RESTPacket{
     public HardwareInterface()
     {
 

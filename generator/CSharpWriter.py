@@ -185,7 +185,7 @@ class CSharpCommunicationDefinitionsWriter:
         return ret
 
     def get_enum_header(self, enum, name):
-        ret = f"""public enum class {name} : byte
+        ret = f"""public enum {name} : byte
                 {{
                     {self.get_enum_header2(enum)}
                 }};"""

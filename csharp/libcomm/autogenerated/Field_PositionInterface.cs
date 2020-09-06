@@ -2,7 +2,7 @@ using comm;
 
 namespace comm
 {
-class Field_PositionInterface : RESTPacket{
+abstract class Field_PositionInterface : RESTPacket{
     public Field_PositionInterface()
     {
 
