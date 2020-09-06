@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-abstract class Data_ServerInterface : RESTPacket{
+public abstract class Data_ServerInterface : RESTPacket{
     public Data_ServerInterface()
     {
 

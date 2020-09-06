@@ -4,7 +4,7 @@ using System;
 
 namespace comm
 {
-abstract class [[InterfaceType]] : RESTPacket{
+public abstract class [[InterfaceType]] : RESTPacket{
     public [[InterfaceType]]()
     {
 

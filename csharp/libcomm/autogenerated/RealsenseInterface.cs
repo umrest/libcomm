@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-abstract class RealsenseInterface : RESTPacket{
+public abstract class RealsenseInterface : RESTPacket{
     public RealsenseInterface()
     {
 

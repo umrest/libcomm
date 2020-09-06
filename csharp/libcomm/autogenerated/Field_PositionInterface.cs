@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-abstract class Field_PositionInterface : RESTPacket{
+public abstract class Field_PositionInterface : RESTPacket{
     public Field_PositionInterface()
     {
 

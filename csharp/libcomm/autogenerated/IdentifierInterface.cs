@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-abstract class IdentifierInterface : RESTPacket{
+public abstract class IdentifierInterface : RESTPacket{
     public IdentifierInterface()
     {
 

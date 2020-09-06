@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-abstract class Vision_ImageInterface : RESTPacket{
+public abstract class Vision_ImageInterface : RESTPacket{
     public Vision_ImageInterface()
     {
 

@@ -4,7 +4,7 @@ using comm;
 
 namespace comm
 {
-abstract class JoystickInterface : RESTPacket{
+public abstract class JoystickInterface : RESTPacket{
     public JoystickInterface()
     {
 
