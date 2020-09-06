@@ -10,41 +10,41 @@ namespace comm
 
             }
             // Accessors
-            double get_yaw(){
+            public double get_yaw(){
                 return (double)(_yaw / 0.0027465827);
             }
-double get_pitch(){
+public double get_pitch(){
                 return (double)(_pitch / 0.0027465827);
             }
-double get_roll(){
+public double get_roll(){
                 return (double)(_roll / 0.0027465827);
             }
-double get_x(){
+public double get_x(){
                 return (double)(_x / 0.1);
             }
-double get_y(){
+public double get_y(){
                 return (double)(_y / 0.1);
             }
-double get_z(){
+public double get_z(){
                 return (double)(_z / 0.1);
             }
 
-void set_yaw(double other){
+public void set_yaw(double other){
                 _yaw = (Int16)(other * 0.0027465827);
             }
-void set_pitch(double other){
+public void set_pitch(double other){
                 _pitch = (Int16)(other * 0.0027465827);
             }
-void set_roll(double other){
+public void set_roll(double other){
                 _roll = (Int16)(other * 0.0027465827);
             }
-void set_x(double other){
+public void set_x(double other){
                 _x = (Int16)(other * 0.1);
             }
-void set_y(double other){
+public void set_y(double other){
                 _y = (Int16)(other * 0.1);
             }
-void set_z(double other){
+public void set_z(double other){
                 _z = (Int16)(other * 0.1);
             }
 

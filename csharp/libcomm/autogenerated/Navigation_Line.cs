@@ -10,29 +10,29 @@ namespace comm
 
             }
             // Accessors
-            Int16 get_x_start(){
+            public Int16 get_x_start(){
                 return _x_start;
             }
-Int16 get_y_start(){
+public Int16 get_y_start(){
                 return _y_start;
             }
-Int16 get_x_end(){
+public Int16 get_x_end(){
                 return _x_end;
             }
-Int16 get_y_end(){
+public Int16 get_y_end(){
                 return _y_end;
             }
 
-void set_x_start(Int16 other){
+public void set_x_start(Int16 other){
                 _x_start = other;
             }
-void set_y_start(Int16 other){
+public void set_y_start(Int16 other){
                 _y_start = other;
             }
-void set_x_end(Int16 other){
+public void set_x_end(Int16 other){
                 _x_end = other;
             }
-void set_y_end(Int16 other){
+public void set_y_end(Int16 other){
                 _y_end = other;
             }
 

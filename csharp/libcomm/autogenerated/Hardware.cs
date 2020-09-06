@@ -10,11 +10,11 @@ namespace comm
 
             }
             // Accessors
-            byte get_angle(){
+            public byte get_angle(){
                 return _angle;
             }
 
-void set_angle(byte other){
+public void set_angle(byte other){
                 _angle = other;
             }
 

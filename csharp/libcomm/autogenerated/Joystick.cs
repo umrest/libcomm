@@ -10,101 +10,101 @@ namespace comm
 
             }
             // Accessors
-            bool get_button_A(){
+            public bool get_button_A(){
                 return _buttons_1.GetBit(0);
             }
-bool get_button_B(){
+public bool get_button_B(){
                 return _buttons_1.GetBit(1);
             }
-bool get_button_X(){
+public bool get_button_X(){
                 return _buttons_1.GetBit(2);
             }
-bool get_button_Y(){
+public bool get_button_Y(){
                 return _buttons_1.GetBit(3);
             }
-bool get_button_LB(){
+public bool get_button_LB(){
                 return _buttons_1.GetBit(4);
             }
-bool get_button_RB(){
+public bool get_button_RB(){
                 return _buttons_1.GetBit(5);
             }
-bool get_button_Select(){
+public bool get_button_Select(){
                 return _buttons_1.GetBit(6);
             }
-bool get_button_Start(){
+public bool get_button_Start(){
                 return _buttons_1.GetBit(7);
             }
-bool get_button_LJ(){
+public bool get_button_LJ(){
                 return _buttons_2.GetBit(0);
             }
-bool get_button_RJ(){
+public bool get_button_RJ(){
                 return _buttons_2.GetBit(1);
             }
-double get_lj_x(){
+public double get_lj_x(){
                 return (double)(_lj_x / 0.00787401574);
             }
-double get_lj_y(){
+public double get_lj_y(){
                 return (double)(_lj_y / 0.00787401574);
             }
-double get_rj_x(){
+public double get_rj_x(){
                 return (double)(_rj_x / 0.00787401574);
             }
-double get_rj_y(){
+public double get_rj_y(){
                 return (double)(_rj_y / 0.00787401574);
             }
-double get_lt(){
+public double get_lt(){
                 return (double)(_lt / 0.00787401574);
             }
-double get_rt(){
+public double get_rt(){
                 return (double)(_rt / 0.00787401574);
             }
 
-void set_button_A(bool other){
+public void set_button_A(bool other){
                 _buttons_1.SetBit(0, other);
             }
-void set_button_B(bool other){
+public void set_button_B(bool other){
                 _buttons_1.SetBit(1, other);
             }
-void set_button_X(bool other){
+public void set_button_X(bool other){
                 _buttons_1.SetBit(2, other);
             }
-void set_button_Y(bool other){
+public void set_button_Y(bool other){
                 _buttons_1.SetBit(3, other);
             }
-void set_button_LB(bool other){
+public void set_button_LB(bool other){
                 _buttons_1.SetBit(4, other);
             }
-void set_button_RB(bool other){
+public void set_button_RB(bool other){
                 _buttons_1.SetBit(5, other);
             }
-void set_button_Select(bool other){
+public void set_button_Select(bool other){
                 _buttons_1.SetBit(6, other);
             }
-void set_button_Start(bool other){
+public void set_button_Start(bool other){
                 _buttons_1.SetBit(7, other);
             }
-void set_button_LJ(bool other){
+public void set_button_LJ(bool other){
                 _buttons_2.SetBit(0, other);
             }
-void set_button_RJ(bool other){
+public void set_button_RJ(bool other){
                 _buttons_2.SetBit(1, other);
             }
-void set_lj_x(double other){
+public void set_lj_x(double other){
                 _lj_x = (sbyte)(other * 0.00787401574);
             }
-void set_lj_y(double other){
+public void set_lj_y(double other){
                 _lj_y = (sbyte)(other * 0.00787401574);
             }
-void set_rj_x(double other){
+public void set_rj_x(double other){
                 _rj_x = (sbyte)(other * 0.00787401574);
             }
-void set_rj_y(double other){
+public void set_rj_y(double other){
                 _rj_y = (sbyte)(other * 0.00787401574);
             }
-void set_lt(double other){
+public void set_lt(double other){
                 _lt = (sbyte)(other * 0.00787401574);
             }
-void set_rt(double other){
+public void set_rt(double other){
                 _rt = (sbyte)(other * 0.00787401574);
             }
 

@@ -10,11 +10,11 @@ namespace comm
 
             }
             // Accessors
-            byte[] get_image(){
+            public byte[] get_image(){
                 return _image;
             }
 
-void set_image(byte[] other){
+public void set_image(byte[] other){
                 _image = other;
             }
 

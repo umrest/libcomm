@@ -10,65 +10,65 @@ namespace comm
 
             }
             // Accessors
-            Motor_Info get_motor_info_1(){
+            public Motor_Info get_motor_info_1(){
                 return _motor_info_1;
             }
-Motor_Info get_motor_info_2(){
+public Motor_Info get_motor_info_2(){
                 return _motor_info_2;
             }
-Motor_Info get_motor_info_3(){
+public Motor_Info get_motor_info_3(){
                 return _motor_info_3;
             }
-Motor_Info get_motor_info_4(){
+public Motor_Info get_motor_info_4(){
                 return _motor_info_4;
             }
-Motor_Info get_motor_info_5(){
+public Motor_Info get_motor_info_5(){
                 return _motor_info_5;
             }
-Motor_Info get_motor_info_6(){
+public Motor_Info get_motor_info_6(){
                 return _motor_info_6;
             }
-Motor_Info get_motor_info_7(){
+public Motor_Info get_motor_info_7(){
                 return _motor_info_7;
             }
-Motor_Info get_motor_info_8(){
+public Motor_Info get_motor_info_8(){
                 return _motor_info_8;
             }
-Motor_Info get_motor_info_9(){
+public Motor_Info get_motor_info_9(){
                 return _motor_info_9;
             }
-Motor_Info get_motor_info_10(){
+public Motor_Info get_motor_info_10(){
                 return _motor_info_10;
             }
 
-void set_motor_info_1(Motor_Info other){
+public void set_motor_info_1(Motor_Info other){
                 _motor_info_1 = other;
             }
-void set_motor_info_2(Motor_Info other){
+public void set_motor_info_2(Motor_Info other){
                 _motor_info_2 = other;
             }
-void set_motor_info_3(Motor_Info other){
+public void set_motor_info_3(Motor_Info other){
                 _motor_info_3 = other;
             }
-void set_motor_info_4(Motor_Info other){
+public void set_motor_info_4(Motor_Info other){
                 _motor_info_4 = other;
             }
-void set_motor_info_5(Motor_Info other){
+public void set_motor_info_5(Motor_Info other){
                 _motor_info_5 = other;
             }
-void set_motor_info_6(Motor_Info other){
+public void set_motor_info_6(Motor_Info other){
                 _motor_info_6 = other;
             }
-void set_motor_info_7(Motor_Info other){
+public void set_motor_info_7(Motor_Info other){
                 _motor_info_7 = other;
             }
-void set_motor_info_8(Motor_Info other){
+public void set_motor_info_8(Motor_Info other){
                 _motor_info_8 = other;
             }
-void set_motor_info_9(Motor_Info other){
+public void set_motor_info_9(Motor_Info other){
                 _motor_info_9 = other;
             }
-void set_motor_info_10(Motor_Info other){
+public void set_motor_info_10(Motor_Info other){
                 _motor_info_10 = other;
             }
 

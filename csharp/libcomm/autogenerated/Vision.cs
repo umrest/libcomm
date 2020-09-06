@@ -10,29 +10,29 @@ namespace comm
 
             }
             // Accessors
-            Tag_Position get_tag0(){
+            public Tag_Position get_tag0(){
                 return _tag0;
             }
-Tag_Position get_tag1(){
+public Tag_Position get_tag1(){
                 return _tag1;
             }
-Field_Position get_field_position(){
+public Field_Position get_field_position(){
                 return _field_position;
             }
-byte get_vision_good(){
+public byte get_vision_good(){
                 return _vision_good;
             }
 
-void set_tag0(Tag_Position other){
+public void set_tag0(Tag_Position other){
                 _tag0 = other;
             }
-void set_tag1(Tag_Position other){
+public void set_tag1(Tag_Position other){
                 _tag1 = other;
             }
-void set_field_position(Field_Position other){
+public void set_field_position(Field_Position other){
                 _field_position = other;
             }
-void set_vision_good(byte other){
+public void set_vision_good(byte other){
                 _vision_good = other;
             }
 

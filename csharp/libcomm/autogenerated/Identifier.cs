@@ -10,11 +10,11 @@ namespace comm
 
             }
             // Accessors
-            byte get_identifier(){
+            public byte get_identifier(){
                 return _identifier;
             }
 
-void set_identifier(byte other){
+public void set_identifier(byte other){
                 _identifier = other;
             }
 

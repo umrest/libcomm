@@ -10,29 +10,29 @@ namespace comm
 
             }
             // Accessors
-            Obstacle get_obstacle_1(){
+            public Obstacle get_obstacle_1(){
                 return _obstacle_1;
             }
-Obstacle get_obstacle_2(){
+public Obstacle get_obstacle_2(){
                 return _obstacle_2;
             }
-Obstacle get_obstacle_3(){
+public Obstacle get_obstacle_3(){
                 return _obstacle_3;
             }
-Obstacle get_obstacle_4(){
+public Obstacle get_obstacle_4(){
                 return _obstacle_4;
             }
 
-void set_obstacle_1(Obstacle other){
+public void set_obstacle_1(Obstacle other){
                 _obstacle_1 = other;
             }
-void set_obstacle_2(Obstacle other){
+public void set_obstacle_2(Obstacle other){
                 _obstacle_2 = other;
             }
-void set_obstacle_3(Obstacle other){
+public void set_obstacle_3(Obstacle other){
                 _obstacle_3 = other;
             }
-void set_obstacle_4(Obstacle other){
+public void set_obstacle_4(Obstacle other){
                 _obstacle_4 = other;
             }
 
