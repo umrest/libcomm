@@ -251,7 +251,7 @@
 
   <message name="Motor_Info">
     <field name='can_id' type='uint8'></field>
-    <field name='can_id' type='uint16'></field>
+    <field name='current' type='uint16'></field>
     <field name='percent' type='uint8'></field>
     <field name='position' type='uint32'></field>
     <field name='velocity' type='uint32'></field>
