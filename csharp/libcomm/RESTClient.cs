@@ -22,7 +22,7 @@ namespace comm
 
         while (valid_key == false && read_nonblocking(recv + cur_key_idx, 1))
         {
-            if (recv[cur_key_idx] != comm::CommunicationDefinitions::key[cur_key_idx])
+            if (recv[cur_key_idx] != comm.CommunicationDefinitions.key[cur_key_idx])
             {
                 cur_key_idx = 0;
                 valid_key = false;
@@ -39,48 +39,48 @@ namespace comm
         if (valid_key)
         {
             if(read_nonblocking(recv, 1)){
-                comm::CommunicationDefinitions::TYPE type = (comm::CommunicationDefinitions::TYPE)recv[0];
+                comm.CommunicationDefinitions.TYPE type = (comm.CommunicationDefinitions.TYPE)recv[0];
 
                 int size = CommunicationDefinitions::PACKET_SIZES.at(type);
 
                 read_nonblocking(recv, size);
 
-                std::unique_ptr<comm::RESTPacket> packet;
+                std::unique_ptr<comm.RESTPacket> packet;
 
-                if (type == comm::CommunicationDefinitions::TYPE::VISION_COMMAND){
+                if (type == comm::CommunicationDefinitions.TYPE.VISION_COMMAND){
                     packet.reset(new comm::Vision_Command());
                 }
-                else if (type == comm::CommunicationDefinitions::TYPE::REALSENSE_COMMAND){
+                else if (type == comm::CommunicationDefinitions.TYPE.REALSENSE_COMMAND){
                     packet.reset(new comm::Realsense_Command());
                 }
-                else if (type == comm::CommunicationDefinitions::TYPE::VISION_PROPERTIES){
+                else if (type == comm::CommunicationDefinitions.TYPE.VISION_PROPERTIES){
                     packet.reset(new comm::Vision_Properties());
                 }
-                else if (type == comm::CommunicationDefinitions::TYPE::VISION){
+                else if (type == comm::CommunicationDefinitions.TYPE.VISION){
                     packet.reset(new comm::Vision());
                 }
-                else if (type == comm::CommunicationDefinitions::TYPE::HARDWARE){
+                else if (type == comm::CommunicationDefinitions.TYPE.HARDWARE){
                     packet.reset(new comm::Hardware());
                 }
-                else if (type == comm::CommunicationDefinitions::TYPE::VISION_IMAGE){
+                else if (type == comm::CommunicationDefinitions.TYPE.VISION_IMAGE){
                     packet.reset(new comm::Vision_Image());
                 }
-                else if (type == comm::CommunicationDefinitions::TYPE::IDENTIFIER){
+                else if (type == comm::CommunicationDefinitions.TYPE.IDENTIFIER){
                     packet.reset(new comm::Identifier());
                 }
-                else if (type == comm::CommunicationDefinitions::TYPE::DASHBOARD){
+                else if (type == comm::CommunicationDefinitions.TYPE.DASHBOARD){
                     packet.reset(new comm::Dashboard());
                 }
-                 else if (type == comm::CommunicationDefinitions::TYPE::DATA_SERVER){
+                 else if (type == comm::CommunicationDefinitions.TYPE.DATA_SERVER){
                     packet.reset(new comm::Data_Server());
                 }
-                 else if (type == comm::CommunicationDefinitions::TYPE::SENSOR_STATE){
+                 else if (type == comm::CommunicationDefinitions.TYPE.SENSOR_STATE){
                     packet.reset(new comm::Sensor_State());
                 }
-                 else if (type == comm::CommunicationDefinitions::TYPE::REALSENSE){
+                 else if (type == comm::CommunicationDefinitions.TYPE.REALSENSE){
                     packet.reset(new comm::Realsense());
                 }
-                  else if (type == comm::CommunicationDefinitions::TYPE::JOYSTICK){
+                  else if (type == comm::CommunicationDefinitions.TYPE.JOYSTICK){
                     packet.reset(new comm::Joystick());
                 }
 
