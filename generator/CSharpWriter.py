@@ -20,7 +20,7 @@ class CSharpFieldSerializerWriter:
             byte[] ___{field.name} = _{field.name}.Serialize();
             """
         elif field.type == "bytearray":
-            ret += f"""byte[] ___{field.name} = _{field.name}
+            ret += f"""byte[] ___{field.name} = _{field.name};
             """
         else:
             ret +=f"""

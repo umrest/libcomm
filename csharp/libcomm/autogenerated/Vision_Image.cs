@@ -23,7 +23,7 @@ public void set_image(byte[] other){
             public override byte[] Serialize() {
                      byte[] data = new byte[8191];
                      
-            byte[] ___image = _image
+            byte[] ___image = _image;
             Array.Copy(___image, 0, data, IMAGE_OFFSET, 8191);
         return data;
         }
