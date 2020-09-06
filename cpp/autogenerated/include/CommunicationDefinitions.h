@@ -11,40 +11,39 @@ class CommunicationDefinitions
     public:
         
         enum class TYPE
-        {
-            JOYSTICK = 1,
-VISION = 2,
-REALSENSE = 3,
-SENSOR_STATE = 10,
-DATA_SERVER = 8,
-DASHBOARD = 9,
-IDENTIFIER = 250,
-VISION_COMMAND = 12,
-VISION_IMAGE = 13,
-VISION_PROPERTIES = 14,
-HARDWARE = 15,
-REALSENSE_COMMAND = 16,
-NAVIGATION_PATH = 17,
-NAVIGATION_OBSTACLES = 17,
-NAVIGATION_STATE = 18,
-INVALID = 255,
+                {
+                    JOYSTICK = 1;
+VISION = 2;
+REALSENSE = 3;
+SENSOR_STATE = 10;
+DATA_SERVER = 8;
+DASHBOARD = 9;
+IDENTIFIER = 250;
+VISION_COMMAND = 12;
+VISION_IMAGE = 13;
+VISION_PROPERTIES = 14;
+HARDWARE = 15;
+REALSENSE_COMMAND = 16;
+NAVIGATION_PATH = 17;
+NAVIGATION_OBSTACLES = 17;
+NAVIGATION_STATE = 18;
+INVALID = 255;
 
+                }
+enum class IDENTIFIER
+                {
+                    Dashboard = 1;
+VISION = 2;
+TCPSERIAL = 3;
+HARDWARE = 4;
+DATASAVER = 5;
+REALSENSE = 6;
+NAVIGATION = 7;
 
-        };
+                }
 
-        enum class IDENTIFIER
-        {
-            DASHBOARD = 1,
-VISION = 2,
-TCPSERIAL = 3,
-HARDWARE = 4,
-DATASAVER = 5,
-REALSENSE = 6,
-NAVIGATION = 7,
-
-        };
-
-        static const std::map<TYPE, int> PACKET_SIZES;
+        
+                
 
         CommunicationDefinitions(){
             

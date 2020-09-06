@@ -4,8 +4,8 @@
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
 #include "Vision.h"
-#include "FieldPosition.h"
 #include "TagPosition.h"
+#include "FieldPosition.h"
 
 
 namespace comm

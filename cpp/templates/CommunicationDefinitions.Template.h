@@ -10,18 +10,9 @@ class CommunicationDefinitions
 {
     public:
         
-        enum class TYPE
-        {
-            [[TYPES]]
+        [[ENUMS]]
 
-        };
-
-        enum class IDENTIFIER
-        {
-            [[IDENTIFIERS]]
-        };
-
-        static const std::map<TYPE, int> PACKET_SIZES;
+        [[MAPS]]
 
         CommunicationDefinitions(){
             

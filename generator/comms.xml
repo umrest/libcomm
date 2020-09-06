@@ -1,58 +1,50 @@
 <xml>
- <maps>
   <map name="PACKET_SIZES">
     <pair key='int8' value="1"></pair>
     <pair key='uint8' value="1"></pair>
     <pair key='int16' value="2"></pair>
-    <pair key='TagPosition' value="12"></pair>
-    <pair key='FieldPosition' value="6"></pair>
-    <pair key='Obstacle' value="16"></pair>
-    <pair key='MotorInfo' value="16"></pair>
-    <pair key='BitArray8' value="1"></pair>
-    <pair key='Navigation_Path' value="200"></pair>
-    <pair key='Navigation_Obstacles' value="200"></pair>
-<pair key='Navigation_Line' value="8"></pair>
-<pair key='Navigation_State' value="120"></pair>
-    <pair key='Navigation_Obstacle' value="8"></pair>
-     <pair key='bytearray' value="8191"></pair>
+    <pair key='bytearray' value="8191"></pair>
 
-    <pair key='Hardware' value="8"></pair>
-
-    <pair key='Joystick' value="8"></pair>
-    <pair key='Vision' value="31"></pair>
-    <pair key='Realsense' value="127"></pair>
-    <pair key='Data_Server' value="127"></pair>
-    <pair key='Dashboard' value="9"></pair>
-    <pair key='Sensor_State' value="160"></pair>
-    <pair key='Vision_Command' value="127"></pair>
-    <pair key='Realsense_Command' value="127"></pair>
-    <pair key='Vision_Image' value="8191"></pair>
-    <pair key='Identifier' value="127"></pair>
-    <pair key='Vision_Properties' value="127"></pair>
+    <pair key='TAG_POSITION' value="12"></pair>
+    <pair key='FIELD_POSITION' value="6"></pair>
+    <pair key='OBSTACLE' value="16"></pair>
+    <pair key='MOTOR_INFO' value="16"></pair>
+    <pair key='BITARRAY8' value="1"></pair>
+    <pair key='NAVIGATION_PATH' value="200"></pair>
+    <pair key='NAVIGATION_OBSTACLES' value="200"></pair>
+    <pair key='NAVIGATION_LINE' value="8"></pair>
+    <pair key='NAVIGATION_OBSTACLES' value="120"></pair>
+    <pair key='NAVIGATION_OBSTACLE' value="8"></pair>
+    <pair key='HARDWARE' value="8"></pair>
+    <pair key='JOYSTICK' value="8"></pair>
+    <pair key='VISION' value="31"></pair>
+    <pair key='REALSENSE' value="127"></pair>
+    <pair key='DATA_SERVER' value="127"></pair>
+    <pair key='DASHBOARD' value="9"></pair>
+    <pair key='SENSOR_STATE' value="160"></pair>
+    <pair key='VISION_COMMAND' value="127"></pair>
+    <pair key='REALSENSE_COMMAND' value="127"></pair>
+    <pair key='VISION_COMMAND' value="8191"></pair>
+    <pair key='IDENTIFIER' value="127"></pair>
+    <pair key='VISION_PROPERTIES' value="127"></pair>
   </map>
 
-  </maps>
-  <enums>
-
-  <enum name="VISION_COMMAND">
-    <element name="command" value="0"></element>
-  </enum>
-  <enum name="TYPE_IDS">
-    <element name="Joystick" value="1"></element>
-    <element name="Vision" value="2"></element>
-    <element name="Realsense" value="3"></element>
-    <element name="Sensor_State" value="10"></element>
-    <element name="Data_Server" value="8"></element>
-    <element name="Dashboard" value="9"></element>
-    <element name="Identifier" value="250"></element>
-    <element name="Vision_Command" value="12"></element>
-    <element name="Vision_Image" value="13"></element>
-    <element name="Vision_Properties" value="14"></element>
-    <element name="Hardware" value="15"></element>
-    <element name="Realsense_Command" value="16"></element>
-    <element name="Navigation_Path" value="17"></element>
-    <element name="Navigation_Obstacles" value="17"></element>
-    <element name="Navigation_State" value="18"></element>
+  <enum name="TYPES">
+    <element name="JOYSTICK" value="1"></element>
+    <element name="VISION" value="2"></element>
+    <element name="REALSENSE" value="3"></element>
+    <element name="SENSOR_STATE" value="10"></element>
+    <element name="DATA_SERVER" value="8"></element>
+    <element name="DASHBOARD" value="9"></element>
+    <element name="IDENTIFIER" value="250"></element>
+    <element name="VISION_COMMAND" value="12"></element>
+    <element name="VISION_IMAGE" value="13"></element>
+    <element name="VISION_PROPERTIES" value="14"></element>
+    <element name="HARDWARE" value="15"></element>
+    <element name="REALSENSE_COMMAND" value="16"></element>
+    <element name="NAVIGATION_PATH" value="17"></element>
+    <element name="NAVIGATION_OBSTACLES" value="17"></element>
+    <element name="NAVIGATION_STATE" value="18"></element>
     <element name="INVALID" value="255"></element>
   </enum>
   <enum name="IDENTIFIERS">
@@ -64,10 +56,15 @@
     <element name="REALSENSE" value="6"></element>
     <element name="NAVIGATION" value="7"></element>
   </enum>
-  </enums>
 
+  <enum name="VISION_COMMAND">
+    <element name="send_image" value="0"></element>
+    <element name="start_streaming" value="1"></element>
+    <element name="stop_streaming" value="2"></element>
+    <element name="start_detection" value="3"></element>
+    <element name="stop_detection" value="4"></element>
 
-  <messages>
+  </enum>
 
   <message name="Joystick">
     <field name="buttons_1" type="BitArray8">
@@ -86,7 +83,7 @@
       <accessor type="bits">
         <bit>button_LJ</bit>
         <bit>button_RJ</bit>
-       </accessor>
+      </accessor>
     </field>
 
     <field name="lj_x" type="int8">
@@ -210,10 +207,10 @@
     <field name="obstacle_3" type="Navigation_Obstacle"></field>
   </message>
 
-   <message name="Navigation_State">
+  <message name="Navigation_State">
     <field name="field_position" type="FieldPosition"></field>
   </message>
-  
+
 
   <message name="Vision">
     <field name='tag0' type='TagPosition'></field>
@@ -226,14 +223,14 @@
     <field name='command' type='uint8'></field>
   </message>
 
-   <message name="Realsense_Command">
+  <message name="Realsense_Command">
     <field name='command' type='uint8'></field>
   </message>
 
   <message name="Vision_Properties">
     <field name='command' type='uint8'></field>
   </message>
-  
+
   <message name="Realsense">
     <field name='obstacle_1' type='Obstacle'></field>
     <field name='obstacle_2' type='Obstacle'></field>
@@ -245,7 +242,7 @@
     <field name='identifier' type='uint8'></field>
   </message>
 
-    <message name="MotorInfo">
+  <message name="MotorInfo">
 
   </message>
 
@@ -258,7 +255,7 @@
     <field name='motor_info_6' type='MotorInfo'></field>
     <field name='motor_info_7' type='MotorInfo'></field>
     <field name='motor_info_8' type='MotorInfo'></field>
-    <field name='motor_info_9' type='MotorInfo'></field>  
+    <field name='motor_info_9' type='MotorInfo'></field>
     <field name='motor_info_10' type='MotorInfo'></field>
   </message>
 
@@ -273,7 +270,7 @@
     </field>
   </message>
 
-   <message name="Dashboard">
+  <message name="Dashboard">
     <field name='enabled_1' type='uint8'></field>
     <field name='enabled_2' type='uint8'></field>
     <field name='enabled_3' type='uint8'></field>
@@ -285,14 +282,12 @@
     <field name='state' type='uint8'></field>
   </message>
 
-   <message name="Hardware">
+  <message name="Hardware">
     <field name='angle' type='uint8'></field>
   </message>
 
   <message name="Vision_Image">
     <field name='image' type='bytearray'></field>
   </message>
-
-</messages>
 
 </xml>

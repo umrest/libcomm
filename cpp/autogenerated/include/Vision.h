@@ -1,8 +1,8 @@
 #pragma once
 
 #include "VisionInterface.h"
-#include "FieldPositionInterface.h"
 #include "TagPositionInterface.h"
+#include "FieldPositionInterface.h"
 
 
 namespace comm
