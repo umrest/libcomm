@@ -3,7 +3,6 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Vision_Image.h"
 
 
 namespace comm
@@ -15,15 +14,14 @@ class Vision_ImageInterface : public RESTPacket{
 
     }
     // Variables
-    char* _image;
+    bytearray _image;
+
 
     // Offsets
-    int image_OFFSET = 0;
-            int SIZE = 8191;
+    int IMAGE_OFFSET = 0;
+
 
     // Type
-    
-                CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::VISION_IMAGE; }
-            
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::VISION_IMAGE; }
 };
 } // namespace comm

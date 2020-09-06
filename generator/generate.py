@@ -10,6 +10,16 @@ from CPPWriter import CPPWriter
 
 from helpers import *
 
+class Bit:
+    def __init__(self, bit_data, bit_array, idx):
+        self.name = bit_data
+        self.type = "bool"
+        self.bit_array = bit_array
+        self.accessor = Accessor(self, {
+            "@type": "bit"
+        })
+        self.idx = idx
+
 class Accessor:
     def __init__(self, field, accessor_data):
         self.field = field
@@ -17,10 +27,19 @@ class Accessor:
             self.type = accessor_data["@type"]
         else:
             self.type = None
+        
+        if self.type == "float":
+            self.scale = accessor_data["@scale"]
+        
+        if self.type == "bits":
+            self.bits = []
+            for idx, bit_data in enumerate(accessor_data["bit"]):
+                self.bits.append(Bit(bit_data, field, idx))
 
 class Field:
     def __init__(self, field_data):
         self.type = field_data["@type"]
+        self.name = field_data["@name"]
         self.accessor = Accessor(self, field_data.get("accessor", None))
 
 

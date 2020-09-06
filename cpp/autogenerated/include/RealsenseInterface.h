@@ -3,7 +3,6 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Realsense.h"
 #include "Obstacle.h"
 
 
@@ -16,18 +15,20 @@ class RealsenseInterface : public RESTPacket{
 
     }
     // Variables
-    Obstacle _obstacle_1;Obstacle _obstacle_2;Obstacle _obstacle_3;Obstacle _obstacle_4;
+    Obstacle _obstacle_1;
+Obstacle _obstacle_2;
+Obstacle _obstacle_3;
+Obstacle _obstacle_4;
+
 
     // Offsets
-    int obstacle_1_OFFSET = 0;
-            int obstacle_2_OFFSET = 16;
-            int obstacle_3_OFFSET = 32;
-            int obstacle_4_OFFSET = 48;
-            int SIZE = 127;
+    int OBSTACLE_1_OFFSET = 0;
+int OBSTACLE_2_OFFSET = 16;
+int OBSTACLE_3_OFFSET = 32;
+int OBSTACLE_4_OFFSET = 48;
+
 
     // Type
-    
-                CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::REALSENSE; }
-            
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::REALSENSE; }
 };
 } // namespace comm

@@ -3,7 +3,6 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Hardware.h"
 
 
 namespace comm
@@ -15,15 +14,14 @@ class HardwareInterface : public RESTPacket{
 
     }
     // Variables
-    uint8_t _angle;
+    uint8 _angle;
+
 
     // Offsets
-    int angle_OFFSET = 0;
-            int SIZE = 8;
+    int ANGLE_OFFSET = 0;
+
 
     // Type
-    
-                CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::HARDWARE; }
-            
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::HARDWARE; }
 };
 } // namespace comm

@@ -3,7 +3,6 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Vision_Command.h"
 
 
 namespace comm
@@ -15,15 +14,14 @@ class Vision_CommandInterface : public RESTPacket{
 
     }
     // Variables
-    uint8_t _command;
+    uint8 _command;
+
 
     // Offsets
-    int command_OFFSET = 0;
-            int SIZE = 127;
+    int COMMAND_OFFSET = 0;
+
 
     // Type
-    
-                CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::VISION_COMMAND; }
-            
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::VISION_COMMAND; }
 };
 } // namespace comm

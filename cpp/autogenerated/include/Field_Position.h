@@ -1,41 +1,35 @@
 #pragma once
 
-#include "ObstacleInterface.h"
+#include "Field_PositionInterface.h"
 
 
 namespace comm
 {
-    class Obstacle : public ObstacleInterface
+    class Field_Position : public Field_PositionInterface
     {
         public:
-            Obstacle() {
+            Field_Position() {
 
             }
             // Accessors
-            float get_x(){
+            float get_yaw(){
+                return other / 0.0027465827;
+            };
+float get_x(){
                 return other / 0.1;
             };
 float get_y(){
                 return other / 0.1;
             };
-float get_width(){
-                return other / 0.1;
-            };
-float get_height(){
-                return other / 0.1;
-            };
 
+void set_yaw(float other){
+                _yaw = other * 0.0027465827;
+            };
 void set_x(float other){
                 _x = other * 0.1;
             };
 void set_y(float other){
                 _y = other * 0.1;
-            };
-void set_width(float other){
-                _width = other * 0.1;
-            };
-void set_height(float other){
-                _height = other * 0.1;
             };
 
             

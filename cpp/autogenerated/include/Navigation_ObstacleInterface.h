@@ -3,7 +3,6 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Navigation_Obstacle.h"
 
 
 namespace comm
@@ -15,16 +14,20 @@ class Navigation_ObstacleInterface : public RESTPacket{
 
     }
     // Variables
-    int16_t _x;int16_t _y;int16_t _width;int16_t _height;
+    int16 _x;
+int16 _y;
+int16 _width;
+int16 _height;
+
 
     // Offsets
-    int x_OFFSET = 0;
-            int y_OFFSET = 2;
-            int width_OFFSET = 4;
-            int height_OFFSET = 6;
-            int SIZE = 8;
+    int X_OFFSET = 0;
+int Y_OFFSET = 2;
+int WIDTH_OFFSET = 4;
+int HEIGHT_OFFSET = 6;
+
 
     // Type
-    
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::NAVIGATION_OBSTACLE; }
 };
 } // namespace comm

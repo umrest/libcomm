@@ -12,35 +12,17 @@ namespace comm
 
             }
             // Accessors
-            
-            uint8_t get_angle(){
-                return _angle;
-            }
-            void set_angle(uint8_t val){
-                _angle = val;
-            }
-            
+            uint8 get_angle(){
+                _angle = other;
+            };
+
+void set_angle(uint8 other){
+                _angle = other;
+            };
+
             
             // Serializers
-            std::vector<uint8_t> Serialize() {
-                     std::vector<uint8_t> data(8);
-                     
             
-            uint8_t* ___angle = (uint8_t*)&_angle;
-            
-            std::copy(___angle, ___angle + 1, data.begin() + angle_OFFSET);
-            
-                     return data;
-                     }
-                 void Deserialize(std::vector<uint8_t> data)  {
-            
-         std::vector<uint8_t> new_data;
-                     
-         
-            std::copy(data.begin() + angle_OFFSET, data.begin() + angle_OFFSET + 1, (uint8_t *)&_angle);
-            
-                     }
-                
 
             
             

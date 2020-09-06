@@ -3,7 +3,6 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Data_Server.h"
 #include "BitArray8.h"
 
 
@@ -18,13 +17,12 @@ class Data_ServerInterface : public RESTPacket{
     // Variables
     BitArray8 _connected_status;
 
+
     // Offsets
-    int connected_status_OFFSET = 0;
-            int SIZE = 127;
+    int CONNECTED_STATUS_OFFSET = 0;
+
 
     // Type
-    
-                CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::DATA_SERVER; }
-            
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::DATA_SERVER; }
 };
 } // namespace comm

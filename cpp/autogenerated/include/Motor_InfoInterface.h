@@ -7,9 +7,9 @@
 
 namespace comm
 {
-class MotorInfoInterface : public RESTPacket{
+class Motor_InfoInterface : public RESTPacket{
     public :
-        MotorInfoInterface()
+        Motor_InfoInterface()
     {
 
     }
@@ -20,6 +20,6 @@ class MotorInfoInterface : public RESTPacket{
     
 
     // Type
-    
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::MOTOR_INFO; }
 };
 } // namespace comm

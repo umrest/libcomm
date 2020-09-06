@@ -1,9 +1,9 @@
 <xml>
   <map name="PACKET_SIZES">
-    <pair key='int8' value="1"></pair>
-    <pair key='uint8' value="1"></pair>
-    <pair key='int16' value="2"></pair>
-    <pair key='bytearray' value="8191"></pair>
+    <pair key='INT8' value="1"></pair>
+    <pair key='UINT8' value="1"></pair>
+    <pair key='INT16' value="2"></pair>
+    <pair key='BYTEARRAY' value="8191"></pair>
 
     <pair key='TAG_POSITION' value="12"></pair>
     <pair key='FIELD_POSITION' value="6"></pair>
@@ -15,6 +15,7 @@
     <pair key='NAVIGATION_LINE' value="8"></pair>
     <pair key='NAVIGATION_OBSTACLES' value="120"></pair>
     <pair key='NAVIGATION_OBSTACLE' value="8"></pair>
+    <pair key='NAVIGATION_STATE' value="120"></pair>
     <pair key='HARDWARE' value="8"></pair>
     <pair key='JOYSTICK' value="8"></pair>
     <pair key='VISION' value="31"></pair>
@@ -24,7 +25,7 @@
     <pair key='SENSOR_STATE' value="160"></pair>
     <pair key='VISION_COMMAND' value="127"></pair>
     <pair key='REALSENSE_COMMAND' value="127"></pair>
-    <pair key='VISION_COMMAND' value="8191"></pair>
+    <pair key='VISION_IMAGE' value="8191"></pair>
     <pair key='IDENTIFIER' value="127"></pair>
     <pair key='VISION_PROPERTIES' value="127"></pair>
   </map>
@@ -106,7 +107,7 @@
     </field>
   </message>
 
-  <message name="TagPosition">
+  <message name="Tag_Position">
     <field name="yaw" type="int16">
       <accessor type="float" scale="0.0027465827"></accessor>
     </field>
@@ -127,7 +128,7 @@
     </field>
   </message>
 
-  <message name="FieldPosition">
+  <message name="Field_Position">
     <field name="yaw" type="int16">
       <accessor type="float" scale="0.0027465827"></accessor>
     </field>
@@ -208,14 +209,14 @@
   </message>
 
   <message name="Navigation_State">
-    <field name="field_position" type="FieldPosition"></field>
+    <field name="field_position" type="Field_Position"></field>
   </message>
 
 
   <message name="Vision">
-    <field name='tag0' type='TagPosition'></field>
-    <field name='tag1' type='TagPosition'></field>
-    <field name='field_position' type='FieldPosition'></field>
+    <field name='tag0' type='Tag_Position'></field>
+    <field name='tag1' type='Tag_Position'></field>
+    <field name='field_position' type='Field_Position'></field>
     <field name='vision_good' type='uint8'></field>
   </message>
 
@@ -242,21 +243,21 @@
     <field name='identifier' type='uint8'></field>
   </message>
 
-  <message name="MotorInfo">
+  <message name="Motor_Info">
 
   </message>
 
   <message name="Sensor_State">
-    <field name='motor_info_1' type='MotorInfo'></field>
-    <field name='motor_info_2' type='MotorInfo'></field>
-    <field name='motor_info_3' type='MotorInfo'></field>
-    <field name='motor_info_4' type='MotorInfo'></field>
-    <field name='motor_info_5' type='MotorInfo'></field>
-    <field name='motor_info_6' type='MotorInfo'></field>
-    <field name='motor_info_7' type='MotorInfo'></field>
-    <field name='motor_info_8' type='MotorInfo'></field>
-    <field name='motor_info_9' type='MotorInfo'></field>
-    <field name='motor_info_10' type='MotorInfo'></field>
+    <field name='motor_info_1' type='Motor_Info'></field>
+    <field name='motor_info_2' type='Motor_Info'></field>
+    <field name='motor_info_3' type='Motor_Info'></field>
+    <field name='motor_info_4' type='Motor_Info'></field>
+    <field name='motor_info_5' type='Motor_Info'></field>
+    <field name='motor_info_6' type='Motor_Info'></field>
+    <field name='motor_info_7' type='Motor_Info'></field>
+    <field name='motor_info_8' type='Motor_Info'></field>
+    <field name='motor_info_9' type='Motor_Info'></field>
+    <field name='motor_info_10' type='Motor_Info'></field>
   </message>
 
   <message name="Data_Server">

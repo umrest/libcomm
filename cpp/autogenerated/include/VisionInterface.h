@@ -3,9 +3,8 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Vision.h"
-#include "TagPosition.h"
-#include "FieldPosition.h"
+#include "Tag_Position.h"
+#include "Field_Position.h"
 
 
 namespace comm
@@ -17,18 +16,20 @@ class VisionInterface : public RESTPacket{
 
     }
     // Variables
-    TagPosition _tag0;TagPosition _tag1;FieldPosition _field_position;uint8_t _vision_good;
+    Tag_Position _tag0;
+Tag_Position _tag1;
+Field_Position _field_position;
+uint8 _vision_good;
+
 
     // Offsets
-    int tag0_OFFSET = 0;
-            int tag1_OFFSET = 12;
-            int field_position_OFFSET = 24;
-            int vision_good_OFFSET = 30;
-            int SIZE = 31;
+    int TAG0_OFFSET = 0;
+int TAG1_OFFSET = 12;
+int FIELD_POSITION_OFFSET = 24;
+int VISION_GOOD_OFFSET = 30;
+
 
     // Type
-    
-                CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::VISION; }
-            
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::VISION; }
 };
 } // namespace comm

@@ -3,16 +3,13 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "int16.h"
-#include "int16.h"
-#include "int16.h"
 
 
 namespace comm
 {
-class FieldPositionInterface : public RESTPacket{
+class Field_PositionInterface : public RESTPacket{
     public :
-        FieldPositionInterface()
+        Field_PositionInterface()
     {
 
     }
@@ -24,14 +21,11 @@ int16 _y;
 
     // Offsets
     int YAW_OFFSET = 0;
-int X_OFFSET = 1;
-int Y_OFFSET = 2;
+int X_OFFSET = 2;
+int Y_OFFSET = 4;
 
 
     // Type
-    int16 _yaw;
-int16 _x;
-int16 _y;
-
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::FIELD_POSITION; }
 };
 } // namespace comm

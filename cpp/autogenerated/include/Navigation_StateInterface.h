@@ -3,8 +3,7 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Navigation_State.h"
-#include "FieldPosition.h"
+#include "Field_Position.h"
 
 
 namespace comm
@@ -16,15 +15,14 @@ class Navigation_StateInterface : public RESTPacket{
 
     }
     // Variables
-    FieldPosition _field_position;
+    Field_Position _field_position;
+
 
     // Offsets
-    int field_position_OFFSET = 0;
-            int SIZE = 120;
+    int FIELD_POSITION_OFFSET = 0;
+
 
     // Type
-    
-                CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::NAVIGATION_STATE; }
-            
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::NAVIGATION_STATE; }
 };
 } // namespace comm

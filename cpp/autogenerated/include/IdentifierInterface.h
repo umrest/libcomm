@@ -3,7 +3,6 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Identifier.h"
 
 
 namespace comm
@@ -15,15 +14,14 @@ class IdentifierInterface : public RESTPacket{
 
     }
     // Variables
-    uint8_t _identifier;
+    uint8 _identifier;
+
 
     // Offsets
-    int identifier_OFFSET = 0;
-            int SIZE = 127;
+    int IDENTIFIER_OFFSET = 0;
+
 
     // Type
-    
-                CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::IDENTIFIER; }
-            
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::IDENTIFIER; }
 };
 } // namespace comm
