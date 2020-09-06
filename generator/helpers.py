@@ -36,5 +36,12 @@ PRIMITIVE_TYPE_MAP = {
     }
 }
 
+
 def is_primitive(t):
     return PRIMITIVE_TYPE_MAP.get(t, None) != None
+
+
+def get_type(t, t2):
+    if is_primitive(t):
+        return PRIMITIVE_TYPE_MAP[t][t2]
+    return t

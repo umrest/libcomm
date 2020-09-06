@@ -17,12 +17,12 @@ class JoystickInterface : public RESTPacket{
     // Variables
     BitArray8 _buttons_1;
 BitArray8 _buttons_2;
-int8 _lj_x;
-int8 _lj_y;
-int8 _rj_x;
-int8 _rj_y;
-int8 _lt;
-int8 _rt;
+int8_t _lj_x;
+int8_t _lj_y;
+int8_t _rj_x;
+int8_t _rj_y;
+int8_t _lt;
+int8_t _rt;
 
 
     // Offsets

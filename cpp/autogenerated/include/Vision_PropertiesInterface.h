@@ -14,7 +14,7 @@ class Vision_PropertiesInterface : public RESTPacket{
 
     }
     // Variables
-    uint8 _command;
+    uint8_t _command;
 
 
     // Offsets

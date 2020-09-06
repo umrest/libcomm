@@ -14,12 +14,12 @@ class Tag_PositionInterface : public RESTPacket{
 
     }
     // Variables
-    int16 _yaw;
-int16 _pitch;
-int16 _roll;
-int16 _x;
-int16 _y;
-int16 _z;
+    int16_t _yaw;
+int16_t _pitch;
+int16_t _roll;
+int16_t _x;
+int16_t _y;
+int16_t _z;
 
 
     // Offsets
@@ -32,6 +32,6 @@ int Z_OFFSET = 10;
 
 
     // Type
-    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::TAG_POSITION; }
+    
 };
 } // namespace comm

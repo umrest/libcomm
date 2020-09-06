@@ -14,7 +14,7 @@ class IdentifierInterface : public RESTPacket{
 
     }
     // Variables
-    uint8 _identifier;
+    uint8_t _identifier;
 
 
     // Offsets

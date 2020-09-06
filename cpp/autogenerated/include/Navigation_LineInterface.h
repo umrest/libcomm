@@ -14,10 +14,10 @@ class Navigation_LineInterface : public RESTPacket{
 
     }
     // Variables
-    int16 _x_start;
-int16 _y_start;
-int16 _x_end;
-int16 _y_end;
+    int16_t _x_start;
+int16_t _y_start;
+int16_t _x_end;
+int16_t _y_end;
 
 
     // Offsets
@@ -28,6 +28,6 @@ int Y_END_OFFSET = 6;
 
 
     // Type
-    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::NAVIGATION_LINE; }
+    
 };
 } // namespace comm

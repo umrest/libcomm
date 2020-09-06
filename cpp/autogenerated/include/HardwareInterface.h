@@ -14,7 +14,7 @@ class HardwareInterface : public RESTPacket{
 
     }
     // Variables
-    uint8 _angle;
+    uint8_t _angle;
 
 
     // Offsets

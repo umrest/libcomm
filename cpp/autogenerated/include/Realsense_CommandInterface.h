@@ -14,7 +14,7 @@ class Realsense_CommandInterface : public RESTPacket{
 
     }
     // Variables
-    uint8 _command;
+    uint8_t _command;
 
 
     // Offsets

@@ -49,7 +49,7 @@
     <element name="INVALID" value="255"></element>
   </enum>
   <enum name="IDENTIFIERS">
-    <element name="Dashboard" value="1"></element>
+    <element name="DASHBOARD" value="1"></element>
     <element name="VISION" value="2"></element>
     <element name="TCPSERIAL" value="3"></element>
     <element name="HARDWARE" value="4"></element>

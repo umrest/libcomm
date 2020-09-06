@@ -14,7 +14,7 @@ class Vision_ImageInterface : public RESTPacket{
 
     }
     // Variables
-    bytearray _image;
+    char* _image;
 
 
     // Offsets

@@ -14,9 +14,9 @@ class Field_PositionInterface : public RESTPacket{
 
     }
     // Variables
-    int16 _yaw;
-int16 _x;
-int16 _y;
+    int16_t _yaw;
+int16_t _x;
+int16_t _y;
 
 
     // Offsets
@@ -26,6 +26,6 @@ int Y_OFFSET = 4;
 
 
     // Type
-    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::FIELD_POSITION; }
+    
 };
 } // namespace comm

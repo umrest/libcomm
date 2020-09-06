@@ -3,8 +3,8 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Tag_Position.h"
 #include "Field_Position.h"
+#include "Tag_Position.h"
 
 
 namespace comm
@@ -19,7 +19,7 @@ class VisionInterface : public RESTPacket{
     Tag_Position _tag0;
 Tag_Position _tag1;
 Field_Position _field_position;
-uint8 _vision_good;
+uint8_t _vision_good;
 
 
     // Offsets

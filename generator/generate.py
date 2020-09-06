@@ -82,16 +82,14 @@ def main():
         "VISION_COMMAND": get_enum_dict(data["enum"][2])
     }
 
-    print(communication_definitions)
-
     for message in data["message"]:
         messages.append(Message(message))
 
     cpp_dir = os.path.join(os.path.dirname(__file__), "../cpp/")
     CPPWriter(cpp_dir).run(messages, communication_definitions)
 
-    #csharp_dir = os.path.join(os.path.dirname(__file__), "../csharp/")
-    #CSharpWriter(csharp_dir).run(messages, communication_definitions)
+    csharp_dir = os.path.join(os.path.dirname(__file__), "../csharp/")
+    CSharpWriter(csharp_dir).run(messages, communication_definitions)
 
 
 main()

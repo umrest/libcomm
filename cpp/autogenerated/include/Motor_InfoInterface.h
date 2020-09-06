@@ -20,6 +20,6 @@ class Motor_InfoInterface : public RESTPacket{
     
 
     // Type
-    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::MOTOR_INFO; }
+    
 };
 } // namespace comm

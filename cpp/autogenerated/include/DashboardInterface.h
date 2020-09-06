@@ -14,15 +14,15 @@ class DashboardInterface : public RESTPacket{
 
     }
     // Variables
-    uint8 _enabled_1;
-uint8 _enabled_2;
-uint8 _enabled_3;
-uint8 _enabled_4;
-uint8 _enabled_5;
-uint8 _enabled_6;
-uint8 _enabled_7;
-uint8 _enabled_8;
-uint8 _state;
+    uint8_t _enabled_1;
+uint8_t _enabled_2;
+uint8_t _enabled_3;
+uint8_t _enabled_4;
+uint8_t _enabled_5;
+uint8_t _enabled_6;
+uint8_t _enabled_7;
+uint8_t _enabled_8;
+uint8_t _state;
 
 
     // Offsets
