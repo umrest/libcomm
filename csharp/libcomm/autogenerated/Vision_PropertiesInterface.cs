@@ -11,11 +11,13 @@ public abstract class Vision_PropertiesInterface : RESTPacket{
     }
 
            // Variables
-    protected byte _command;
+    protected UInt32 _exposure;
+protected UInt32 _gain;
 
 
     // Offsets
-    protected int COMMAND_OFFSET = 0;
+    protected int EXPOSURE_OFFSET = 0;
+protected int GAIN_OFFSET = 4;
 
 
     // Type

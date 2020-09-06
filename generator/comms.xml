@@ -235,7 +235,8 @@
   </message>
 
   <message name="Vision_Properties">
-    <field name='command' type='uint8'></field>
+    <field name='exposure' type='uint32'></field>
+    <field name='gain' type='uint32'></field>
   </message>
 
   <message name="Realsense">

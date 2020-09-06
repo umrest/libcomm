@@ -10,12 +10,18 @@ namespace comm
 
             }
             // Accessors
-            public byte get_command(){
-                return _command;
+            public UInt32 get_exposure(){
+                return _exposure;
+            }
+public UInt32 get_gain(){
+                return _gain;
             }
 
-public void set_command(byte other){
-                _command = other;
+public void set_exposure(UInt32 other){
+                _exposure = other;
+            }
+public void set_gain(UInt32 other){
+                _gain = other;
             }
 
             
@@ -24,12 +30,16 @@ public void set_command(byte other){
                      byte[] data = new byte[127];
                      
             
-            byte[] ___command = BitConverter.GetBytes(_command);
-            Array.Copy(___command, 0, data, COMMAND_OFFSET, 1);
+            byte[] ___exposure = BitConverter.GetBytes(_exposure);
+            Array.Copy(___exposure, 0, data, EXPOSURE_OFFSET, 4);
+            
+            byte[] ___gain = BitConverter.GetBytes(_gain);
+            Array.Copy(___gain, 0, data, GAIN_OFFSET, 4);
         return data;
         }
         public override void Deserialize(byte[] data)  {
-        _command = data[COMMAND_OFFSET];}
+        _exposure = BitConverter.ToUInt32(data, EXPOSURE_OFFSET);
+        _gain = BitConverter.ToUInt32(data, GAIN_OFFSET);}
         
 
             

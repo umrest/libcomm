@@ -14,11 +14,13 @@ class Vision_PropertiesInterface : public RESTPacket{
 
     }
     // Variables
-    uint8_t _command;
+    uint32_t _exposure;
+uint32_t _gain;
 
 
     // Offsets
-    int COMMAND_OFFSET = 0;
+    int EXPOSURE_OFFSET = 0;
+int GAIN_OFFSET = 4;
 
 
     // Type
