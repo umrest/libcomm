@@ -82,7 +82,7 @@ class CSharpFieldAccessorWriter:
         if field.accessor.type == "bit":
             return f"_{field.bit_array.name}.SetBit({field.idx}, other);"
         if field.accessor.type == "float":
-            return f"_{field.name} = ({field.type})(other * {field.accessor.scale});"
+            return f'_{field.name} = ({get_type(field.type, "csharp")})(other * {field.accessor.scale});'
         return f"_{field.name} = other;"
         
     def get_setter(self, field):
@@ -130,8 +130,7 @@ class CSharpMessageWriter:
         return ret
     
     def get_deserializer(self):
-        ret = f"""public override void Deserialize(byte[] data)  {{
-         byte[] new_data;"""
+        ret = f"""public override void Deserialize(byte[] data)  {{"""
         writer = CSharpFieldSerializerWriter(self.message, self.communication_definitions)
         for field in self.message.fields:
             ret += writer.get_deserializer(field)

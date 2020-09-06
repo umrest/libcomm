@@ -29,7 +29,6 @@ void set_command(byte other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         _command = data[COMMAND_OFFSET];}
         
 

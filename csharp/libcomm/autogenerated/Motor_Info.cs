@@ -19,8 +19,7 @@ namespace comm
                      
         return data;
         }
-        public override void Deserialize(byte[] data)  {
-         byte[] new_data;}
+        public override void Deserialize(byte[] data)  {}
         
 
             

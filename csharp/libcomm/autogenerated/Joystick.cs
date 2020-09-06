@@ -90,22 +90,22 @@ void set_button_RJ(bool other){
                 _buttons_2.SetBit(1, other);
             }
 void set_lj_x(double other){
-                _lj_x = (int8)(other * 0.00787401574);
+                _lj_x = (sbyte)(other * 0.00787401574);
             }
 void set_lj_y(double other){
-                _lj_y = (int8)(other * 0.00787401574);
+                _lj_y = (sbyte)(other * 0.00787401574);
             }
 void set_rj_x(double other){
-                _rj_x = (int8)(other * 0.00787401574);
+                _rj_x = (sbyte)(other * 0.00787401574);
             }
 void set_rj_y(double other){
-                _rj_y = (int8)(other * 0.00787401574);
+                _rj_y = (sbyte)(other * 0.00787401574);
             }
 void set_lt(double other){
-                _lt = (int8)(other * 0.00787401574);
+                _lt = (sbyte)(other * 0.00787401574);
             }
 void set_rt(double other){
-                _rt = (int8)(other * 0.00787401574);
+                _rt = (sbyte)(other * 0.00787401574);
             }
 
             
@@ -140,7 +140,6 @@ void set_rt(double other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         
             byte[] __buttons_1 = new byte[1];
             Array.Copy(data, BUTTONS_1_OFFSET, __buttons_1, 0, 1);

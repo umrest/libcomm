@@ -29,7 +29,6 @@ void set_angle(byte other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         _angle = data[ANGLE_OFFSET];}
         
 

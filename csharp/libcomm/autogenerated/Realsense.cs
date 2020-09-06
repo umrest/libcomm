@@ -56,7 +56,6 @@ void set_obstacle_4(Obstacle other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         
             byte[] __obstacle_1 = new byte[16];
             Array.Copy(data, OBSTACLE_1_OFFSET, __obstacle_1, 0, 16);

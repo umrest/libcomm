@@ -101,7 +101,6 @@ void set_state(byte other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         _enabled_1 = data[ENABLED_1_OFFSET];
         _enabled_2 = data[ENABLED_2_OFFSET];
         _enabled_3 = data[ENABLED_3_OFFSET];

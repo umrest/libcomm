@@ -209,7 +209,6 @@ void set_line_20(Navigation_Line other){
         return data;
         }
         public override void Deserialize(byte[] data)  {
-         byte[] new_data;
         
             byte[] __line_0 = new byte[8];
             Array.Copy(data, LINE_0_OFFSET, __line_0, 0, 8);
