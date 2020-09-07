@@ -26,7 +26,7 @@ public void set_gain(UInt32 other){
 
             
             // Serializers
-            public byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[127];
                      
             
@@ -37,7 +37,7 @@ public void set_gain(UInt32 other){
             Array.Copy(___gain, 0, data, GAIN_OFFSET, 4);
         return data;
         }
-        public void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
         _exposure = BitConverter.ToUInt32(data, EXPOSURE_OFFSET);
         _gain = BitConverter.ToUInt32(data, GAIN_OFFSET);}
         

@@ -32,7 +32,7 @@ public void set_y(double other){
 
             
             // Serializers
-            public byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[6];
                      
             
@@ -46,7 +46,7 @@ public void set_y(double other){
             Array.Copy(___y, 0, data, Y_OFFSET, 2);
         return data;
         }
-        public void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
         _yaw = BitConverter.ToInt16(data, YAW_OFFSET);
         _x = BitConverter.ToInt16(data, X_OFFSET);
         _y = BitConverter.ToInt16(data, Y_OFFSET);}

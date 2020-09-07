@@ -123,7 +123,7 @@ class CSharpMessageWriter:
         return ret
     
     def get_serializer(self):
-        ret = f"""public byte[] Serialize() {{
+        ret = f"""public override byte[] Serialize() {{
                      byte[] data = new byte[{self.communication_definitions["PACKET_SIZES"][self.message.name.upper()]}];
                      """
         writer = CSharpFieldSerializerWriter(self.message, self.communication_definitions)
@@ -136,7 +136,7 @@ class CSharpMessageWriter:
         return ret
     
     def get_deserializer(self):
-        ret = f"""public void Deserialize(byte[] data)  {{"""
+        ret = f"""public override void Deserialize(byte[] data)  {{"""
         writer = CSharpFieldSerializerWriter(self.message, self.communication_definitions)
         for field in self.message.fields:
             ret += writer.get_deserializer(field)

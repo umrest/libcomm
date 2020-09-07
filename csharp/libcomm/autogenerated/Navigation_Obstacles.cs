@@ -38,7 +38,7 @@ public void set_obstacle_3(Navigation_Obstacle other){
 
             
             // Serializers
-            public byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[120];
                      
             
@@ -55,7 +55,7 @@ public void set_obstacle_3(Navigation_Obstacle other){
             Array.Copy(___obstacle_3, 0, data, OBSTACLE_3_OFFSET, 8);
         return data;
         }
-        public void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
         
             byte[] __obstacle_0 = new byte[8];
             Array.Copy(data, OBSTACLE_0_OFFSET, __obstacle_0, 0, 8);

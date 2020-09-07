@@ -50,7 +50,7 @@ public void set_z(double other){
 
             
             // Serializers
-            public byte[] Serialize() {
+            public override byte[] Serialize() {
                      byte[] data = new byte[12];
                      
             
@@ -73,7 +73,7 @@ public void set_z(double other){
             Array.Copy(___z, 0, data, Z_OFFSET, 2);
         return data;
         }
-        public void Deserialize(byte[] data)  {
+        public override void Deserialize(byte[] data)  {
         _yaw = BitConverter.ToInt16(data, YAW_OFFSET);
         _pitch = BitConverter.ToInt16(data, PITCH_OFFSET);
         _roll = BitConverter.ToInt16(data, ROLL_OFFSET);
