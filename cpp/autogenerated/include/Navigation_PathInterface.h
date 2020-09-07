@@ -3,7 +3,7 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Navigation_Line.h"
+#include "Navigation_Point.h"
 
 
 namespace comm
@@ -15,51 +15,51 @@ class Navigation_PathInterface : public RESTPacket{
 
     }
     // Variables
-    Navigation_Line _line_0;
-Navigation_Line _line_1;
-Navigation_Line _line_2;
-Navigation_Line _line_3;
-Navigation_Line _line_4;
-Navigation_Line _line_5;
-Navigation_Line _line_6;
-Navigation_Line _line_7;
-Navigation_Line _line_8;
-Navigation_Line _line_9;
-Navigation_Line _line_10;
-Navigation_Line _line_11;
-Navigation_Line _line_12;
-Navigation_Line _line_13;
-Navigation_Line _line_14;
-Navigation_Line _line_15;
-Navigation_Line _line_16;
-Navigation_Line _line_17;
-Navigation_Line _line_18;
-Navigation_Line _line_19;
-Navigation_Line _line_20;
+    Navigation_Point _point_0;
+Navigation_Point _point_1;
+Navigation_Point _point_2;
+Navigation_Point _point_3;
+Navigation_Point _point_4;
+Navigation_Point _point_5;
+Navigation_Point _point_6;
+Navigation_Point _point_7;
+Navigation_Point _point_8;
+Navigation_Point _point_9;
+Navigation_Point _point_10;
+Navigation_Point _point_11;
+Navigation_Point _point_12;
+Navigation_Point _point_13;
+Navigation_Point _point_14;
+Navigation_Point _point_15;
+Navigation_Point _point_16;
+Navigation_Point _point_17;
+Navigation_Point _point_18;
+Navigation_Point _point_19;
+Navigation_Point _point_20;
 
 
     // Offsets
-    int LINE_0_OFFSET = 0;
-int LINE_1_OFFSET = 8;
-int LINE_2_OFFSET = 16;
-int LINE_3_OFFSET = 24;
-int LINE_4_OFFSET = 32;
-int LINE_5_OFFSET = 40;
-int LINE_6_OFFSET = 48;
-int LINE_7_OFFSET = 56;
-int LINE_8_OFFSET = 64;
-int LINE_9_OFFSET = 72;
-int LINE_10_OFFSET = 80;
-int LINE_11_OFFSET = 88;
-int LINE_12_OFFSET = 96;
-int LINE_13_OFFSET = 104;
-int LINE_14_OFFSET = 112;
-int LINE_15_OFFSET = 120;
-int LINE_16_OFFSET = 128;
-int LINE_17_OFFSET = 136;
-int LINE_18_OFFSET = 144;
-int LINE_19_OFFSET = 152;
-int LINE_20_OFFSET = 160;
+    int POINT_0_OFFSET = 0;
+int POINT_1_OFFSET = 4;
+int POINT_2_OFFSET = 8;
+int POINT_3_OFFSET = 12;
+int POINT_4_OFFSET = 16;
+int POINT_5_OFFSET = 20;
+int POINT_6_OFFSET = 24;
+int POINT_7_OFFSET = 28;
+int POINT_8_OFFSET = 32;
+int POINT_9_OFFSET = 36;
+int POINT_10_OFFSET = 40;
+int POINT_11_OFFSET = 44;
+int POINT_12_OFFSET = 48;
+int POINT_13_OFFSET = 52;
+int POINT_14_OFFSET = 56;
+int POINT_15_OFFSET = 60;
+int POINT_16_OFFSET = 64;
+int POINT_17_OFFSET = 68;
+int POINT_18_OFFSET = 72;
+int POINT_19_OFFSET = 76;
+int POINT_20_OFFSET = 80;
 
 
     // Type

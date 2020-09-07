@@ -15,7 +15,7 @@
     <pair key='ROBOT_STATE' value="1"></pair>
     <pair key='NAVIGATION_PATH' value="200"></pair>
     <pair key='NAVIGATION_OBSTACLES' value="200"></pair>
-    <pair key='NAVIGATION_LINE' value="8"></pair>
+    <pair key='NAVIGATION_POINT' value="4"></pair>
     <pair key='NAVIGATION_OBSTACLES' value="120"></pair>
     <pair key='NAVIGATION_OBSTACLE' value="8"></pair>
     <pair key='NAVIGATION_STATE' value="120"></pair>
@@ -163,39 +163,35 @@
     </field>
   </message>
 
-  <message name="Navigation_Line">
-    <field name="x_start" type="int16">
+  <message name="Navigation_Point">
+    <field name="x" type="int16">
     </field>
-    <field name="y_start" type="int16">
-    </field>
-    <field name="x_end" type="int16">
-    </field>
-    <field name="y_end" type="int16">
+    <field name="y" type="int16">
     </field>
   </message>
 
   <message name="Navigation_Path">
-    <field name="line_0" type="Navigation_Line"></field>
-    <field name="line_1" type="Navigation_Line"></field>
-    <field name="line_2" type="Navigation_Line"></field>
-    <field name="line_3" type="Navigation_Line"></field>
-    <field name="line_4" type="Navigation_Line"></field>
-    <field name="line_5" type="Navigation_Line"></field>
-    <field name="line_6" type="Navigation_Line"></field>
-    <field name="line_7" type="Navigation_Line"></field>
-    <field name="line_8" type="Navigation_Line"></field>
-    <field name="line_9" type="Navigation_Line"></field>
-    <field name="line_10" type="Navigation_Line"></field>
-    <field name="line_11" type="Navigation_Line"></field>
-    <field name="line_12" type="Navigation_Line"></field>
-    <field name="line_13" type="Navigation_Line"></field>
-    <field name="line_14" type="Navigation_Line"></field>
-    <field name="line_15" type="Navigation_Line"></field>
-    <field name="line_16" type="Navigation_Line"></field>
-    <field name="line_17" type="Navigation_Line"></field>
-    <field name="line_18" type="Navigation_Line"></field>
-    <field name="line_19" type="Navigation_Line"></field>
-    <field name="line_20" type="Navigation_Line"></field>
+    <field name="point_0" type="Navigation_Point"></field>
+    <field name="point_1" type="Navigation_Point"></field>
+    <field name="point_2" type="Navigation_Point"></field>
+    <field name="point_3" type="Navigation_Point"></field>
+    <field name="point_4" type="Navigation_Point"></field>
+    <field name="point_5" type="Navigation_Point"></field>
+    <field name="point_6" type="Navigation_Point"></field>
+    <field name="point_7" type="Navigation_Point"></field>
+    <field name="point_8" type="Navigation_Point"></field>
+    <field name="point_9" type="Navigation_Point"></field>
+    <field name="point_10" type="Navigation_Point"></field>
+    <field name="point_11" type="Navigation_Point"></field>
+    <field name="point_12" type="Navigation_Point"></field>
+    <field name="point_13" type="Navigation_Point"></field>
+    <field name="point_14" type="Navigation_Point"></field>
+    <field name="point_15" type="Navigation_Point"></field>
+    <field name="point_16" type="Navigation_Point"></field>
+    <field name="point_17" type="Navigation_Point"></field>
+    <field name="point_18" type="Navigation_Point"></field>
+    <field name="point_19" type="Navigation_Point"></field>
+    <field name="point_20" type="Navigation_Point"></field>
   </message>
 
   <message name="Navigation_Obstacle">
