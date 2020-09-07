@@ -34,8 +34,9 @@ class CPPFieldSerializerWriter:
 
 
 class CPPFieldAccessorWriter:
-    def __init__(self, message):
+    def __init__(self, message, communication_definitions):
         self.message = message
+        self.communication_definitions = communication_definitions
     
     def accessor_type(self, field):
         if field.accessor:
@@ -66,8 +67,11 @@ class CPPFieldAccessorWriter:
     def get_setter2(self, field):
         if field.accessor.type == "bit":
             return f"_{field.bit_array.name}.SetBit({field.idx}, other);"
-        if field.accessor.type == "float":
+        elif field.accessor.type == "float":
             return f"_{field.name} = other / {field.accessor.scale};"
+        elif field.type == "bytearray":
+            return f"""std::copy(other, other + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, (uint8_t *)&_{field.name});"""
+        
         return f"_{field.name} = other;"
         
     def get_setter(self, field):
@@ -76,7 +80,7 @@ class CPPFieldAccessorWriter:
             for bit in field.accessor.bits:
                 ret += self.get_setter(bit)
             return ret
-        
+
         return f"""void set_{field.name}({self.accessor_type(field)} other){{
                 {self.get_setter2(field)}
             }};\n"""
@@ -104,7 +108,7 @@ class CPPMessageWriter:
     
     def get_accessors(self):
         ret = ""
-        writer = CPPFieldAccessorWriter(self.message)
+        writer = CPPFieldAccessorWriter(self.message, self.communication_definitions)
         for field in self.message.fields:
             ret += writer.get_getter(field)
         ret += "\n"
@@ -137,7 +141,11 @@ class CPPMessageWriter:
     def get_variables(self):
         ret = ""
         for field in self.message.fields:
-            ret += f'{get_type(field.type, "cpp")} _{field.name};\n'
+            if field.type == "bytearray":
+                ret +=  f"""char _{field.name}[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
+                    """
+            else:
+                ret += f'{get_type(field.type, "cpp")} _{field.name};\n'
         return ret
     
     def get_offsets(self):

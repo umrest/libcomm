@@ -17,7 +17,7 @@ namespace comm
             }
 
 void set_image(char* other){
-                _image = other;
+                std::copy(other, other + 8191, (uint8_t *)&_image);
             };
 
             
