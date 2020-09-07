@@ -58,10 +58,9 @@ void set_tcpserial_connected(bool other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         
             std::vector<uint8_t> __connected_status(1);
-            std::copy(data.begin() + CONNECTED_STATUS_OFFSET, data.begin() + CONNECTED_STATUS_OFFSET + 1, new_data.begin());
+            std::copy(data.begin() + CONNECTED_STATUS_OFFSET, data.begin() + CONNECTED_STATUS_OFFSET + 1, __connected_status.begin());
             _connected_status.Deserialize(__connected_status);}
         
 

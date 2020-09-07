@@ -24,7 +24,7 @@ class CPPFieldSerializerWriter:
         if not is_primitive(field.type):
             return f"""
             std::vector<uint8_t> __{field.name}({self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
-            std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, new_data.begin());
+            std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, __{field.name}.begin());
             _{field.name}.Deserialize(__{field.name});"""
         return f"""std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, (uint8_t *)&_{field.name});"""
 
@@ -49,7 +49,7 @@ class CPPFieldAccessorWriter:
         if field.accessor.type == "bit":
             return f"return _{field.bit_array.name}.GetBit({field.idx});"
         if field.accessor.type == "float":
-            return f"return _{field.name} / {field.accessor.scale};"
+            return f"return _{field.name} * {field.accessor.scale};"
         return f"return _{field.name};"
     
     def get_getter(self, field):
@@ -67,7 +67,7 @@ class CPPFieldAccessorWriter:
         if field.accessor.type == "bit":
             return f"_{field.bit_array.name}.SetBit({field.idx}, other);"
         if field.accessor.type == "float":
-            return f"_{field.name} = other * {field.accessor.scale};"
+            return f"_{field.name} = other / {field.accessor.scale};"
         return f"_{field.name} = other;"
         
     def get_setter(self, field):
@@ -126,8 +126,7 @@ class CPPMessageWriter:
         return ret
     
     def get_deserializer(self):
-        ret = f"""void Deserialize(std::vector<uint8_t> data)  {{
-         std::vector<uint8_t> new_data;"""
+        ret = f"""void Deserialize(std::vector<uint8_t> data)  {{"""
         writer = CPPFieldSerializerWriter(self.message, self.communication_definitions)
         for field in self.message.fields:
             ret += writer.get_deserializer(field)

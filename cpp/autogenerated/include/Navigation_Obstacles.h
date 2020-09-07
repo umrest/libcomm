@@ -70,22 +70,21 @@ void set_obstacle_3(Navigation_Obstacle other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         
             std::vector<uint8_t> __obstacle_0(8);
-            std::copy(data.begin() + OBSTACLE_0_OFFSET, data.begin() + OBSTACLE_0_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + OBSTACLE_0_OFFSET, data.begin() + OBSTACLE_0_OFFSET + 8, __obstacle_0.begin());
             _obstacle_0.Deserialize(__obstacle_0);
         
             std::vector<uint8_t> __obstacle_1(8);
-            std::copy(data.begin() + OBSTACLE_1_OFFSET, data.begin() + OBSTACLE_1_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + OBSTACLE_1_OFFSET, data.begin() + OBSTACLE_1_OFFSET + 8, __obstacle_1.begin());
             _obstacle_1.Deserialize(__obstacle_1);
         
             std::vector<uint8_t> __obstacle_2(8);
-            std::copy(data.begin() + OBSTACLE_2_OFFSET, data.begin() + OBSTACLE_2_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + OBSTACLE_2_OFFSET, data.begin() + OBSTACLE_2_OFFSET + 8, __obstacle_2.begin());
             _obstacle_2.Deserialize(__obstacle_2);
         
             std::vector<uint8_t> __obstacle_3(8);
-            std::copy(data.begin() + OBSTACLE_3_OFFSET, data.begin() + OBSTACLE_3_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + OBSTACLE_3_OFFSET, data.begin() + OBSTACLE_3_OFFSET + 8, __obstacle_3.begin());
             _obstacle_3.Deserialize(__obstacle_3);}
         
 

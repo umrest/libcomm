@@ -274,90 +274,89 @@ void set_line_20(Navigation_Line other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         
             std::vector<uint8_t> __line_0(8);
-            std::copy(data.begin() + LINE_0_OFFSET, data.begin() + LINE_0_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_0_OFFSET, data.begin() + LINE_0_OFFSET + 8, __line_0.begin());
             _line_0.Deserialize(__line_0);
         
             std::vector<uint8_t> __line_1(8);
-            std::copy(data.begin() + LINE_1_OFFSET, data.begin() + LINE_1_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_1_OFFSET, data.begin() + LINE_1_OFFSET + 8, __line_1.begin());
             _line_1.Deserialize(__line_1);
         
             std::vector<uint8_t> __line_2(8);
-            std::copy(data.begin() + LINE_2_OFFSET, data.begin() + LINE_2_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_2_OFFSET, data.begin() + LINE_2_OFFSET + 8, __line_2.begin());
             _line_2.Deserialize(__line_2);
         
             std::vector<uint8_t> __line_3(8);
-            std::copy(data.begin() + LINE_3_OFFSET, data.begin() + LINE_3_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_3_OFFSET, data.begin() + LINE_3_OFFSET + 8, __line_3.begin());
             _line_3.Deserialize(__line_3);
         
             std::vector<uint8_t> __line_4(8);
-            std::copy(data.begin() + LINE_4_OFFSET, data.begin() + LINE_4_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_4_OFFSET, data.begin() + LINE_4_OFFSET + 8, __line_4.begin());
             _line_4.Deserialize(__line_4);
         
             std::vector<uint8_t> __line_5(8);
-            std::copy(data.begin() + LINE_5_OFFSET, data.begin() + LINE_5_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_5_OFFSET, data.begin() + LINE_5_OFFSET + 8, __line_5.begin());
             _line_5.Deserialize(__line_5);
         
             std::vector<uint8_t> __line_6(8);
-            std::copy(data.begin() + LINE_6_OFFSET, data.begin() + LINE_6_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_6_OFFSET, data.begin() + LINE_6_OFFSET + 8, __line_6.begin());
             _line_6.Deserialize(__line_6);
         
             std::vector<uint8_t> __line_7(8);
-            std::copy(data.begin() + LINE_7_OFFSET, data.begin() + LINE_7_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_7_OFFSET, data.begin() + LINE_7_OFFSET + 8, __line_7.begin());
             _line_7.Deserialize(__line_7);
         
             std::vector<uint8_t> __line_8(8);
-            std::copy(data.begin() + LINE_8_OFFSET, data.begin() + LINE_8_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_8_OFFSET, data.begin() + LINE_8_OFFSET + 8, __line_8.begin());
             _line_8.Deserialize(__line_8);
         
             std::vector<uint8_t> __line_9(8);
-            std::copy(data.begin() + LINE_9_OFFSET, data.begin() + LINE_9_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_9_OFFSET, data.begin() + LINE_9_OFFSET + 8, __line_9.begin());
             _line_9.Deserialize(__line_9);
         
             std::vector<uint8_t> __line_10(8);
-            std::copy(data.begin() + LINE_10_OFFSET, data.begin() + LINE_10_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_10_OFFSET, data.begin() + LINE_10_OFFSET + 8, __line_10.begin());
             _line_10.Deserialize(__line_10);
         
             std::vector<uint8_t> __line_11(8);
-            std::copy(data.begin() + LINE_11_OFFSET, data.begin() + LINE_11_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_11_OFFSET, data.begin() + LINE_11_OFFSET + 8, __line_11.begin());
             _line_11.Deserialize(__line_11);
         
             std::vector<uint8_t> __line_12(8);
-            std::copy(data.begin() + LINE_12_OFFSET, data.begin() + LINE_12_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_12_OFFSET, data.begin() + LINE_12_OFFSET + 8, __line_12.begin());
             _line_12.Deserialize(__line_12);
         
             std::vector<uint8_t> __line_13(8);
-            std::copy(data.begin() + LINE_13_OFFSET, data.begin() + LINE_13_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_13_OFFSET, data.begin() + LINE_13_OFFSET + 8, __line_13.begin());
             _line_13.Deserialize(__line_13);
         
             std::vector<uint8_t> __line_14(8);
-            std::copy(data.begin() + LINE_14_OFFSET, data.begin() + LINE_14_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_14_OFFSET, data.begin() + LINE_14_OFFSET + 8, __line_14.begin());
             _line_14.Deserialize(__line_14);
         
             std::vector<uint8_t> __line_15(8);
-            std::copy(data.begin() + LINE_15_OFFSET, data.begin() + LINE_15_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_15_OFFSET, data.begin() + LINE_15_OFFSET + 8, __line_15.begin());
             _line_15.Deserialize(__line_15);
         
             std::vector<uint8_t> __line_16(8);
-            std::copy(data.begin() + LINE_16_OFFSET, data.begin() + LINE_16_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_16_OFFSET, data.begin() + LINE_16_OFFSET + 8, __line_16.begin());
             _line_16.Deserialize(__line_16);
         
             std::vector<uint8_t> __line_17(8);
-            std::copy(data.begin() + LINE_17_OFFSET, data.begin() + LINE_17_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_17_OFFSET, data.begin() + LINE_17_OFFSET + 8, __line_17.begin());
             _line_17.Deserialize(__line_17);
         
             std::vector<uint8_t> __line_18(8);
-            std::copy(data.begin() + LINE_18_OFFSET, data.begin() + LINE_18_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_18_OFFSET, data.begin() + LINE_18_OFFSET + 8, __line_18.begin());
             _line_18.Deserialize(__line_18);
         
             std::vector<uint8_t> __line_19(8);
-            std::copy(data.begin() + LINE_19_OFFSET, data.begin() + LINE_19_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_19_OFFSET, data.begin() + LINE_19_OFFSET + 8, __line_19.begin());
             _line_19.Deserialize(__line_19);
         
             std::vector<uint8_t> __line_20(8);
-            std::copy(data.begin() + LINE_20_OFFSET, data.begin() + LINE_20_OFFSET + 8, new_data.begin());
+            std::copy(data.begin() + LINE_20_OFFSET, data.begin() + LINE_20_OFFSET + 8, __line_20.begin());
             _line_20.Deserialize(__line_20);}
         
 

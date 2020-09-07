@@ -70,7 +70,7 @@ class CSharpFieldAccessorWriter:
         if field.accessor.type == "bit":
             return f"return _{field.bit_array.name}.GetBit({field.idx});"
         if field.accessor.type == "float":
-            return f"return (double)(_{field.name} / {field.accessor.scale});"
+            return f"return (double)(_{field.name} * {field.accessor.scale});"
         return f"return _{field.name};"
     
     def get_getter(self, field):
@@ -88,7 +88,7 @@ class CSharpFieldAccessorWriter:
         if field.accessor.type == "bit":
             return f"_{field.bit_array.name}.SetBit({field.idx}, other);"
         if field.accessor.type == "float":
-            return f'_{field.name} = ({get_type(field.type, "csharp")})(other * {field.accessor.scale});'
+            return f'_{field.name} = ({get_type(field.type, "csharp")})(other / {field.accessor.scale});'
         return f"_{field.name} = other;"
         
     def get_setter(self, field):

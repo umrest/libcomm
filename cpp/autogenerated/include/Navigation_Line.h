@@ -62,7 +62,6 @@ void set_y_end(int16_t other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         std::copy(data.begin() + X_START_OFFSET, data.begin() + X_START_OFFSET + 2, (uint8_t *)&_x_start);
         std::copy(data.begin() + Y_START_OFFSET, data.begin() + Y_START_OFFSET + 2, (uint8_t *)&_y_start);
         std::copy(data.begin() + X_END_OFFSET, data.begin() + X_END_OFFSET + 2, (uint8_t *)&_x_end);

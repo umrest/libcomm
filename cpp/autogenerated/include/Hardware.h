@@ -32,7 +32,6 @@ void set_angle(uint8_t other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         std::copy(data.begin() + ANGLE_OFFSET, data.begin() + ANGLE_OFFSET + 1, (uint8_t *)&_angle);}
         
 

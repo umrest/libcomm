@@ -13,23 +13,23 @@ namespace comm
             }
             // Accessors
             float get_yaw(){
-                return _yaw / 0.0027465827;
+                return _yaw * 0.0027465827;
             }
 float get_x(){
-                return _x / 0.1;
+                return _x * 0.1;
             }
 float get_y(){
-                return _y / 0.1;
+                return _y * 0.1;
             }
 
 void set_yaw(float other){
-                _yaw = other * 0.0027465827;
+                _yaw = other / 0.0027465827;
             };
 void set_x(float other){
-                _x = other * 0.1;
+                _x = other / 0.1;
             };
 void set_y(float other){
-                _y = other * 0.1;
+                _y = other / 0.1;
             };
 
             
@@ -52,7 +52,6 @@ void set_y(float other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         std::copy(data.begin() + YAW_OFFSET, data.begin() + YAW_OFFSET + 2, (uint8_t *)&_yaw);
         std::copy(data.begin() + X_OFFSET, data.begin() + X_OFFSET + 2, (uint8_t *)&_x);
         std::copy(data.begin() + Y_OFFSET, data.begin() + Y_OFFSET + 2, (uint8_t *)&_y);}

@@ -11,29 +11,29 @@ namespace comm
             }
             // Accessors
             public double get_x(){
-                return (double)(_x / 0.1);
+                return (double)(_x * 0.1);
             }
 public double get_y(){
-                return (double)(_y / 0.1);
+                return (double)(_y * 0.1);
             }
 public double get_width(){
-                return (double)(_width / 0.1);
+                return (double)(_width * 0.1);
             }
 public double get_height(){
-                return (double)(_height / 0.1);
+                return (double)(_height * 0.1);
             }
 
 public void set_x(double other){
-                _x = (Int16)(other * 0.1);
+                _x = (Int16)(other / 0.1);
             }
 public void set_y(double other){
-                _y = (Int16)(other * 0.1);
+                _y = (Int16)(other / 0.1);
             }
 public void set_width(double other){
-                _width = (Int16)(other * 0.1);
+                _width = (Int16)(other / 0.1);
             }
 public void set_height(double other){
-                _height = (Int16)(other * 0.1);
+                _height = (Int16)(other / 0.1);
             }
 
             

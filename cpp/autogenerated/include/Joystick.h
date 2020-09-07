@@ -55,22 +55,22 @@ bool get_button_POVL(){
                 return _buttons_2.GetBit(5);
             }
 float get_lj_x(){
-                return _lj_x / 0.00787401574;
+                return _lj_x * 0.00787401574;
             }
 float get_lj_y(){
-                return _lj_y / 0.00787401574;
+                return _lj_y * 0.00787401574;
             }
 float get_rj_x(){
-                return _rj_x / 0.00787401574;
+                return _rj_x * 0.00787401574;
             }
 float get_rj_y(){
-                return _rj_y / 0.00787401574;
+                return _rj_y * 0.00787401574;
             }
 float get_lt(){
-                return _lt / 0.00787401574;
+                return _lt * 0.00787401574;
             }
 float get_rt(){
-                return _rt / 0.00787401574;
+                return _rt * 0.00787401574;
             }
 
 void set_button_A(bool other){
@@ -116,22 +116,22 @@ void set_button_POVL(bool other){
                 _buttons_2.SetBit(5, other);
             };
 void set_lj_x(float other){
-                _lj_x = other * 0.00787401574;
+                _lj_x = other / 0.00787401574;
             };
 void set_lj_y(float other){
-                _lj_y = other * 0.00787401574;
+                _lj_y = other / 0.00787401574;
             };
 void set_rj_x(float other){
-                _rj_x = other * 0.00787401574;
+                _rj_x = other / 0.00787401574;
             };
 void set_rj_y(float other){
-                _rj_y = other * 0.00787401574;
+                _rj_y = other / 0.00787401574;
             };
 void set_lt(float other){
-                _lt = other * 0.00787401574;
+                _lt = other / 0.00787401574;
             };
 void set_rt(float other){
-                _rt = other * 0.00787401574;
+                _rt = other / 0.00787401574;
             };
 
             
@@ -178,14 +178,13 @@ void set_rt(float other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         
             std::vector<uint8_t> __buttons_1(1);
-            std::copy(data.begin() + BUTTONS_1_OFFSET, data.begin() + BUTTONS_1_OFFSET + 1, new_data.begin());
+            std::copy(data.begin() + BUTTONS_1_OFFSET, data.begin() + BUTTONS_1_OFFSET + 1, __buttons_1.begin());
             _buttons_1.Deserialize(__buttons_1);
         
             std::vector<uint8_t> __buttons_2(1);
-            std::copy(data.begin() + BUTTONS_2_OFFSET, data.begin() + BUTTONS_2_OFFSET + 1, new_data.begin());
+            std::copy(data.begin() + BUTTONS_2_OFFSET, data.begin() + BUTTONS_2_OFFSET + 1, __buttons_2.begin());
             _buttons_2.Deserialize(__buttons_2);
         std::copy(data.begin() + LJ_X_OFFSET, data.begin() + LJ_X_OFFSET + 1, (uint8_t *)&_lj_x);
         std::copy(data.begin() + LJ_Y_OFFSET, data.begin() + LJ_Y_OFFSET + 1, (uint8_t *)&_lj_y);

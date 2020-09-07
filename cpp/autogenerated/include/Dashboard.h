@@ -112,7 +112,6 @@ void set_state(uint8_t other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         std::copy(data.begin() + ENABLED_1_OFFSET, data.begin() + ENABLED_1_OFFSET + 1, (uint8_t *)&_enabled_1);
         std::copy(data.begin() + ENABLED_2_OFFSET, data.begin() + ENABLED_2_OFFSET + 1, (uint8_t *)&_enabled_2);
         std::copy(data.begin() + ENABLED_3_OFFSET, data.begin() + ENABLED_3_OFFSET + 1, (uint8_t *)&_enabled_3);

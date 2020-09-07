@@ -68,18 +68,17 @@ void set_vision_good(uint8_t other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         
             std::vector<uint8_t> __tag0(12);
-            std::copy(data.begin() + TAG0_OFFSET, data.begin() + TAG0_OFFSET + 12, new_data.begin());
+            std::copy(data.begin() + TAG0_OFFSET, data.begin() + TAG0_OFFSET + 12, __tag0.begin());
             _tag0.Deserialize(__tag0);
         
             std::vector<uint8_t> __tag1(12);
-            std::copy(data.begin() + TAG1_OFFSET, data.begin() + TAG1_OFFSET + 12, new_data.begin());
+            std::copy(data.begin() + TAG1_OFFSET, data.begin() + TAG1_OFFSET + 12, __tag1.begin());
             _tag1.Deserialize(__tag1);
         
             std::vector<uint8_t> __field_position(6);
-            std::copy(data.begin() + FIELD_POSITION_OFFSET, data.begin() + FIELD_POSITION_OFFSET + 6, new_data.begin());
+            std::copy(data.begin() + FIELD_POSITION_OFFSET, data.begin() + FIELD_POSITION_OFFSET + 6, __field_position.begin());
             _field_position.Deserialize(__field_position);
         std::copy(data.begin() + VISION_GOOD_OFFSET, data.begin() + VISION_GOOD_OFFSET + 1, (uint8_t *)&_vision_good);}
         

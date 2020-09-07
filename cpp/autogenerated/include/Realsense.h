@@ -70,22 +70,21 @@ void set_obstacle_4(Obstacle other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         
             std::vector<uint8_t> __obstacle_1(16);
-            std::copy(data.begin() + OBSTACLE_1_OFFSET, data.begin() + OBSTACLE_1_OFFSET + 16, new_data.begin());
+            std::copy(data.begin() + OBSTACLE_1_OFFSET, data.begin() + OBSTACLE_1_OFFSET + 16, __obstacle_1.begin());
             _obstacle_1.Deserialize(__obstacle_1);
         
             std::vector<uint8_t> __obstacle_2(16);
-            std::copy(data.begin() + OBSTACLE_2_OFFSET, data.begin() + OBSTACLE_2_OFFSET + 16, new_data.begin());
+            std::copy(data.begin() + OBSTACLE_2_OFFSET, data.begin() + OBSTACLE_2_OFFSET + 16, __obstacle_2.begin());
             _obstacle_2.Deserialize(__obstacle_2);
         
             std::vector<uint8_t> __obstacle_3(16);
-            std::copy(data.begin() + OBSTACLE_3_OFFSET, data.begin() + OBSTACLE_3_OFFSET + 16, new_data.begin());
+            std::copy(data.begin() + OBSTACLE_3_OFFSET, data.begin() + OBSTACLE_3_OFFSET + 16, __obstacle_3.begin());
             _obstacle_3.Deserialize(__obstacle_3);
         
             std::vector<uint8_t> __obstacle_4(16);
-            std::copy(data.begin() + OBSTACLE_4_OFFSET, data.begin() + OBSTACLE_4_OFFSET + 16, new_data.begin());
+            std::copy(data.begin() + OBSTACLE_4_OFFSET, data.begin() + OBSTACLE_4_OFFSET + 16, __obstacle_4.begin());
             _obstacle_4.Deserialize(__obstacle_4);}
         
 

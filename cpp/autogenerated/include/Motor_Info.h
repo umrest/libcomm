@@ -72,7 +72,6 @@ void set_velocity(uint32_t other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         std::copy(data.begin() + CAN_ID_OFFSET, data.begin() + CAN_ID_OFFSET + 1, (uint8_t *)&_can_id);
         std::copy(data.begin() + CURRENT_OFFSET, data.begin() + CURRENT_OFFSET + 2, (uint8_t *)&_current);
         std::copy(data.begin() + PERCENT_OFFSET, data.begin() + PERCENT_OFFSET + 1, (uint8_t *)&_percent);

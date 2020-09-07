@@ -42,7 +42,6 @@ void set_gain(uint32_t other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         std::copy(data.begin() + EXPOSURE_OFFSET, data.begin() + EXPOSURE_OFFSET + 4, (uint8_t *)&_exposure);
         std::copy(data.begin() + GAIN_OFFSET, data.begin() + GAIN_OFFSET + 4, (uint8_t *)&_gain);}
         

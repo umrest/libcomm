@@ -62,7 +62,6 @@ void set_height(int16_t other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         std::copy(data.begin() + X_OFFSET, data.begin() + X_OFFSET + 2, (uint8_t *)&_x);
         std::copy(data.begin() + Y_OFFSET, data.begin() + Y_OFFSET + 2, (uint8_t *)&_y);
         std::copy(data.begin() + WIDTH_OFFSET, data.begin() + WIDTH_OFFSET + 2, (uint8_t *)&_width);

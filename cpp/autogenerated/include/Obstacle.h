@@ -13,29 +13,29 @@ namespace comm
             }
             // Accessors
             float get_x(){
-                return _x / 0.1;
+                return _x * 0.1;
             }
 float get_y(){
-                return _y / 0.1;
+                return _y * 0.1;
             }
 float get_width(){
-                return _width / 0.1;
+                return _width * 0.1;
             }
 float get_height(){
-                return _height / 0.1;
+                return _height * 0.1;
             }
 
 void set_x(float other){
-                _x = other * 0.1;
+                _x = other / 0.1;
             };
 void set_y(float other){
-                _y = other * 0.1;
+                _y = other / 0.1;
             };
 void set_width(float other){
-                _width = other * 0.1;
+                _width = other / 0.1;
             };
 void set_height(float other){
-                _height = other * 0.1;
+                _height = other / 0.1;
             };
 
             
@@ -62,7 +62,6 @@ void set_height(float other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         std::copy(data.begin() + X_OFFSET, data.begin() + X_OFFSET + 2, (uint8_t *)&_x);
         std::copy(data.begin() + Y_OFFSET, data.begin() + Y_OFFSET + 2, (uint8_t *)&_y);
         std::copy(data.begin() + WIDTH_OFFSET, data.begin() + WIDTH_OFFSET + 2, (uint8_t *)&_width);

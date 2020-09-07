@@ -34,10 +34,9 @@ void set_field_position(Field_Position other){
         return data;
         }
         void Deserialize(std::vector<uint8_t> data)  {
-         std::vector<uint8_t> new_data;
         
             std::vector<uint8_t> __field_position(6);
-            std::copy(data.begin() + FIELD_POSITION_OFFSET, data.begin() + FIELD_POSITION_OFFSET + 6, new_data.begin());
+            std::copy(data.begin() + FIELD_POSITION_OFFSET, data.begin() + FIELD_POSITION_OFFSET + 6, __field_position.begin());
             _field_position.Deserialize(__field_position);}
         
 
