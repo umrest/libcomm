@@ -134,7 +134,7 @@ public void set_rt(double other){
 
             
             // Serializers
-            public override byte[] Serialize() {
+            public byte[] Serialize() {
                      byte[] data = new byte[8];
                      
             
@@ -163,7 +163,7 @@ public void set_rt(double other){
             Array.Copy(___rt, 0, data, RT_OFFSET, 1);
         return data;
         }
-        public override void Deserialize(byte[] data)  {
+        public void Deserialize(byte[] data)  {
         
             byte[] __buttons_1 = new byte[1];
             Array.Copy(data, BUTTONS_1_OFFSET, __buttons_1, 0, 1);

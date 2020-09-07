@@ -44,7 +44,7 @@ public void set_tcpserial_connected(bool other){
 
             
             // Serializers
-            public override byte[] Serialize() {
+            public byte[] Serialize() {
                      byte[] data = new byte[127];
                      
             
@@ -52,7 +52,7 @@ public void set_tcpserial_connected(bool other){
             Array.Copy(___connected_status, 0, data, CONNECTED_STATUS_OFFSET, 1);
         return data;
         }
-        public override void Deserialize(byte[] data)  {
+        public void Deserialize(byte[] data)  {
         
             byte[] __connected_status = new byte[1];
             Array.Copy(data, CONNECTED_STATUS_OFFSET, __connected_status, 0, 1);

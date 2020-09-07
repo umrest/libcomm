@@ -44,7 +44,7 @@ public void set_velocity(UInt32 other){
 
             
             // Serializers
-            public override byte[] Serialize() {
+            public byte[] Serialize() {
                      byte[] data = new byte[16];
                      
             
@@ -64,7 +64,7 @@ public void set_velocity(UInt32 other){
             Array.Copy(___velocity, 0, data, VELOCITY_OFFSET, 4);
         return data;
         }
-        public override void Deserialize(byte[] data)  {
+        public void Deserialize(byte[] data)  {
         _can_id = data[CAN_ID_OFFSET];
         _current = BitConverter.ToUInt16(data, CURRENT_OFFSET);
         _percent = data[PERCENT_OFFSET];
