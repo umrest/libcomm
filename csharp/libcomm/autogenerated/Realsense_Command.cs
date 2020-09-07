@@ -20,7 +20,7 @@ public void set_command(byte other){
 
             
             // Serializers
-            public override byte[] Serialize() {
+            public byte[] Serialize() {
                      byte[] data = new byte[127];
                      
             
@@ -28,7 +28,7 @@ public void set_command(byte other){
             Array.Copy(___command, 0, data, COMMAND_OFFSET, 1);
         return data;
         }
-        public override void Deserialize(byte[] data)  {
+        public void Deserialize(byte[] data)  {
         _command = data[COMMAND_OFFSET];}
         
 
