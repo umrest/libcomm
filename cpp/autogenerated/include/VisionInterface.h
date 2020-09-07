@@ -3,8 +3,8 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Tag_Position.h"
 #include "Field_Position.h"
+#include "Tag_Position.h"
 
 
 namespace comm

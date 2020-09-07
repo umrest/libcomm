@@ -7,7 +7,7 @@
 
 namespace comm
 {
-public abstract class [[InterfaceType]] : public RESTPacket{
+class [[InterfaceType]] : public RESTPacket{
     public :
         [[InterfaceType]]()
     {
