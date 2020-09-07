@@ -7,7 +7,7 @@
 
 namespace comm
 {
-class Vision_PropertiesInterface : public RESTPacket{
+public abstract class Vision_PropertiesInterface : public RESTPacket{
     public :
         Vision_PropertiesInterface()
     {

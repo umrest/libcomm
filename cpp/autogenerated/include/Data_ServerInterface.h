@@ -8,7 +8,7 @@
 
 namespace comm
 {
-class Data_ServerInterface : public RESTPacket{
+public abstract class Data_ServerInterface : public RESTPacket{
     public :
         Data_ServerInterface()
     {

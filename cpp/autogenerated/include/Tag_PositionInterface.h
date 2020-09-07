@@ -7,7 +7,7 @@
 
 namespace comm
 {
-class Tag_PositionInterface : public RESTPacket{
+public abstract class Tag_PositionInterface : public RESTPacket{
     public :
         Tag_PositionInterface()
     {

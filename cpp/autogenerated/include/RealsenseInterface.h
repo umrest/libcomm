@@ -8,7 +8,7 @@
 
 namespace comm
 {
-class RealsenseInterface : public RESTPacket{
+public abstract class RealsenseInterface : public RESTPacket{
     public :
         RealsenseInterface()
     {

@@ -8,7 +8,7 @@
 
 namespace comm
 {
-class JoystickInterface : public RESTPacket{
+public abstract class JoystickInterface : public RESTPacket{
     public :
         JoystickInterface()
     {

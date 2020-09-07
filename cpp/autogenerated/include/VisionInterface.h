@@ -3,13 +3,13 @@
 // Requirements
 #include "RESTPacket.h"
 #include "CommunicationDefinitions.h"
-#include "Field_Position.h"
 #include "Tag_Position.h"
+#include "Field_Position.h"
 
 
 namespace comm
 {
-class VisionInterface : public RESTPacket{
+public abstract class VisionInterface : public RESTPacket{
     public :
         VisionInterface()
     {

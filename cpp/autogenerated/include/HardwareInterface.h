@@ -7,7 +7,7 @@
 
 namespace comm
 {
-class HardwareInterface : public RESTPacket{
+public abstract class HardwareInterface : public RESTPacket{
     public :
         HardwareInterface()
     {
