@@ -7,7 +7,7 @@
 
 namespace comm
 {
-class Motor_InfoInterface : public RESTPacket{
+public abstract class Motor_InfoInterface : public RESTPacket{
     public :
         Motor_InfoInterface()
     {

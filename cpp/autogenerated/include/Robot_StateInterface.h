@@ -7,7 +7,7 @@
 
 namespace comm
 {
-class Robot_StateInterface : public RESTPacket{
+public abstract class Robot_StateInterface : public RESTPacket{
     public :
         Robot_StateInterface()
     {

@@ -7,7 +7,7 @@
 
 namespace comm
 {
-class Navigation_LineInterface : public RESTPacket{
+public abstract class Navigation_LineInterface : public RESTPacket{
     public :
         Navigation_LineInterface()
     {
