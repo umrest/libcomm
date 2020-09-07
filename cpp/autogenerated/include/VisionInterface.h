@@ -9,7 +9,7 @@
 
 namespace comm
 {
-public abstract class VisionInterface : public RESTPacket{
+class VisionInterface : public RESTPacket{
     public :
         VisionInterface()
     {

@@ -8,7 +8,7 @@
 
 namespace comm
 {
-public abstract class Navigation_PathInterface : public RESTPacket{
+class Navigation_PathInterface : public RESTPacket{
     public :
         Navigation_PathInterface()
     {

@@ -8,7 +8,7 @@
 
 namespace comm
 {
-public abstract class Navigation_ObstaclesInterface : public RESTPacket{
+class Navigation_ObstaclesInterface : public RESTPacket{
     public :
         Navigation_ObstaclesInterface()
     {

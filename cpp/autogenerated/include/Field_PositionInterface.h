@@ -7,7 +7,7 @@
 
 namespace comm
 {
-public abstract class Field_PositionInterface : public RESTPacket{
+class Field_PositionInterface : public RESTPacket{
     public :
         Field_PositionInterface()
     {

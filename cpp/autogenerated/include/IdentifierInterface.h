@@ -7,7 +7,7 @@
 
 namespace comm
 {
-public abstract class IdentifierInterface : public RESTPacket{
+class IdentifierInterface : public RESTPacket{
     public :
         IdentifierInterface()
     {

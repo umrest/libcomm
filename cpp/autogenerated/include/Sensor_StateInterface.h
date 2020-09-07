@@ -8,7 +8,7 @@
 
 namespace comm
 {
-public abstract class Sensor_StateInterface : public RESTPacket{
+class Sensor_StateInterface : public RESTPacket{
     public :
         Sensor_StateInterface()
     {

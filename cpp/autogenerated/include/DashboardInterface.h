@@ -7,7 +7,7 @@
 
 namespace comm
 {
-public abstract class DashboardInterface : public RESTPacket{
+class DashboardInterface : public RESTPacket{
     public :
         DashboardInterface()
     {

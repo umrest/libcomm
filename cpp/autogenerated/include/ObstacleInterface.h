@@ -7,7 +7,7 @@
 
 namespace comm
 {
-public abstract class ObstacleInterface : public RESTPacket{
+class ObstacleInterface : public RESTPacket{
     public :
         ObstacleInterface()
     {
