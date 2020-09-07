@@ -19,7 +19,7 @@ public abstract class Robot_StateInterface : RESTPacket{
 
 
     // Type
-    public override CommunicationDefinitions.TYPE type(){{ return 0; }}
+    public override CommunicationDefinitions.TYPE type(){ return CommunicationDefinitions.TYPE.ROBOT_STATE; }
     
 };
 } // namespace comm

@@ -4,7 +4,8 @@ using namespace comm;
 
 
         const std::map<CommunicationDefinitions::TYPE, int> CommunicationDefinitions::PACKET_SIZES = {
-            {TYPE::NAVIGATION_PATH, 200},
+            {TYPE::ROBOT_STATE, 1},
+{TYPE::NAVIGATION_PATH, 200},
 {TYPE::NAVIGATION_OBSTACLES, 120},
 {TYPE::NAVIGATION_STATE, 120},
 {TYPE::HARDWARE, 8},

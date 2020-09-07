@@ -41,6 +41,7 @@
     <element name="DATA_SERVER" value="8"></element>
     <element name="DASHBOARD" value="9"></element>
     <element name="IDENTIFIER" value="250"></element>
+    <element name="ROBOT_STATE" value="11"></element>
     <element name="VISION_COMMAND" value="12"></element>
     <element name="VISION_IMAGE" value="13"></element>
     <element name="VISION_PROPERTIES" value="14"></element>

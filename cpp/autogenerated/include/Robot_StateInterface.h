@@ -22,6 +22,6 @@ class Robot_StateInterface : public RESTPacket{
 
 
     // Type
-    
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::ROBOT_STATE; }
 };
 } // namespace comm
