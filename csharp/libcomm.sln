@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libcomm", "libcomm\libcomm.csproj", "{9ECA7029-6485-4952-97B2-0036F628BCA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libcomm-tests", "libcomm-tests\libcomm-tests.csproj", "{B505A1FF-3C0A-4829-9354-D447B80A8176}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9ECA7029-6485-4952-97B2-0036F628BCA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ECA7029-6485-4952-97B2-0036F628BCA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ECA7029-6485-4952-97B2-0036F628BCA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B505A1FF-3C0A-4829-9354-D447B80A8176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B505A1FF-3C0A-4829-9354-D447B80A8176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B505A1FF-3C0A-4829-9354-D447B80A8176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B505A1FF-3C0A-4829-9354-D447B80A8176}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
