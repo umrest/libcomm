@@ -15,18 +15,18 @@ class Motor_InfoInterface : public RESTPacket{
     }
     // Variables
     uint8_t _can_id;
-uint16_t _current;
-uint8_t _percent;
-uint32_t _position;
-uint32_t _velocity;
+int16_t _current;
+int64_t _position;
+int32_t _velocity;
+int8_t _percent;
 
 
     // Offsets
     int CAN_ID_OFFSET = 0;
 int CURRENT_OFFSET = 1;
-int PERCENT_OFFSET = 3;
-int POSITION_OFFSET = 4;
-int VELOCITY_OFFSET = 8;
+int POSITION_OFFSET = 3;
+int VELOCITY_OFFSET = 11;
+int PERCENT_OFFSET = 15;
 
 
     // Type

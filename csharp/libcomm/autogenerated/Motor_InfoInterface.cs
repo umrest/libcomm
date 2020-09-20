@@ -12,18 +12,18 @@ public abstract class Motor_InfoInterface : RESTPacket{
 
            // Variables
     protected byte _can_id = new byte();
-protected UInt16 _current = new UInt16();
-protected byte _percent = new byte();
-protected UInt32 _position = new UInt32();
-protected UInt32 _velocity = new UInt32();
+protected Int16 _current = new Int16();
+protected Int64 _position = new Int64();
+protected Int32 _velocity = new Int32();
+protected sbyte _percent = new sbyte();
 
 
     // Offsets
     protected int CAN_ID_OFFSET = 0;
 protected int CURRENT_OFFSET = 1;
-protected int PERCENT_OFFSET = 3;
-protected int POSITION_OFFSET = 4;
-protected int VELOCITY_OFFSET = 8;
+protected int POSITION_OFFSET = 3;
+protected int VELOCITY_OFFSET = 11;
+protected int PERCENT_OFFSET = 15;
 
 
     // Type

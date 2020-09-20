@@ -13,33 +13,33 @@ namespace comm
             public byte get_can_id(){
                 return _can_id;
             }
-public UInt16 get_current(){
-                return _current;
+public double get_current(){
+                return (double)(_current * 100);
             }
-public byte get_percent(){
+public double get_position(){
+                return (double)(_position * 1/150);
+            }
+public double get_velocity(){
+                return (double)(_velocity * 0.1);
+            }
+public sbyte get_percent(){
                 return _percent;
-            }
-public UInt32 get_position(){
-                return _position;
-            }
-public UInt32 get_velocity(){
-                return _velocity;
             }
 
 public void set_can_id(byte other){
                 _can_id = other;
             }
-public void set_current(UInt16 other){
-                _current = other;
+public void set_current(double other){
+                _current = (Int16)(other / 100);
             }
-public void set_percent(byte other){
+public void set_position(double other){
+                _position = (Int64)(other / 1/150);
+            }
+public void set_velocity(double other){
+                _velocity = (Int32)(other / 0.1);
+            }
+public void set_percent(sbyte other){
                 _percent = other;
-            }
-public void set_position(UInt32 other){
-                _position = other;
-            }
-public void set_velocity(UInt32 other){
-                _velocity = other;
             }
 
             
@@ -54,22 +54,22 @@ public void set_velocity(UInt32 other){
             byte[] ___current = BitConverter.GetBytes(_current);
             Array.Copy(___current, 0, data, CURRENT_OFFSET, 2);
             
-            byte[] ___percent = BitConverter.GetBytes(_percent);
-            Array.Copy(___percent, 0, data, PERCENT_OFFSET, 1);
-            
             byte[] ___position = BitConverter.GetBytes(_position);
-            Array.Copy(___position, 0, data, POSITION_OFFSET, 4);
+            Array.Copy(___position, 0, data, POSITION_OFFSET, 8);
             
             byte[] ___velocity = BitConverter.GetBytes(_velocity);
             Array.Copy(___velocity, 0, data, VELOCITY_OFFSET, 4);
+            
+            byte[] ___percent = BitConverter.GetBytes(_percent);
+            Array.Copy(___percent, 0, data, PERCENT_OFFSET, 1);
         return data;
         }
         public override void Deserialize(byte[] data)  {
         _can_id = data[CAN_ID_OFFSET];
-        _current = BitConverter.ToUInt16(data, CURRENT_OFFSET);
-        _percent = data[PERCENT_OFFSET];
-        _position = BitConverter.ToUInt32(data, POSITION_OFFSET);
-        _velocity = BitConverter.ToUInt32(data, VELOCITY_OFFSET);}
+        _current = BitConverter.ToInt16(data, CURRENT_OFFSET);
+        _position = BitConverter.ToInt64(data, POSITION_OFFSET);
+        _velocity = BitConverter.ToInt32(data, VELOCITY_OFFSET);
+        _percent = (sbyte)data[PERCENT_OFFSET];}
         
 
             

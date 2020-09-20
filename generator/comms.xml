@@ -4,7 +4,10 @@
     <pair key='UINT8' value="1"></pair>
     <pair key='INT16' value="2"></pair>
     <pair key='UINT16' value="2"></pair>
+    <pair key='INT32' value="4"></pair>
     <pair key='UINT32' value="4"></pair>
+    <pair key='INT64' value="8"></pair>
+    <pair key='UINT64' value="8"></pair>
     <pair key='BYTEARRAY' value="8191"></pair>
 
     <pair key='TAG_POSITION' value="12"></pair>
@@ -250,10 +253,16 @@
 
   <message name="Motor_Info">
     <field name='can_id' type='uint8'></field>
-    <field name='current' type='uint16'></field>
-    <field name='percent' type='uint8'></field>
-    <field name='position' type='uint32'></field>
-    <field name='velocity' type='uint32'></field>
+    <field name='current' type='int16'>
+      <accessor type="float" scale="100"></accessor>
+    </field>
+    <field name='position' type='int64'>
+      <accessor type="float" scale="1/150"></accessor>
+    </field>
+    <field name='velocity' type='int32'>
+      <accessor type="float" scale="0.1"></accessor>
+    </field>
+    <field name='percent' type='int8'></field>
   </message>
 
   <message name="Robot_State">
