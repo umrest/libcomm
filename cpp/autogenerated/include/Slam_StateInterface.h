@@ -8,9 +8,9 @@
 
 namespace comm
 {
-class Navigation_StateInterface : public RESTPacket{
+class Slam_StateInterface : public RESTPacket{
     public :
-        Navigation_StateInterface()
+        Slam_StateInterface()
     {
 
     }
@@ -23,6 +23,6 @@ class Navigation_StateInterface : public RESTPacket{
 
 
     // Type
-    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::NAVIGATION_STATE; }
+    CommunicationDefinitions::TYPE type(){ return CommunicationDefinitions::TYPE::SLAM_STATE; }
 };
 } // namespace comm
