@@ -16,10 +16,10 @@ namespace comm
                 return _can_id;
             }
 float get_current(){
-                return _current * 100;
+                return _current * 100.0;
             }
 float get_position(){
-                return _position * 1/150;
+                return _position * 1/150.0;
             }
 float get_velocity(){
                 return _velocity * 0.1;
@@ -32,10 +32,10 @@ void set_can_id(uint8_t other){
                 _can_id = other;
             };
 void set_current(float other){
-                _current = other / 100;
+                _current = other / 100.0;
             };
 void set_position(float other){
-                _position = other / 1/150;
+                _position = other / 1/150.0;
             };
 void set_velocity(float other){
                 _velocity = other / 0.1;

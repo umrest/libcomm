@@ -14,10 +14,10 @@ namespace comm
                 return _can_id;
             }
 public double get_current(){
-                return (double)(_current * 100);
+                return (double)(_current * 100.0);
             }
 public double get_position(){
-                return (double)(_position * 1/150);
+                return (double)(_position * 1/150.0);
             }
 public double get_velocity(){
                 return (double)(_velocity * 0.1);
@@ -30,10 +30,10 @@ public void set_can_id(byte other){
                 _can_id = other;
             }
 public void set_current(double other){
-                _current = (Int16)(other / 100);
+                _current = (Int16)(other / 100.0);
             }
 public void set_position(double other){
-                _position = (Int64)(other / 1/150);
+                _position = (Int64)(other / 1/150.0);
             }
 public void set_velocity(double other){
                 _velocity = (Int32)(other / 0.1);
