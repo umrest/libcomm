@@ -202,9 +202,9 @@ namespace comm
                     {
                         packet = new comm.Joystick();
                     }
-                    else if (read_type == comm.CommunicationDefinitions.TYPE.NAVIGATION_STATE)
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.SLAM_STATE)
                     {
-                        packet = new comm.Navigation_State();
+                        packet = new comm.Slam_State();
                     }
                     else if (read_type == comm.CommunicationDefinitions.TYPE.NAVIGATION_OBSTACLES)
                     {
