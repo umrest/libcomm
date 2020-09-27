@@ -1,6 +1,7 @@
 import os
 
 from helpers import *
+import shutil
 
 BitConverterMap = {
     "float": "Single",
@@ -245,6 +246,10 @@ class CSharpWriter:
         self.templates_dir = os.path.join(csharp_dir, "libcomm/templates")
 
     def run(self, messages, communication_definitions):
+        if os.path.exists(self.src_dir):
+            shutil.rmtree(self.src_dir)
+        os.mkdir(self.src_dir)
+
         for message in messages:
             CSharpMessageWriter(self.templates_dir, self.src_dir, message, communication_definitions).write()
         
