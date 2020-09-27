@@ -309,6 +309,9 @@
 
   <message name="Hardware">
     <field name='angle' type='uint8'></field>
+    <field name='r' type='uint8'></field>
+    <field name='g' type='uint8'></field>
+    <field name='b' type='uint8'></field>
   </message>
 
   <message name="Vision_Image">

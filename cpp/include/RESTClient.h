@@ -8,6 +8,8 @@
 #include "Vision.h"
 #include "Dashboard.h"
 
+#include "Timer.h"
+
 namespace comm {
 
 
@@ -25,7 +27,10 @@ class RESTClient : public TCPClient {
 	uint8_t recv[512];
 	comm::CommunicationDefinitions::IDENTIFIER identifier;
 	void send_identifier();
+	void send_identifier_timer();
 	void on_connect();
+
+	utils::Timer timer;
 
 };
 }

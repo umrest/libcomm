@@ -24,6 +24,7 @@ comm::RESTClient::RESTClient(comm::CommunicationDefinitions::IDENTIFIER _identif
 }
 
 std::vector<std::unique_ptr<comm::RESTPacket>> comm::RESTClient::get_messages(){
+       //send_identifier_timer();
        std::vector<std::unique_ptr<comm::RESTPacket>> messages;
 
         while (valid_key == false && read_nonblocking(recv + cur_key_idx, 1))
@@ -105,7 +106,7 @@ std::vector<std::unique_ptr<comm::RESTPacket>> comm::RESTClient::get_messages(){
     }
 
     void comm::RESTClient::send_message(RESTPacket* msg){
-       
+        //send_identifier_timer();
         std::vector<uint8_t> data;
         data.push_back((uint8_t)msg->type());
         std::vector<uint8_t> data2 = msg->Serialize();
@@ -115,7 +116,15 @@ std::vector<std::unique_ptr<comm::RESTPacket>> comm::RESTClient::get_messages(){
         write(data);
     }
 
+    void comm::RESTClient::send_identifier_timer(){
+        if(timer.elapsed() > 3.0){
+            timer.reset();
+            send_identifier();
+        }
+    }
+
     void comm::RESTClient::send_identifier(){
+        std::cout << "Sending Identifier" << std::endl;
         comm::Identifier identifier_data;
         identifier_data._identifier = (uint8_t)identifier;
         send_message(&identifier_data);
