@@ -18,7 +18,7 @@ void TCPClient::socket_reconnect(){
 
             boost::asio::socket_base::send_buffer_size option(128);
             socket.set_option(option);
-            //socket.set_option(boost::asio::ip::tcp::no_delay(true));
+            socket.set_option(boost::asio::ip::tcp::no_delay(true));
 
             socket_connected = true;
         }

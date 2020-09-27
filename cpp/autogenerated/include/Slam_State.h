@@ -1,14 +1,14 @@
 #pragma once
 
-#include "Navigation_StateInterface.h"
+#include "Slam_StateInterface.h"
 
 
 namespace comm
 {
-    class Navigation_State : public Navigation_StateInterface
+    class Slam_State : public Slam_StateInterface
     {
         public:
-            Navigation_State() {
+            Slam_State() {
 
             }
             // Accessors

@@ -21,7 +21,7 @@
     <pair key='NAVIGATION_POINT' value="4"></pair>
     <pair key='NAVIGATION_OBSTACLES' value="120"></pair>
     <pair key='NAVIGATION_OBSTACLE' value="8"></pair>
-    <pair key='NAVIGATION_STATE' value="120"></pair>
+    <pair key='SLAM_STATE' value="120"></pair>
     <pair key='HARDWARE' value="8"></pair>
     <pair key='JOYSTICK' value="8"></pair>
     <pair key='VISION' value="31"></pair>
@@ -51,7 +51,7 @@
     <element name="HARDWARE" value="15"></element>
     <element name="REALSENSE_COMMAND" value="16"></element>
     <element name="NAVIGATION_PATH" value="17"></element>
-    <element name="NAVIGATION_STATE" value="18"></element>
+    <element name="SLAM_STATE" value="18"></element>
     <element name="NAVIGATION_OBSTACLES" value="19"></element>
     <element name="INVALID" value="255"></element>
   </enum>
@@ -62,7 +62,8 @@
     <element name="HARDWARE" value="4"></element>
     <element name="DATASAVER" value="5"></element>
     <element name="REALSENSE" value="6"></element>
-    <element name="NAVIGATION" value="7"></element>
+    <element name="SLAM" value="7"></element>
+    <element name="NAVIGATION" value="8"></element>
   </enum>
 
   <enum name="VISION_COMMAND">
@@ -215,7 +216,7 @@
     <field name="obstacle_3" type="Navigation_Obstacle"></field>
   </message>
 
-  <message name="Navigation_State">
+  <message name="Slam_State">
     <field name="field_position" type="Field_Position"></field>
   </message>
 
