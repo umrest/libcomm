@@ -50,12 +50,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\libcomm\libcomm.csproj">
-      <Project>{9eca7029-6485-4952-97b2-0036f628bca2}</Project>
-      <Name>libcomm</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

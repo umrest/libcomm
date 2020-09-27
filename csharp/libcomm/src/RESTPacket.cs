@@ -1,10 +1,10 @@
 namespace comm
 {
-    public interface RESTPacket
+    public abstract class RESTPacket
     {
-        byte[] Serialize();
-        void Deserialize(byte[] data);
+        public abstract byte[] Serialize();
+        public abstract void Deserialize(byte[] data);
 
-        CommunicationDefinitions.TYPE type();
+        public abstract CommunicationDefinitions.TYPE type();
     }
 }
