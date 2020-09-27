@@ -1,6 +1,7 @@
 using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Net.Sockets;
 using System.Runtime.Remoting;
 
@@ -10,8 +11,6 @@ namespace comm
     {
         private TcpClient client = null;
         private int cur_key_idx = 0;
-
-        private bool valid_key = false;
 
         private byte[] recv = new byte[65536];
 
@@ -26,7 +25,17 @@ namespace comm
             Connected = 1,
         }
 
+        public enum ReadState
+        {
+            Key = 0,
+            Type = 1,
+            Data
+        }
+
         protected ConnectionState connection_state = ConnectionState.Disconnected;
+        protected ReadState read_state = ReadState.Key;
+
+        comm.CommunicationDefinitions.TYPE read_type;
 
         public bool connected()
         {
@@ -57,7 +66,7 @@ namespace comm
                 send_identifier();
                 on_connect();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 connection_state = ConnectionState.Disconnected;
@@ -65,7 +74,7 @@ namespace comm
                 System.Threading.Thread.Sleep(500);
             }
 
-           
+
         }
 
         public void socket_disconnect()
@@ -85,111 +94,139 @@ namespace comm
                 return true;
             }
             return false;
-            
+
         }
 
         public RESTPacket[] get_messages()
         {
-            if (connection_state != ConnectionState.Connected)
-            {
-                return new RESTPacket[0];
-            }
             List<RESTPacket> messages = new List<RESTPacket>();
 
-            while (valid_key == false && read_nonblocking(recv, cur_key_idx, 1))
+            bool continue_reading = true;
+            while (continue_reading)
             {
-                if (recv[cur_key_idx] != comm.CommunicationDefinitions.key[cur_key_idx])
+                continue_reading = false;
+                if (connection_state != ConnectionState.Connected)
                 {
-                    cur_key_idx = 0;
-                    valid_key = false;
-                }
-                else
-                {
-                    cur_key_idx++;
+                    break;
                 }
 
-                if (cur_key_idx > 2)
+                while (read_state == ReadState.Key && read_nonblocking(recv, cur_key_idx, 1))
                 {
-                    valid_key = true;
-                }
-            }
-
-            if (valid_key)
-            {
-                if (read_nonblocking(recv, 0, 1))
-                {
-                    comm.CommunicationDefinitions.TYPE type = (comm.CommunicationDefinitions.TYPE)recv[0];
-                    int size = 0;
-                    if (comm.CommunicationDefinitions.PACKET_SIZES.TryGetValue(type, out size)){
-
-                        read_nonblocking(recv, 0, size);
-
-                        comm.RESTPacket packet = null;
-
-                        if (type == comm.CommunicationDefinitions.TYPE.VISION_COMMAND)
-                        {
-                            packet = new comm.Vision_Command();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.REALSENSE_COMMAND)
-                        {
-                            packet = new comm.Realsense_Command();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.VISION_PROPERTIES)
-                        {
-                            packet = new comm.Vision_Properties();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.VISION)
-                        {
-                            packet = new comm.Vision();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.HARDWARE)
-                        {
-                            packet = new comm.Hardware();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.VISION_IMAGE)
-                        {
-                            packet = new comm.Vision_Image();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.IDENTIFIER)
-                        {
-                            packet = new comm.Identifier();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.DASHBOARD)
-                        {
-                            packet = new comm.Dashboard();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.DATA_SERVER)
-                        {
-                            packet = new comm.Data_Server();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.SENSOR_STATE)
-                        {
-                            packet = new comm.Sensor_State();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.REALSENSE)
-                        {
-                            packet = new comm.Realsense();
-                        }
-                        else if (type == comm.CommunicationDefinitions.TYPE.JOYSTICK)
-                        {
-                            packet = new comm.Joystick();
-                        }
-
-                        byte[] data = new byte[size];
-
-                        Array.Copy(recv, data, size);
-                        packet.Deserialize(data);
-
-                        valid_key = false;
+                    if (recv[cur_key_idx] != comm.CommunicationDefinitions.key[cur_key_idx])
+                    {
+                        Console.WriteLine("Invalid Key: " + recv[cur_key_idx]);
                         cur_key_idx = 0;
-
-                        messages.Add(packet); }
+                    }
                     else
                     {
-                        Console.WriteLine("Invalid Type: " + type);
+                        cur_key_idx++;
                     }
+
+                    if (cur_key_idx > 2)
+                    {
+                        read_state = ReadState.Type;
+                        cur_key_idx = 0;
+                    }
+
+                    continue_reading = true;
                 }
 
+                if (read_state == ReadState.Type && read_nonblocking(recv, 0, 1))
+                {
+                    read_type = (comm.CommunicationDefinitions.TYPE)recv[0];
+                    if (comm.CommunicationDefinitions.PACKET_SIZES.ContainsKey(read_type))
+                    {
+                        read_state = ReadState.Data;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Type: " + read_type);
+                        read_state = ReadState.Key;
+                    }
+
+                    continue_reading = true;
+                }
+
+                int size;
+
+                if (read_state == ReadState.Data && comm.CommunicationDefinitions.PACKET_SIZES.TryGetValue(read_type, out size) && read_nonblocking(recv, 0, size))
+                {
+
+                    comm.RESTPacket packet = null;
+
+                    if (read_type == comm.CommunicationDefinitions.TYPE.VISION_COMMAND)
+                    {
+                        packet = new comm.Vision_Command();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.REALSENSE_COMMAND)
+                    {
+                        packet = new comm.Realsense_Command();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.VISION_PROPERTIES)
+                    {
+                        packet = new comm.Vision_Properties();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.VISION)
+                    {
+                        packet = new comm.Vision();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.HARDWARE)
+                    {
+                        packet = new comm.Hardware();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.VISION_IMAGE)
+                    {
+                        packet = new comm.Vision_Image();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.IDENTIFIER)
+                    {
+                        packet = new comm.Identifier();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.DASHBOARD)
+                    {
+                        packet = new comm.Dashboard();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.DATA_SERVER)
+                    {
+                        packet = new comm.Data_Server();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.SENSOR_STATE)
+                    {
+                        packet = new comm.Sensor_State();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.REALSENSE)
+                    {
+                        packet = new comm.Realsense();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.JOYSTICK)
+                    {
+                        packet = new comm.Joystick();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.NAVIGATION_STATE)
+                    {
+                        packet = new comm.Navigation_State();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.NAVIGATION_OBSTACLES)
+                    {
+                        packet = new comm.Navigation_Obstacles();
+                    }
+                    else if (read_type == comm.CommunicationDefinitions.TYPE.NAVIGATION_PATH)
+                    {
+                        packet = new comm.Navigation_Path();
+                    }
+
+
+                    byte[] data = new byte[size];
+
+                    Array.Copy(recv, data, size);
+                    packet.Deserialize(data);
+
+                    messages.Add(packet);
+
+                    read_state = ReadState.Key;
+
+                    continue_reading = true;
+                }
             }
 
             return messages.ToArray();
