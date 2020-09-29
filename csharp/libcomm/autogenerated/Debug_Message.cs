@@ -27,7 +27,7 @@ public void set_message(byte[] other){
             
             // Serializers
             public override byte[] Serialize() {
-                     byte[] data = new byte[128];
+                     byte[] data = new byte[129];
                      
             
             byte[] ___identifier = BitConverter.GetBytes(_identifier);

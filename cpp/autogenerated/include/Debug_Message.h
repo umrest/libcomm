@@ -29,7 +29,7 @@ void set_message(char* other){
             
             // Serializers
             std::vector<uint8_t> Serialize() {
-                     std::vector<uint8_t> data(128);
+                     std::vector<uint8_t> data(129);
                      
             uint8_t* __identifier = (uint8_t*)&_identifier;
 

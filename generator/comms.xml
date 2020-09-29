@@ -33,7 +33,7 @@
     <pair key='VISION_IMAGE' value="8191"></pair>
     <pair key='IDENTIFIER' value="127"></pair>
     <pair key='VISION_PROPERTIES' value="127"></pair>
-    <pair key='DEBUG_MESSAGE' value="128"></pair>
+    <pair key='DEBUG_MESSAGE' value="129"></pair>
   </map>
 
   <enum name="TYPES">
