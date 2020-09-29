@@ -24,7 +24,7 @@ class RESTClient : public TCPClient {
 
 	bool valid_key = false;
 
-	uint8_t recv[512];
+	uint8_t recv[65536];
 	comm::CommunicationDefinitions::IDENTIFIER identifier;
 	void send_identifier();
 	void send_identifier_timer();

@@ -15,7 +15,6 @@ class Vision_ImageInterface : public RESTPacket{
     }
     // Variables
     char _image[8191];
-                    
 
     // Offsets
     int IMAGE_OFFSET = 0;

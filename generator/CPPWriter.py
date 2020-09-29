@@ -7,9 +7,11 @@ class CPPFieldSerializerWriter:
     def __init__(self, message, communication_definitions):
         self.message = message
         self.communication_definitions = communication_definitions
-    
+
     def get_serializer2(self, field):
-        if not is_primitive(field.type):
+        if field.type == "bytearray":
+            return f"""uint8_t* __{field.name} = (uint8_t*)_{field.name};"""
+        elif not is_primitive(field.type):
             return f"""
             auto ___{field.name} = _{field.name}.Serialize();
             uint8_t* __{field.name} = (uint8_t*)&___{field.name}[0];"""
@@ -19,15 +21,17 @@ class CPPFieldSerializerWriter:
         return f"""
             {self.get_serializer2(field)}
 
-            std::copy(__{field.name}, __{field.name} + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, data.begin() + {field.name.upper()}_OFFSET);\n"""
+            std::copy(__{field.name}, __{field.name} + {self.communication_definitions.get_field_size(field)}, data.begin() + {field.name.upper()}_OFFSET);\n"""
     
     def get_deserializer2(self, field):
+        if field.type == "bytearray":
+            return f"""std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions.get_field_size(field)}, _{field.name});"""
         if not is_primitive(field.type):
             return f"""
-            std::vector<uint8_t> __{field.name}({self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
-            std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, __{field.name}.begin());
+            std::vector<uint8_t> __{field.name}({self.communication_definitions.get_field_size(field)});
+            std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions.get_field_size(field)}, __{field.name}.begin());
             _{field.name}.Deserialize(__{field.name});"""
-        return f"""std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, (uint8_t *)&_{field.name});"""
+        return f"""std::copy(data.begin() + {field.name.upper()}_OFFSET, data.begin() + {field.name.upper()}_OFFSET + {self.communication_definitions.get_field_size(field)}, (uint8_t *)&_{field.name});"""
 
     def get_deserializer(self, field):
         return f"""
@@ -71,7 +75,7 @@ class CPPFieldAccessorWriter:
         elif field.accessor.type == "float":
             return f"_{field.name} = other / {field.accessor.scale};"
         elif field.type == "bytearray":
-            return f"""std::copy(other, other + {self.communication_definitions["PACKET_SIZES"][field.type.upper()]}, (uint8_t *)&_{field.name});"""
+            return f"""std::copy(other, other + {self.communication_definitions.get_field_size(field)}, (uint8_t *)&_{field.name});"""
         
         return f"_{field.name} = other;"
         
@@ -119,7 +123,7 @@ class CPPMessageWriter:
     
     def get_serializer(self):
         ret = f"""std::vector<uint8_t> Serialize() {{
-                     std::vector<uint8_t> data({self.communication_definitions["PACKET_SIZES"][self.message.name.upper()]});
+                     std::vector<uint8_t> data({self.communication_definitions.PACKET_SIZES[self.message.name.upper()]});
                      """
         writer = CPPFieldSerializerWriter(self.message, self.communication_definitions)
         for field in self.message.fields:
@@ -143,8 +147,7 @@ class CPPMessageWriter:
         ret = ""
         for field in self.message.fields:
             if field.type == "bytearray":
-                ret +=  f"""char _{field.name}[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
-                    """
+                ret +=  f"""char _{field.name}[{self.communication_definitions.get_field_size(field)}];"""
             else:
                 ret += f'{get_type(field.type, "cpp")} _{field.name};\n'
         return ret
@@ -154,11 +157,11 @@ class CPPMessageWriter:
         offset = 0
         for field in self.message.fields:
             ret += f'int {field.name.upper()}_OFFSET = {offset};\n'
-            offset += self.communication_definitions["PACKET_SIZES"][field.type.upper()]
+            offset += self.communication_definitions.get_field_size(field)
         return ret
     
     def get_type(self):
-        if self.message.name.upper() in self.communication_definitions["TYPES"].keys():
+        if self.message.name.upper() in self.communication_definitions.TYPES.keys():
             return f"CommunicationDefinitions::TYPE type(){{ return CommunicationDefinitions::TYPE::{self.message.name.upper()}; }}"
         return ""
 
@@ -215,7 +218,7 @@ class CPPCommunicationDefinitionsWriter:
     def get_map_source2(self, map):
         ret = ""
         for key, value in map.items():
-            if key in self.communication_definitions["TYPES"].keys():
+            if key in self.communication_definitions.TYPES.keys():
                 ret += f"{{TYPE::{key}, {value}}},\n"
 
         return ret
@@ -229,12 +232,12 @@ class CPPCommunicationDefinitionsWriter:
     
     def write(self):
         template = open(os.path.join(self.templates_dir, "CommunicationDefinitions.Template.h")).read()
-        template = template.replace("[[ENUMS]]", self.get_enum_header(self.communication_definitions["TYPES"], "TYPE") + "\n" + self.get_enum_header(self.communication_definitions["IDENTIFIERS"], "IDENTIFIER"))
-        template = template.replace("[[MAPS]]", self.get_map_header(self.communication_definitions["PACKET_SIZES"], "PACKET_SIZES"))
+        template = template.replace("[[ENUMS]]", self.get_enum_header(self.communication_definitions.TYPES, "TYPE") + "\n" + self.get_enum_header(self.communication_definitions.IDENTIFIERS, "IDENTIFIER"))
+        template = template.replace("[[MAPS]]", self.get_map_header(self.communication_definitions.PACKET_SIZES, "PACKET_SIZES"))
         open(os.path.join(self.include_dir, "CommunicationDefinitions.h"), "w").write(template)
 
         template = open(os.path.join(self.templates_dir, "CommunicationDefinitions.Template.cpp")).read()
-        template = template.replace("[[MAPS]]", self.get_map_source(self.communication_definitions["PACKET_SIZES"], "PACKET_SIZES"))
+        template = template.replace("[[MAPS]]", self.get_map_source(self.communication_definitions.PACKET_SIZES, "PACKET_SIZES"))
         open(os.path.join(self.src_dir, "CommunicationDefinitions.cpp"), "w").write(template)
 
 
