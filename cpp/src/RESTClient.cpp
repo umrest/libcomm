@@ -15,6 +15,7 @@
 #include "Hardware.h"
 #include "Realsense_Command.h"
 #include "Vision_Image.h"
+#include "Debug_Message.h"
 
 comm::RESTClient::RESTClient(comm::CommunicationDefinitions::IDENTIFIER _identifier) : identifier(_identifier){
     socket_reconnect();
@@ -49,7 +50,6 @@ std::vector<std::unique_ptr<comm::RESTPacket>> comm::RESTClient::get_messages(){
                 comm::CommunicationDefinitions::TYPE type = (comm::CommunicationDefinitions::TYPE)recv[0];
 
                 int size = CommunicationDefinitions::PACKET_SIZES.at(type);
-
                 read_nonblocking(recv, size);
 
                 std::unique_ptr<comm::RESTPacket> packet;
@@ -89,6 +89,9 @@ std::vector<std::unique_ptr<comm::RESTPacket>> comm::RESTClient::get_messages(){
                 }
                   else if (type == comm::CommunicationDefinitions::TYPE::JOYSTICK){
                     packet.reset(new comm::Joystick());
+                }
+                 else if (type == comm::CommunicationDefinitions::TYPE::DEBUG_MESSAGE){
+                    packet.reset(new comm::Debug_Message());
                 }
 
                 std::vector<uint8_t> data(recv, recv + size);

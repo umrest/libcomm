@@ -42,6 +42,10 @@ class Field:
         self.type = field_data["@type"]
         self.name = field_data["@name"]
         self.accessor = Accessor(self, field_data.get("accessor", None))
+        self.size = field_data.get("@size", None)
+
+        if self.size is not None:
+            self.size = int(self.size)
 
 
 class Message:
@@ -65,6 +69,18 @@ def get_enum_dict(map_data):
     return ret    
 
 
+class CommunicationDefinitions:
+    def __init__(self, PACKET_SIZES, TYPES, IDENTIFIERS, VISION_COMMAND):
+        self.PACKET_SIZES = PACKET_SIZES
+        self.TYPES = TYPES
+        self.IDENTIFIERS = IDENTIFIERS
+        self.VISION_COMMAND = VISION_COMMAND
+        
+    def get_field_size(self, field):
+        if field.type == "bytearray":
+            return field.size
+        return self.PACKET_SIZES[field.type.upper()]
+
 def main():
     data = open("./comms.xml").read()
     data = xmltodict.parse(data)["xml"]
@@ -76,12 +92,14 @@ def main():
 
     messages = []
 
-    communication_definitions = {
+    comms = {
         "PACKET_SIZES": get_map_dict(data["map"][0]),
         "TYPES": get_enum_dict(data["enum"][0]),
         "IDENTIFIERS": get_enum_dict(data["enum"][1]),
         "VISION_COMMAND": get_enum_dict(data["enum"][2])
     }
+
+    communication_definitions = CommunicationDefinitions(comms["PACKET_SIZES"], comms["TYPES"], comms["IDENTIFIERS"], comms["VISION_COMMAND"])
 
     for message in data["message"]:
         messages.append(Message(message))

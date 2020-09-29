@@ -8,7 +8,6 @@
     <pair key='UINT32' value="4"></pair>
     <pair key='INT64' value="8"></pair>
     <pair key='UINT64' value="8"></pair>
-    <pair key='BYTEARRAY' value="8191"></pair>
 
     <pair key='TAG_POSITION' value="12"></pair>
     <pair key='FIELD_POSITION' value="6"></pair>
@@ -34,6 +33,7 @@
     <pair key='VISION_IMAGE' value="8191"></pair>
     <pair key='IDENTIFIER' value="127"></pair>
     <pair key='VISION_PROPERTIES' value="127"></pair>
+    <pair key='DEBUG_MESSAGE' value="128"></pair>
   </map>
 
   <enum name="TYPES">
@@ -53,6 +53,7 @@
     <element name="NAVIGATION_PATH" value="17"></element>
     <element name="SLAM_STATE" value="18"></element>
     <element name="NAVIGATION_OBSTACLES" value="19"></element>
+    <element name="DEBUG_MESSAGE" value="20"></element>
     <element name="INVALID" value="255"></element>
   </enum>
   <enum name="IDENTIFIERS">
@@ -315,7 +316,12 @@
   </message>
 
   <message name="Vision_Image">
-    <field name='image' type='bytearray'></field>
+    <field name='image' type='bytearray' size='8191'></field>
+  </message>
+
+  <message name="Debug_Message">
+    <field name='identifier' type='uint8'></field>
+    <field name='message' type='bytearray' size='128'></field>
   </message>
 
 </xml>

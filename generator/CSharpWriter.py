@@ -27,7 +27,7 @@ class CSharpFieldSerializerWriter:
             ret +=f"""
             byte[] ___{field.name} = BitConverter.GetBytes(_{field.name});
             """
-        ret += f"""Array.Copy(___{field.name}, 0, data, {field.name.upper()}_OFFSET, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});"""
+        ret += f"""Array.Copy(___{field.name}, 0, data, {field.name.upper()}_OFFSET, {self.communication_definitions.get_field_size(field)});"""
         return ret
     
     def get_serializer(self, field):
@@ -37,15 +37,15 @@ class CSharpFieldSerializerWriter:
     def get_deserializer2(self, field):
         if not is_primitive(field.type):
             return f"""
-            byte[] __{field.name} = new byte[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
-            Array.Copy(data, {field.name.upper()}_OFFSET, __{field.name}, 0, {self.communication_definitions["PACKET_SIZES"][field.type.upper()]});
+            byte[] __{field.name} = new byte[{self.communication_definitions.get_field_size(field)}];
+            Array.Copy(data, {field.name.upper()}_OFFSET, __{field.name}, 0, {self.communication_definitions.get_field_size(field)});
             _{field.name}.Deserialize(__{field.name});"""
         elif field.type == "uint8":
             return f"_{field.name} = data[{field.name.upper()}_OFFSET];"
         elif field.type == "int8":
             return f"_{field.name} = (sbyte)data[{field.name.upper()}_OFFSET];"
         elif field.type == "bytearray":
-            return f"""_{field.name} = new byte[{self.communication_definitions["PACKET_SIZES"][field.type.upper()]}];
+            return f"""_{field.name} = new byte[{self.communication_definitions.get_field_size(field)}];
                     Array.Copy(data, {field.name.upper()}_OFFSET, _{field.name}, 0, _{field.name}.Length);
                     """
         return f"""_{field.name} = BitConverter.To{BitConverterMap.get(get_type(field.type, "csharp"), get_type(field.type, "csharp"))}(data, {field.name.upper()}_OFFSET);"""
@@ -125,7 +125,7 @@ class CSharpMessageWriter:
     
     def get_serializer(self):
         ret = f"""public override byte[] Serialize() {{
-                     byte[] data = new byte[{self.communication_definitions["PACKET_SIZES"][self.message.name.upper()]}];
+                     byte[] data = new byte[{self.communication_definitions.PACKET_SIZES[self.message.name.upper()]}];
                      """
         writer = CSharpFieldSerializerWriter(self.message, self.communication_definitions)
         for field in self.message.fields:
@@ -149,7 +149,7 @@ class CSharpMessageWriter:
         ret = ""
         for field in self.message.fields:
             if field.type == "bytearray":
-                ret += f'protected {get_type(field.type, "csharp")} _{field.name} = new byte[{self.communication_definitions["PACKET_SIZES"][self.message.name.upper()]}];\n'
+                ret += f'protected {get_type(field.type, "csharp")} _{field.name} = new byte[{self.communication_definitions.get_field_size(field)}];\n'
             else:
                 ret += f'protected {get_type(field.type, "csharp")} _{field.name} = new {get_type(field.type, "csharp")}();\n'
 
@@ -160,11 +160,11 @@ class CSharpMessageWriter:
         offset = 0
         for field in self.message.fields:
             ret += f'protected int {field.name.upper()}_OFFSET = {offset};\n'
-            offset += self.communication_definitions["PACKET_SIZES"][field.type.upper()]
+            offset += self.communication_definitions.get_field_size(field)
         return ret
     
     def get_type(self):
-        if self.message.name.upper() in self.communication_definitions["TYPES"].keys():
+        if self.message.name.upper() in self.communication_definitions.TYPES.keys():
             return f"public override CommunicationDefinitions.TYPE type(){{ return CommunicationDefinitions.TYPE.{self.message.name.upper()}; }}"
         
         return "public override CommunicationDefinitions.TYPE type(){{ return 0; }}"
@@ -221,7 +221,7 @@ class CSharpCommunicationDefinitionsWriter:
     def get_map_source2(self, map):
         ret = ""
         for key, value in map.items():
-            if key in self.communication_definitions["TYPES"].keys():
+            if key in self.communication_definitions.TYPES.keys():
                 ret += f"{{TYPE.{key}, {value}}},\n"
 
         return ret
@@ -235,8 +235,8 @@ class CSharpCommunicationDefinitionsWriter:
     
     def write(self):
         template = open(os.path.join(self.templates_dir, "CommunicationDefinitions.Template.txt")).read()
-        template = template.replace("[[ENUMS]]", self.get_enum_header(self.communication_definitions["TYPES"], "TYPE") + "\n" + self.get_enum_header(self.communication_definitions["IDENTIFIERS"], "IDENTIFIER"))
-        template = template.replace("[[MAPS]]", self.get_map_source(self.communication_definitions["PACKET_SIZES"], "PACKET_SIZES"))
+        template = template.replace("[[ENUMS]]", self.get_enum_header(self.communication_definitions.TYPES, "TYPE") + "\n" + self.get_enum_header(self.communication_definitions.IDENTIFIERS, "IDENTIFIER"))
+        template = template.replace("[[MAPS]]", self.get_map_source(self.communication_definitions.PACKET_SIZES, "PACKET_SIZES"))
         open(os.path.join(self.src_dir, "CommunicationDefinitions.cs"), "w").write(template)
 
 

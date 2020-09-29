@@ -20,6 +20,7 @@ using namespace comm;
 {TYPE::VISION_IMAGE, 8191},
 {TYPE::IDENTIFIER, 127},
 {TYPE::VISION_PROPERTIES, 127},
+{TYPE::DEBUG_MESSAGE, 128},
 
         };
                 
